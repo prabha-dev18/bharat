@@ -119,7 +119,8 @@ export default function Footer() {
                 alt="Bharat Startup Ventures Pvt. Ltd."
                 width={220}
                 height={55}
-                className="h-9 w-auto object-contain brightness-0 invert"
+                style={{ width: "auto" }}
+                className="h-9 object-contain brightness-0 invert"
               />
             </Link>
 

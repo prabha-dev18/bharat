@@ -284,7 +284,8 @@ export default function Header() {
               width={225}
               height={56}
               priority
-              className={`w-auto object-contain transition-all duration-300 group-hover:scale-[1.02] ${
+              style={{ width: "auto" }}
+              className={`object-contain transition-all duration-300 group-hover:scale-[1.02] ${
                 isScrolled ? "h-7 sm:h-9 md:h-10" : "h-8 sm:h-9 md:h-10"
               }`}
             />

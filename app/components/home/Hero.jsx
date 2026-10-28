@@ -13,7 +13,7 @@ export default function Hero() {
 
   return (
     <section
-      className="relative isolate flex h-[calc(100svh-160px)] min-h-0 w-full overflow-hidden bg-cover bg-[center_55%] bg-no-repeat font-sans"
+      className="relative isolate flex min-h-[580px] lg:h-[calc(100svh-160px)] w-full overflow-hidden bg-cover bg-[center_55%] bg-no-repeat font-sans"
       style={{
         backgroundImage: "url('/images/home-bg.png')",
       }}
