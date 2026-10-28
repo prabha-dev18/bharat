@@ -1,0 +1,57 @@
+"use client";
+
+import Link from "next/link";
+import { ArrowRight, Sparkles, MessageSquare } from "lucide-react";
+
+export default function ServicesCta() {
+  return (
+    <section className="relative py-16 sm:py-20 bg-gradient-to-b from-white to-slate-50 overflow-hidden">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="relative overflow-hidden rounded-3xl border border-[#C58A1B]/35 bg-gradient-to-br from-[#001A40] via-[#00245A] to-[#001026] p-8 sm:p-12 lg:p-16 text-white shadow-2xl">
+          <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
+            <div className="absolute top-0 right-0 h-96 w-96 rounded-full bg-[#C58A1B]/15 blur-3xl" />
+            <div className="absolute bottom-0 left-0 h-80 w-80 rounded-full bg-[#F58220]/10 blur-3xl" />
+          </div>
+
+          <div className="mx-auto max-w-3xl text-center">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#C58A1B]/40 bg-[#C58A1B]/15 px-3.5 py-1 mb-5">
+              <Sparkles size={12} className="text-[#E5A93C]" />
+              <span className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.18em] text-[#E5A93C]">
+                Ready to Engage
+              </span>
+            </div>
+
+            <h2 className="text-2xl sm:text-3xl md:text-5xl font-extrabold tracking-tight text-white mb-5 leading-tight">
+              Tell Us What Your{" "}
+              <span className="bg-gradient-to-r from-[#C58A1B] via-[#E5A93C] to-[#F58220] bg-clip-text text-transparent">
+                Business Needs
+              </span>
+            </h2>
+
+            <p className="text-sm sm:text-base leading-relaxed text-slate-300 max-w-2xl mx-auto mb-8">
+              Share your business objective, current challenge or project idea. We can discuss relevant service options and appropriate next steps.
+            </p>
+
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Link
+                href="/contact"
+                className="group relative inline-flex w-full sm:w-auto items-center justify-center gap-2.5 rounded-xl bg-gradient-to-r from-[#C58A1B] via-[#D9A12E] to-[#F58220] px-7 py-3.5 text-xs sm:text-sm font-bold text-[#001A40] shadow-xl shadow-[#C58A1B]/20 transition-all duration-300 hover:brightness-110 active:scale-95"
+              >
+                <span>Request a Consultation</span>
+                <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
+              </Link>
+
+              <Link
+                href="/contact"
+                className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl border border-white/25 bg-white/10 px-6 py-3.5 text-xs sm:text-sm font-bold text-white backdrop-blur-md transition-all duration-300 hover:border-white/50 hover:bg-white/15"
+              >
+                <MessageSquare size={15} className="text-[#E5A93C]" />
+                <span>Contact Our Team</span>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
