@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "node -e \"const fs=require('fs'); ['government-schemes','services','contact','about'].forEach(d=>fs.mkdirSync('.next/server/app/'+d,{recursive:true}))\" && next build --webpack",
+    "build": "next build",
     "start": "next start",
     "lint": "eslint"
   },
