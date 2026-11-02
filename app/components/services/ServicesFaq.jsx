@@ -38,14 +38,14 @@ export default function ServicesFaq() {
     <section className="relative py-16 sm:py-20 bg-white overflow-hidden">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 rounded-full border border-[#C58A1B]/35 bg-[#C58A1B]/10 px-3 py-1 mb-3">
-            <HelpCircle size={13} className="text-[#C58A1B]" />
-            <span className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.18em] text-[#001A40]">
+          <div className="inline-flex items-center gap-2 rounded-full border border-[#C89D3C]/35 bg-[#C89D3C]/10 px-3 py-1 mb-3">
+            <HelpCircle size={13} className="text-[#C89D3C]" />
+            <span className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.18em] text-[#0A2540]">
               Clear Clarifications
             </span>
           </div>
 
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-[#001A40] mb-3">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-[#0A2540] mb-3">
             Frequently Asked Questions
           </h2>
 
@@ -66,13 +66,13 @@ export default function ServicesFaq() {
                 <button
                   type="button"
                   onClick={() => setOpenIndex(isOpen ? -1 : idx)}
-                  className="flex w-full items-center justify-between gap-4 p-5 text-left font-bold text-sm sm:text-base text-[#001A40] hover:text-[#C58A1B] transition-colors cursor-pointer"
+                  className="flex w-full items-center justify-between gap-4 p-5 text-left font-bold text-sm sm:text-base text-[#0A2540] hover:text-[#C89D3C] transition-colors cursor-pointer"
                   aria-expanded={isOpen}
                 >
                   <span>{faq.question}</span>
                   <ChevronDown
                     size={18}
-                    className={`text-[#C58A1B] shrink-0 transition-transform duration-300 ${
+                    className={`text-[#C89D3C] shrink-0 transition-transform duration-300 ${
                       isOpen ? "rotate-180" : ""
                     }`}
                   />

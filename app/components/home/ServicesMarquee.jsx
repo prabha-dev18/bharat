@@ -1,106 +1,63 @@
 "use client";
 
-import Link from "next/link";
-import {
-  BriefcaseBusiness,
-  Calculator,
-  Coins,
-  Landmark,
-  FileCheck,
-  Globe,
-  Smartphone,
-  Bot,
-  Megaphone,
-  ChartNoAxesCombined,
-  Sprout,
-  ArrowUpRight,
-} from "lucide-react";
+import { Megaphone } from "lucide-react";
 
-const services = [
-  { label: "Business Registration", icon: BriefcaseBusiness, href: "/services" },
-  { label: "Taxation & Compliance", icon: Calculator, href: "/services" },
-  { label: "Startup Funding", icon: Coins, href: "/services" },
-  { label: "Government Schemes", icon: Landmark, href: "/government-schemes" },
-  { label: "Licences & Certifications", icon: FileCheck, href: "/services" },
-  { label: "Website Development", icon: Globe, href: "/services" },
-  { label: "Mobile Apps & Software", icon: Smartphone, href: "/services" },
-  { label: "AI & Automation", icon: Bot, href: "/services" },
-  { label: "Digital Marketing & SEO", icon: Megaphone, href: "/services" },
-  { label: "Data Analytics", icon: ChartNoAxesCombined, href: "/services" },
-  { label: "Agriculture & Industry Support", icon: Sprout, href: "/services" },
+const officialNotices = [
+  {
+    title: "Startup India Seed Fund Scheme (SISFS):",
+    desc: "Applications active for seed-stage technology ventures.",
+  },
+  {
+    title: "MSME ZED Subsidy:",
+    desc: "Micro & Small enterprises eligible for up to 80% subsidy on certification fees.",
+  },
+  {
+    title: "Income Tax & GST Compliance Notice:",
+    desc: "Compliance schedule for FY 2026-27.",
+  },
+  {
+    title: "AI & Software Subsidies:",
+    desc: "Facilitation active for technology adoption in manufacturing MSMEs.",
+  },
 ];
-
-function ServiceItem({ service }) {
-  const Icon = service.icon;
-
-  return (
-    <Link href={service.href} className="group relative flex shrink-0 items-center gap-2 px-3 py-2.5 sm:gap-2.5 sm:px-5">
-      <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md border border-[#C58A1B]/25 bg-[#FAF7F0] transition-colors duration-300 group-hover:border-[#C58A1B] group-hover:bg-[#001A40] sm:h-8 sm:w-8">
-        <Icon size={15} strokeWidth={1.7} className="text-[#A87310] transition-colors duration-300 group-hover:text-white" />
-      </span>
-
-      <span className="whitespace-nowrap text-[11px] font-semibold tracking-[0.01em] text-[#001A40] transition-colors duration-300 group-hover:text-[#A87310] sm:text-xs">
-        {service.label}
-      </span>
-
-      <ArrowUpRight
-        size={12}
-        strokeWidth={1.8}
-        className="shrink-0 text-[#C58A1B] opacity-0 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:opacity-100"
-      />
-
-      <span className="absolute inset-x-3 bottom-0 h-[2px] origin-left scale-x-0 bg-[#C58A1B] transition-transform duration-300 group-hover:scale-x-100 sm:inset-x-5" />
-    </Link>
-  );
-}
 
 export default function ServicesMarquee() {
   return (
     <section
-      aria-label="Our business and startup solutions"
-      className="services-section relative z-20 w-full overflow-hidden border-y border-[#001A40]/10 bg-white"
+      className="official-notice relative z-20 w-full overflow-hidden border-b border-[#C89D3C]/35 bg-[#FFF8E7] px-3 sm:px-6 lg:px-8 py-2.5 flex items-center gap-3 sm:gap-4"
+      aria-label="Official announcements and notices"
     >
-      {/* Slim gold accent */}
-      <div className="h-[2px] bg-gradient-to-r from-[#001A40] via-[#C58A1B] to-[#001A40]" />
+      {/* Notice Badge Label */}
+      <div className="flex shrink-0 items-center gap-2 rounded border border-[#C89D3C]/75 bg-[#0A2540] px-3 py-1.5 text-[10px] sm:text-[11px] font-extrabold uppercase tracking-wider text-[#F3D072] shadow-xs z-10 select-none">
+        <Megaphone size={14} className="text-[#F3D072] shrink-0" />
+        <span>OFFICIAL NOTICE</span>
+      </div>
 
-      <div className="flex h-[48px] items-center sm:h-[54px]">
-        {/* Fixed label */}
-        <div className="relative z-10 hidden h-full shrink-0 items-center gap-2 border-r border-[#001A40]/10 bg-[#F8F6F0] px-4 xl:flex">
-          <span className="relative flex h-2 w-2 shrink-0 items-center justify-center">
-            <span className="absolute h-full w-full animate-ping rounded-full bg-[#C58A1B]/30" />
-            <span className="relative h-1.5 w-1.5 rounded-full bg-[#C58A1B]" />
-          </span>
+      {/* Marquee Content Track */}
+      <div className="relative flex min-w-0 flex-1 items-center overflow-hidden">
+        {/* Subtle Left & Right Gradient Fades */}
+        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-4 sm:w-8 bg-gradient-to-r from-[#FFF8E7] to-transparent" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-6 sm:w-10 bg-gradient-to-l from-[#FFF8E7] to-transparent" />
 
-          <div className="flex flex-col gap-0.5">
-            <span className="whitespace-nowrap text-[9px] font-bold uppercase tracking-[0.16em] text-[#001A40]">Our Expertise</span>
-            <span className="whitespace-nowrap text-[8px] font-medium uppercase tracking-[0.08em] text-[#8A6A2C]">Business Solutions</span>
-          </div>
-
-          <span className="ml-1 h-6 w-px bg-[#C58A1B]/35" />
-        </div>
-
-        {/* Continuous scrolling services */}
-        <div className="services-marquee relative flex h-full min-w-0 flex-1 items-center overflow-hidden">
-          <div className="pointer-events-none absolute inset-y-0 left-0 z-[2] w-4 bg-gradient-to-r from-white to-transparent sm:w-6" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 z-[2] w-4 bg-gradient-to-l from-white to-transparent sm:w-6" />
-
-          <div className="services-marquee-track flex w-max items-center">
-            {[0, 1].map((copy) => (
-              <div
-                key={copy}
-                className="flex shrink-0 items-center"
-                aria-hidden={copy === 1 ? "true" : undefined}
-                {...(copy === 1 ? { inert: true } : {})}
-              >
-                {services.map((service) => (
-                  <div key={`${copy}-${service.label}`} className="flex shrink-0 items-center">
-                    <ServiceItem service={service} />
-                    <span aria-hidden="true" className="h-1 w-1 shrink-0 rotate-45 bg-[#C58A1B]/65" />
-                  </div>
-                ))}
-              </div>
-            ))}
-          </div>
+        <div className="notice-marquee-track flex w-max items-center">
+          {[0, 1].map((copy) => (
+            <div
+              key={copy}
+              className="flex shrink-0 items-center gap-8 sm:gap-14 pr-8 sm:pr-14"
+              aria-hidden={copy === 1 ? "true" : undefined}
+            >
+              {officialNotices.map((notice, idx) => (
+                <span
+                  key={`${copy}-${idx}`}
+                  className="inline-flex items-center gap-1.5 text-[11px] sm:text-[12.5px] text-slate-800 font-medium whitespace-nowrap"
+                >
+                  <span className="text-[12px] shrink-0">📌</span>
+                  <strong className="font-bold text-[#0A2540]">{notice.title}</strong>
+                  <span className="text-slate-700">{notice.desc}</span>
+                </span>
+              ))}
+            </div>
+          ))}
         </div>
       </div>
     </section>

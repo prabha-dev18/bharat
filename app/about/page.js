@@ -6,7 +6,7 @@ import MissionVision from "../components/about/MissionVision";
 import CoreValues from "../components/about/CoreValues";
 import AreasOfExpertise from "../components/about/AreasOfExpertise";
 import OurCommitment from "../components/about/OurCommitment";
-import AboutCta from "../components/about/AboutCta";
+import HomeCta from "../components/layout/HomeCta";
 
 export const metadata = {
   title: "About Bharat Startup Ventures Pvt. Ltd. | Our Mission & Vision",
@@ -28,14 +28,14 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <Header />
-      <main className="flex-1">
+      <main id="main-content" className="flex-1">
         <AboutHero />
         <WhoWeAre />
         <MissionVision />
         <CoreValues />
         <AreasOfExpertise />
         <OurCommitment />
-        <AboutCta />
+        <HomeCta />
       </main>
       <Footer />
     </div>

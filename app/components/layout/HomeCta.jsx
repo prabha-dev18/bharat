@@ -1,13 +1,34 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Phone } from "lucide-react";
+import {
+  PhoneCall,
+  CheckCircle2,
+  FileCheck2,
+  Landmark,
+  ShieldCheck,
+  MapPin,
+} from "lucide-react";
 
-export default function HomeCta() {
+export default function HomeCta({
+  badge = "SINGLE-WINDOW SCHEME & STATUTORY ADVISORY",
+  title = "Looking for business setup assistance, funding & preparation, compliance support or a technology solution?",
+  description = "Connect with Bharat Startup Ventures Pvt. Ltd. to discuss your requirements.",
+  phone = "+91 98765 43210",
+  phoneTel = "+919876543210",
+  deskStatus = "Desk Open (9:30 AM – 6:30 PM)",
+  pillars = [
+    "DPIIT Recognition & Section 80-IAC",
+    "MSME, PMEGP & CGTMSE Subsidies",
+    "Banking DPR, CMA Data & Pitch Decks",
+    "GeM Portal, ROC & Statutory Governance",
+  ],
+  className = "",
+  id = "contact",
+} = {}) {
   const sectionRef = useRef(null);
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -20,7 +41,7 @@ export default function HomeCta() {
           observer.unobserve(entry.target);
         }
       },
-      { threshold: 0.15 }
+      { threshold: 0.12 }
     );
 
     observer.observe(section);
@@ -28,68 +49,154 @@ export default function HomeCta() {
   }, []);
 
   return (
-    <section ref={sectionRef} id="contact" className="relative w-full bg-[#001D3A] overflow-hidden">
-      {/* Full-height India Gate Image at the Extreme Left */}
-      <div
-        className={`absolute inset-y-0 left-0 w-full lg:w-1/3 overflow-hidden transition-all duration-1000 ${
-          isVisible ? "translate-x-0 opacity-100" : "-translate-x-10 opacity-0"
-        }`}
-      >
-        <Image
-          src="/images/india-gate.png"
-          alt="India Gate"
-          fill
-          priority
-          sizes="(max-width: 1024px) 100vw, 33vw"
-          className="object-cover object-left scale-y-100"
-        />
-
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#001D3A]/70 to-[#001D3A]" />
+    <section
+      ref={sectionRef}
+      id={id}
+      className={`relative w-full overflow-hidden bg-[#051329] text-white ${className}`}
+    >
+      {/* =========================================================================
+          TRICOLOR ACCENT TOP STRIP
+          ========================================================================= */}
+      <div className="grid h-1.5 w-full grid-cols-3">
+        <div className="bg-[#FF9933]" />
+        <div className="bg-[#FFFFFF]" />
+        <div className="bg-[#138808]" />
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-8 py-12">
-        <div className="flex flex-col lg:flex-row items-stretch justify-between gap-5 lg:gap-4">
-          {/* Left Spacer: reserves space for the background image */}
-          <div className="hidden lg:block lg:w-4/12 shrink-0" />
+      {/* =========================================================================
+          BACKGROUND (GUILLOCHE LATTICE & LEFT-SIDE INDIA MAP ONLY)
+          ========================================================================= */}
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+        {/* Subtle Architectural Radial Glow */}
+        <div className="absolute -top-32 left-1/4 h-[420px] w-[500px] rounded-full bg-[#1A3A6B]/25 blur-[100px]" />
+        <div className="absolute -bottom-32 right-10 h-[380px] w-[450px] rounded-full bg-[#C89D3C]/10 blur-[110px]" />
 
-          {/* Center: Headline & Subtext (Fade Up) */}
+        {/* Guilloche Security Lattice / Banknote Wave Lines */}
+        <svg className="absolute inset-0 h-full w-full opacity-[0.07]" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <pattern id="gov-guilloche-grid" width="80" height="80" patternUnits="userSpaceOnUse">
+              <circle cx="40" cy="40" r="38" stroke="#C89D3C" strokeWidth="0.8" fill="none" />
+              <circle cx="40" cy="40" r="28" stroke="#FFFFFF" strokeWidth="0.5" fill="none" />
+              <circle cx="40" cy="40" r="18" stroke="#C89D3C" strokeWidth="0.6" fill="none" />
+              <path d="M0 40 Q20 20, 40 40 T80 40" stroke="#C89D3C" strokeWidth="0.6" fill="none" />
+              <path d="M40 0 Q60 20, 40 40 T40 80" stroke="#C89D3C" strokeWidth="0.6" fill="none" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#gov-guilloche-grid)" />
+        </svg>
+
+        {/* Small India Map Watermark Positioned on the Left Side */}
+        <div className="absolute -left-4 bottom-0 h-48 w-48 opacity-[0.08] sm:h-56 sm:w-56 sm:opacity-[0.10] mix-blend-screen pointer-events-none">
+          <Image
+            src="/images/map.jpg"
+            alt="India Map Watermark"
+            fill
+            className="object-contain filter invert"
+          />
+        </div>
+      </div>
+
+      {/* =========================================================================
+          MAIN COMPACT CTA CONTAINER
+          ========================================================================= */}
+      <div className="relative z-10 mx-auto w-full max-w-[1240px] px-5 py-6 sm:px-8 sm:py-7 lg:px-10 lg:py-8">
+        <div className="grid grid-cols-1 items-center gap-6 lg:grid-cols-12 lg:gap-8">
+          
+          {/* -------------------------------------------------------------------
+              LEFT COLUMN: Official Heading, Subtitle & 4 Pillars
+              ------------------------------------------------------------------- */}
           <div
-            className={`relative z-10 w-full lg:w-5/12 py-4 lg:py-5 text-left transition-all duration-800 delay-150 ${
+            className={`text-left lg:col-span-7 transition-all duration-700 ${
               isVisible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
             }`}
           >
-            <h2 className="text-base sm:text-lg lg:text-xl font-normal tracking-tight text-white mb-1 leading-tight">
-              Have a Business Idea or a Growth Plan?
+            {/* Institutional Badge */}
+            <div className="mb-2.5 inline-flex items-center gap-2 rounded-full border border-[#C89D3C]/40 bg-[#0A2244]/80 px-3 py-1 shadow-sm backdrop-blur-md">
+              <Landmark size={12} className="text-[#F3D072]" />
+              <span className="text-[10px] font-bold uppercase tracking-wider text-[#F3D072]">
+                {badge}
+              </span>
+            </div>
+
+            {/* Main Headline */}
+            <h2 className="font-heading text-xl font-bold tracking-tight text-white sm:text-2xl lg:text-[26px] leading-snug">
+              {title}
             </h2>
 
-            <p className="text-xs leading-normal text-slate-200 font-normal">
-              Whether you need support establishing a business, preparing a funding application, managing compliance or developing a digital
-              solution, start by sharing your requirements with Bharat Startup Ventures Pvt. Ltd.
+            {/* Explanatory Paragraph */}
+            <p className="mt-1.5 text-xs leading-relaxed text-slate-200 sm:text-[13px]">
+              {description}
             </p>
+
+            {/* 4 Pillars / Verification Grid */}
+            <div className="mt-3.5 grid grid-cols-1 gap-2 sm:grid-cols-2">
+              {pillars.map((pillar, idx) => (
+                <div
+                  key={idx}
+                  className="flex items-center gap-2 rounded-md border border-white/10 bg-white/5 px-2.5 py-1.5 text-[11px] text-slate-200 backdrop-blur-sm sm:text-[11.5px]"
+                >
+                  <CheckCircle2 size={13} className="text-[#F3D072] shrink-0" />
+                  <span>{pillar}</span>
+                </div>
+              ))}
+            </div>
           </div>
 
-          {/* Right Side: Action Buttons (Fade Up with Delay) */}
+          {/* -------------------------------------------------------------------
+              RIGHT COLUMN: Compact Facilitation Card
+              ------------------------------------------------------------------- */}
           <div
-            className={`relative z-10 flex flex-col sm:flex-row items-center gap-3 w-full lg:w-auto shrink-0 lg:py-5 transition-all duration-800 delay-300 ${
+            className={`lg:col-span-5 transition-all duration-700 delay-150 ${
               isVisible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
             }`}
           >
-            <Link
-              href="/contact"
-              className="group relative flex w-full sm:w-auto items-center justify-center gap-2 rounded-lg bg-[#E59B1F] hover:bg-[#d88e1b] px-5 py-2.5 text-xs font-semibold text-[#001D3A] transition-colors duration-200"
-            >
-              <span>Discuss Requirements</span>
-              <ArrowRight size={14} className="text-[#001D3A] transition-transform duration-200 group-hover:translate-x-1" />
-            </Link>
+            <div className="relative overflow-hidden rounded-xl border border-[#C89D3C]/40 bg-gradient-to-b from-[#091F3C] to-[#061427] p-4 shadow-xl backdrop-blur-md sm:p-5">
+              {/* Card Top Header: Desk Title & Status */}
+              <div className="flex items-center justify-between border-b border-white/10 pb-2.5">
+                <div className="flex items-center gap-2">
+                  <div className="flex h-6 w-6 items-center justify-center rounded border border-[#C89D3C]/40 bg-[#C89D3C]/10 text-[#F3D072]">
+                    <ShieldCheck size={14} />
+                  </div>
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#F3D072]">
+                    Enterprise Advisory Desk
+                  </span>
+                </div>
+                <div className="inline-flex items-center gap-1.5 rounded-full border border-emerald-500/30 bg-emerald-950/60 px-2 py-0.5 text-[9px] font-semibold text-emerald-300">
+                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                  <span>{deskStatus}</span>
+                </div>
+              </div>
 
-            <a
-              href="tel:+919876543210"
-              className="group relative flex w-full sm:w-auto items-center justify-center gap-2 rounded-lg bg-white hover:bg-slate-100 px-5 py-2.5 text-xs font-semibold text-[#001D3A] transition-colors duration-200"
-            >
-              <Phone size={13} className="text-[#E59B1F] transition-transform duration-200 group-hover:rotate-12" />
-              <span>Call Us Now</span>
-            </a>
+              {/* Action Prompt */}
+              <div className="my-2.5">
+                <p className="text-[11px] leading-relaxed text-slate-300">
+                  Initiate your official inquiry or connect directly with our advisory officers for tailored scheme mapping and documentation guidance.
+                </p>
+              </div>
+
+              {/* Action Button: Advisory Desk Helpline */}
+              <div className="flex flex-col gap-2">
+                <a
+                  href={`tel:${phoneTel}`}
+                  className="group flex w-full items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-[#C89D3C] via-[#E2BD5F] to-[#C89D3C] px-4 py-2.5 text-center text-xs font-bold uppercase tracking-wider text-[#051329] shadow-md transition-all duration-300 hover:brightness-110 active:scale-[0.99] sm:text-[13px]"
+                >
+                  <PhoneCall size={14} className="text-[#051329] transition-transform duration-300 group-hover:scale-110" />
+                  <span>Advisory Desk: {phone}</span>
+                </a>
+              </div>
+
+              {/* Security & Verification Micro-Notes */}
+              <div className="mt-2.5 flex items-center justify-between border-t border-white/10 pt-2 text-[10px] text-slate-400">
+                <span className="flex items-center gap-1">
+                  <FileCheck2 size={11} className="text-[#F3D072]" />
+                  <span>100% Confidential Data Protection</span>
+                </span>
+                <span className="flex items-center gap-1">
+                  <MapPin size={11} className="text-[#F3D072]" />
+                  <span>Pan-India Coverage (28 States &amp; 8 UTs)</span>
+                </span>
+              </div>
+            </div>
           </div>
         </div>
       </div>

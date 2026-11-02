@@ -7,23 +7,23 @@ export default function ContactCta() {
   return (
     <section className="relative py-16 sm:py-20 bg-white overflow-hidden">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="relative overflow-hidden rounded-3xl border border-[#C58A1B]/35 bg-gradient-to-br from-[#001A40] via-[#00245A] to-[#001026] p-8 sm:p-12 lg:p-16 text-white shadow-2xl">
+        <div className="relative overflow-hidden rounded-3xl border border-[#C89D3C]/35 bg-gradient-to-br from-[#0A2540] via-[#0A2540] to-[#0A2540] p-8 sm:p-12 lg:p-16 text-white shadow-2xl">
           <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
-            <div className="absolute top-0 right-0 h-96 w-96 rounded-full bg-[#C58A1B]/15 blur-3xl" />
-            <div className="absolute bottom-0 left-0 h-80 w-80 rounded-full bg-[#F58220]/10 blur-3xl" />
+            <div className="absolute top-0 right-0 h-96 w-96 rounded-full bg-[#C89D3C]/15 blur-3xl" />
+            <div className="absolute bottom-0 left-0 h-80 w-80 rounded-full bg-[#F3D072]/10 blur-3xl" />
           </div>
 
           <div className="mx-auto max-w-3xl text-center">
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#C58A1B]/40 bg-[#C58A1B]/15 px-3.5 py-1 mb-5">
-              <Sparkles size={12} className="text-[#E5A93C]" />
-              <span className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.18em] text-[#E5A93C]">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#C89D3C]/40 bg-[#C89D3C]/15 px-3.5 py-1 mb-5">
+              <Sparkles size={12} className="text-[#C89D3C]" />
+              <span className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.18em] text-[#C89D3C]">
                 Take Action Today
               </span>
             </div>
 
             <h2 className="text-2xl sm:text-3xl md:text-5xl font-extrabold tracking-tight text-white mb-5 leading-tight">
               One Conversation Can Help{" "}
-              <span className="bg-gradient-to-r from-[#C58A1B] via-[#E5A93C] to-[#F58220] bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-[#C89D3C] via-[#C89D3C] to-[#F3D072] bg-clip-text text-transparent">
                 Clarify Your Next Step
               </span>
             </h2>
@@ -35,7 +35,7 @@ export default function ContactCta() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
                 href="#enquiry-form"
-                className="group relative inline-flex w-full sm:w-auto items-center justify-center gap-2.5 rounded-xl bg-gradient-to-r from-[#C58A1B] via-[#D9A12E] to-[#F58220] px-7 py-3.5 text-xs sm:text-sm font-bold text-[#001A40] shadow-xl shadow-[#C58A1B]/20 transition-all duration-300 hover:brightness-110 active:scale-95"
+                className="group relative inline-flex w-full sm:w-auto items-center justify-center gap-2.5 rounded-xl bg-gradient-to-r from-[#C89D3C] via-[#F3D072] to-[#F3D072] px-7 py-3.5 text-xs sm:text-sm font-bold text-[#0A2540] shadow-xl shadow-[#C89D3C]/20 transition-all duration-300 hover:brightness-110 active:scale-95"
               >
                 <Mail size={15} />
                 <span>Start a Conversation</span>
@@ -45,7 +45,7 @@ export default function ContactCta() {
                 href="tel:+919876543210"
                 className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl border border-white/25 bg-white/10 px-6 py-3.5 text-xs sm:text-sm font-bold text-white backdrop-blur-md transition-all duration-300 hover:border-white/50 hover:bg-white/15"
               >
-                <Phone size={15} className="text-[#E5A93C]" />
+                <Phone size={15} className="text-[#C89D3C]" />
                 <span>Call +91 98765 43210</span>
               </a>
             </div>

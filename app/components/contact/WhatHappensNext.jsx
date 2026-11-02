@@ -34,18 +34,18 @@ export default function WhatHappensNext() {
     <section className="relative py-16 sm:py-20 bg-slate-50/70 border-y border-slate-200/60 overflow-hidden">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center mb-12">
-          <div className="inline-flex items-center gap-2 rounded-full border border-[#C58A1B]/35 bg-[#C58A1B]/10 px-3 py-1 mb-3">
-            <span className="h-1.5 w-1.5 rounded-full bg-[#C58A1B]" />
-            <span className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.18em] text-[#001A40]">
+          <div className="inline-flex items-center gap-2 rounded-full border border-[#C89D3C]/35 bg-[#C89D3C]/10 px-3 py-1 mb-3">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#C89D3C]" />
+            <span className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.18em] text-[#0A2540]">
               Transparent Workflow
             </span>
           </div>
 
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-[#001A40] mb-2">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-[#0A2540] mb-2">
             What Happens Next?
           </h2>
 
-          <p className="text-sm sm:text-base font-semibold text-[#C58A1B]">
+          <p className="text-sm sm:text-base font-semibold text-[#C89D3C]">
             A Clear Process for Your Enquiry
           </p>
         </div>
@@ -56,19 +56,19 @@ export default function WhatHappensNext() {
             return (
               <div
                 key={item.number}
-                className="rounded-2xl border border-slate-200/90 bg-white p-6 shadow-2xs hover:border-[#C58A1B]/50 hover:shadow-md transition-all flex flex-col justify-between"
+                className="rounded-2xl border border-slate-200/90 bg-white p-6 shadow-2xs hover:border-[#C89D3C]/50 hover:shadow-md transition-all flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <span className="text-xl font-mono font-black text-[#C58A1B]">
+                    <span className="text-xl font-mono font-black text-[#C89D3C]">
                       {item.number}
                     </span>
-                    <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#001A40]/5 text-[#001A40]">
+                    <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#0A2540]/5 text-[#0A2540]">
                       <Icon size={16} />
                     </div>
                   </div>
 
-                  <h3 className="text-sm font-bold text-[#001A40] mb-2">
+                  <h3 className="text-sm font-bold text-[#0A2540] mb-2">
                     {item.title}
                   </h3>
 

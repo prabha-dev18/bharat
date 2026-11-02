@@ -300,14 +300,14 @@ export default function ServicesCatalogue() {
         {/* Quick Division Selector Pills */}
         <div className="mb-14 overflow-x-auto pb-2 scrollbar-none">
           <div className="flex items-center gap-2 min-w-max">
-            <span className="text-xs font-bold text-[#001A40] uppercase tracking-wider mr-2">
+            <span className="text-xs font-bold text-[#0A2540] uppercase tracking-wider mr-2">
               Jump To Division:
             </span>
             {categories.map((cat) => (
               <a
                 key={cat.id}
                 href={`#${cat.id}`}
-                className="rounded-full border border-slate-200/90 bg-slate-50 px-3.5 py-1.5 text-xs font-semibold text-slate-700 hover:border-[#C58A1B] hover:bg-white hover:text-[#001A40] transition-colors"
+                className="rounded-full border border-slate-200/90 bg-slate-50 px-3.5 py-1.5 text-xs font-semibold text-slate-700 hover:border-[#C89D3C] hover:bg-white hover:text-[#0A2540] transition-colors"
               >
                 {cat.number}. {cat.title.split("&")[0].trim()}
               </a>
@@ -323,24 +323,24 @@ export default function ServicesCatalogue() {
               <div
                 key={cat.id}
                 id={cat.id}
-                className="scroll-mt-24 rounded-3xl border border-slate-200/90 bg-white p-6 sm:p-8 lg:p-10 shadow-[0_10px_35px_rgba(0,26,64,0.04)] transition-all hover:border-[#C58A1B]/40 hover:shadow-xl"
+                className="scroll-mt-24 rounded-3xl border border-slate-200/90 bg-white p-6 sm:p-8 lg:p-10 shadow-[0_10px_35px_rgba(10, 37, 64,0.04)] transition-all hover:border-[#C89D3C]/40 hover:shadow-xl"
               >
                 {/* Header */}
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 pb-6 mb-6">
                   <div className="flex items-center gap-4">
-                    <div className="flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-2xl bg-[#001A40] text-[#E5A93C] shadow-md shadow-[#001A40]/15 shrink-0">
+                    <div className="flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-2xl bg-[#0A2540] text-[#C89D3C] shadow-md shadow-[#0A2540]/15 shrink-0">
                       <Icon size={24} />
                     </div>
                     <div>
                       <div className="flex items-center gap-2 mb-1">
-                        <span className="rounded-full bg-[#C58A1B]/15 px-2.5 py-0.5 text-[10px] font-mono font-bold text-[#C58A1B]">
+                        <span className="rounded-full bg-[#C89D3C]/15 px-2.5 py-0.5 text-[10px] font-mono font-bold text-[#C89D3C]">
                           Division {cat.number}
                         </span>
                       </div>
-                      <h2 className="text-xl sm:text-2xl font-extrabold text-[#001A40]">
+                      <h2 className="text-xl sm:text-2xl font-extrabold text-[#0A2540]">
                         {cat.title}
                       </h2>
-                      <p className="text-xs sm:text-sm font-semibold text-[#C58A1B] mt-0.5">
+                      <p className="text-xs sm:text-sm font-semibold text-[#C89D3C] mt-0.5">
                         {cat.tagline}
                       </p>
                     </div>
@@ -348,10 +348,10 @@ export default function ServicesCatalogue() {
 
                   <Link
                     href="/contact"
-                    className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#001A40] px-4 py-2.5 text-xs font-bold text-white hover:bg-[#00122E] hover:shadow-md transition-all shrink-0"
+                    className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#0A2540] px-4 py-2.5 text-xs font-bold text-white hover:bg-[#0A2540] hover:shadow-md transition-all shrink-0"
                   >
                     <span>Enquire for Division</span>
-                    <ArrowRight size={13} className="text-[#E5A93C]" />
+                    <ArrowRight size={13} className="text-[#C89D3C]" />
                   </Link>
                 </div>
 
@@ -362,7 +362,7 @@ export default function ServicesCatalogue() {
 
                 {/* Services Included Grid */}
                 <div className="mb-6">
-                  <h3 className="text-xs font-bold uppercase tracking-[0.16em] text-[#001A40] mb-3.5">
+                  <h3 className="text-xs font-bold uppercase tracking-[0.16em] text-[#0A2540] mb-3.5">
                     Services Included:
                   </h3>
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-2.5">
@@ -385,10 +385,10 @@ export default function ServicesCatalogue() {
                   <div className="mb-5">
                     <Link
                       href={cat.ctaLink.href}
-                      className="inline-flex items-center gap-2 text-xs font-bold text-[#001A40] hover:text-[#C58A1B] transition-colors"
+                      className="inline-flex items-center gap-2 text-xs font-bold text-[#0A2540] hover:text-[#C89D3C] transition-colors"
                     >
                       <span>{cat.ctaLink.label}</span>
-                      <ArrowRight size={14} className="text-[#C58A1B]" />
+                      <ArrowRight size={14} className="text-[#C89D3C]" />
                     </Link>
                   </div>
                 )}
@@ -396,7 +396,7 @@ export default function ServicesCatalogue() {
                 {/* Disclaimer / Statutory Notes */}
                 {(cat.disclaimer || cat.note) && (
                   <div className="mb-4 flex items-start gap-2 rounded-xl border border-amber-200/80 bg-amber-50/50 p-3 text-[11.5px] text-amber-900 leading-relaxed">
-                    <AlertCircle size={15} className="text-[#C58A1B] shrink-0 mt-0.5" />
+                    <AlertCircle size={15} className="text-[#C89D3C] shrink-0 mt-0.5" />
                     <span>{cat.disclaimer || cat.note}</span>
                   </div>
                 )}

@@ -48,23 +48,23 @@ export default function TermsAndConditionsPage() {
     <div className="min-h-screen flex flex-col bg-white">
       <Header />
 
-      <main className="flex-1">
+      <main id="main-content" className="flex-1">
         {/* Hero Section */}
-        <section className="relative isolate overflow-hidden bg-[#001026] py-14 sm:py-18 lg:py-20 text-white">
+        <section className="relative isolate overflow-hidden bg-[#0A2540] py-14 sm:py-18 lg:py-20 text-white">
           <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
-            <div className="absolute right-1/4 top-0 h-96 w-96 rounded-full bg-[#C58A1B]/15 blur-3xl" />
-            <div className="absolute bottom-0 left-10 h-80 w-80 rounded-full bg-[#00245A]/30 blur-3xl" />
-            <div className="absolute inset-0 bg-[radial-gradient(#C58A1B08_1px,transparent_1px)] [background-size:28px_28px]" />
+            <div className="absolute right-1/4 top-0 h-96 w-96 rounded-full bg-[#C89D3C]/15 blur-3xl" />
+            <div className="absolute bottom-0 left-10 h-80 w-80 rounded-full bg-[#0A2540]/30 blur-3xl" />
+            <div className="absolute inset-0 bg-[radial-gradient(#C89D3C08_1px,transparent_1px)] [background-size:28px_28px]" />
           </div>
 
           <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 text-center">
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#C58A1B]/40 bg-[#C58A1B]/10 px-3.5 py-1 text-[11px] font-bold uppercase tracking-wider text-[#D9A12E]">
-              <Scale size={13} className="text-[#D9A12E]" />
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#C89D3C]/40 bg-[#C89D3C]/10 px-3.5 py-1 text-[11px] font-bold uppercase tracking-wider text-[#F3D072]">
+              <Scale size={13} className="text-[#F3D072]" />
               Service Terms &amp; Conditions
             </div>
 
             <h1 className="font-heading text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl text-white">
-              Terms &amp; <span className="text-[#C58A1B]">Conditions</span>
+              Terms &amp; <span className="text-[#C89D3C]">Conditions</span>
             </h1>
 
             <p className="mt-4 mx-auto max-w-2xl text-xs sm:text-sm text-slate-300 leading-relaxed">
@@ -87,12 +87,12 @@ export default function TermsAndConditionsPage() {
               {keyClauses.map(({ icon: Icon, title, desc }) => (
                 <div
                   key={title}
-                  className="rounded-lg border border-[#C58A1B]/20 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#C58A1B]/50"
+                  className="rounded-lg border border-[#C89D3C]/20 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#C89D3C]/50"
                 >
-                  <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-md bg-[#001A40] text-[#D9A12E]">
+                  <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-md bg-[#0A2540] text-[#F3D072]">
                     <Icon size={18} />
                   </div>
-                  <h3 className="text-sm font-bold text-[#001A40]">{title}</h3>
+                  <h3 className="text-sm font-bold text-[#0A2540]">{title}</h3>
                   <p className="mt-1.5 text-[11.5px] leading-relaxed text-slate-600">{desc}</p>
                 </div>
               ))}
@@ -105,11 +105,11 @@ export default function TermsAndConditionsPage() {
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
             <div className="prose prose-slate max-w-none text-slate-700 text-xs sm:text-sm leading-relaxed space-y-10">
               {/* Important Statutory Disclaimer Banner */}
-              <div className="rounded-lg border-2 border-[#C58A1B] bg-[#FFFBF0] p-5 sm:p-6 text-[#001A40]">
+              <div className="rounded-lg border-2 border-[#C89D3C] bg-[#FFFBF0] p-5 sm:p-6 text-[#0A2540]">
                 <div className="flex items-start gap-3">
-                  <AlertCircle size={22} className="text-[#C58A1B] shrink-0 mt-0.5" />
+                  <AlertCircle size={22} className="text-[#C89D3C] shrink-0 mt-0.5" />
                   <div>
-                    <h2 className="font-heading text-sm sm:text-base font-bold text-[#001A40] mb-1">
+                    <h2 className="font-heading text-sm sm:text-base font-bold text-[#0A2540] mb-1">
                       Important Statutory &amp; Regulatory Disclaimer
                     </h2>
                     <p className="text-xs sm:text-[12.5px] leading-relaxed text-slate-700">
@@ -125,14 +125,14 @@ export default function TermsAndConditionsPage() {
 
               {/* 1. Acceptance */}
               <div>
-                <h2 className="font-heading text-lg sm:text-xl font-bold text-[#001A40] border-b border-slate-200 pb-2 mb-4">
+                <h2 className="font-heading text-lg sm:text-xl font-bold text-[#0A2540] border-b border-slate-200 pb-2 mb-4">
                   1. Acceptance of Terms
                 </h2>
                 <p>
                   By accessing, browsing, or utilizing the web portal{" "}
-                  <strong className="text-[#001A40]">bharatstartupventures.com</strong>, or by entering into an advisory engagement, signing
+                  <strong className="text-[#0A2540]">bharatstartupventures.com</strong>, or by entering into an advisory engagement, signing
                   a service mandate, or commissioning technical development with{" "}
-                  <strong className="text-[#001A40]">Bharat Startup Ventures Pvt. Ltd.</strong> (&ldquo;Company&rdquo;), you (&ldquo;Client&rdquo;
+                  <strong className="text-[#0A2540]">Bharat Startup Ventures Pvt. Ltd.</strong> (&ldquo;Company&rdquo;), you (&ldquo;Client&rdquo;
                   or &ldquo;User&rdquo;) agree to be legally bound by these Terms and Conditions in their entirety.
                 </p>
                 <p className="mt-3">
@@ -143,7 +143,7 @@ export default function TermsAndConditionsPage() {
 
               {/* 2. Scope of Services */}
               <div>
-                <h2 className="font-heading text-lg sm:text-xl font-bold text-[#001A40] border-b border-slate-200 pb-2 mb-4">
+                <h2 className="font-heading text-lg sm:text-xl font-bold text-[#0A2540] border-b border-slate-200 pb-2 mb-4">
                   2. Scope of Services
                 </h2>
                 <p>The Company delivers advisory, documentation, compliance, and technology enablement services across six strategic divisions:</p>
@@ -159,7 +159,7 @@ export default function TermsAndConditionsPage() {
 
               {/* 3. Client Obligations */}
               <div>
-                <h2 className="font-heading text-lg sm:text-xl font-bold text-[#001A40] border-b border-slate-200 pb-2 mb-4">
+                <h2 className="font-heading text-lg sm:text-xl font-bold text-[#0A2540] border-b border-slate-200 pb-2 mb-4">
                   3. Client Obligations &amp; Document Authenticity
                 </h2>
                 <p>To ensure timely delivery, the Client covenants and undertakes that:</p>
@@ -172,7 +172,7 @@ export default function TermsAndConditionsPage() {
 
               {/* 4. Payment Terms */}
               <div>
-                <h2 className="font-heading text-lg sm:text-xl font-bold text-[#001A40] border-b border-slate-200 pb-2 mb-4">
+                <h2 className="font-heading text-lg sm:text-xl font-bold text-[#0A2540] border-b border-slate-200 pb-2 mb-4">
                   4. Professional Fees, Taxes &amp; Refund Policy
                 </h2>
                 <p>
@@ -187,7 +187,7 @@ export default function TermsAndConditionsPage() {
 
               {/* 5. Intellectual Property */}
               <div>
-                <h2 className="font-heading text-lg sm:text-xl font-bold text-[#001A40] border-b border-slate-200 pb-2 mb-4">
+                <h2 className="font-heading text-lg sm:text-xl font-bold text-[#0A2540] border-b border-slate-200 pb-2 mb-4">
                   5. Intellectual Property Rights
                 </h2>
                 <p>
@@ -202,7 +202,7 @@ export default function TermsAndConditionsPage() {
 
               {/* 6. Limitation of Liability */}
               <div>
-                <h2 className="font-heading text-lg sm:text-xl font-bold text-[#001A40] border-b border-slate-200 pb-2 mb-4">
+                <h2 className="font-heading text-lg sm:text-xl font-bold text-[#0A2540] border-b border-slate-200 pb-2 mb-4">
                   6. Limitation of Liability
                 </h2>
                 <p>
@@ -216,7 +216,7 @@ export default function TermsAndConditionsPage() {
 
               {/* 7. Force Majeure */}
               <div>
-                <h2 className="font-heading text-lg sm:text-xl font-bold text-[#001A40] border-b border-slate-200 pb-2 mb-4">
+                <h2 className="font-heading text-lg sm:text-xl font-bold text-[#0A2540] border-b border-slate-200 pb-2 mb-4">
                   7. Force Majeure
                 </h2>
                 <p>
@@ -228,7 +228,7 @@ export default function TermsAndConditionsPage() {
 
               {/* 8. Governing Law & Dispute Resolution */}
               <div>
-                <h2 className="font-heading text-lg sm:text-xl font-bold text-[#001A40] border-b border-slate-200 pb-2 mb-4">
+                <h2 className="font-heading text-lg sm:text-xl font-bold text-[#0A2540] border-b border-slate-200 pb-2 mb-4">
                   8. Governing Law &amp; Jurisdiction
                 </h2>
                 <p>
@@ -240,7 +240,7 @@ export default function TermsAndConditionsPage() {
 
               {/* 9. Modifications */}
               <div>
-                <h2 className="font-heading text-lg sm:text-xl font-bold text-[#001A40] border-b border-slate-200 pb-2 mb-4">
+                <h2 className="font-heading text-lg sm:text-xl font-bold text-[#0A2540] border-b border-slate-200 pb-2 mb-4">
                   9. Amendments to Terms
                 </h2>
                 <p>
@@ -250,8 +250,8 @@ export default function TermsAndConditionsPage() {
               </div>
 
               {/* Contact Box */}
-              <div className="rounded-lg border border-[#C58A1B]/30 bg-[#FFFDF9] p-5 sm:p-6">
-                <h2 className="font-heading text-base sm:text-lg font-bold text-[#001A40] mb-2">
+              <div className="rounded-lg border border-[#C89D3C]/30 bg-[#FFFDF9] p-5 sm:p-6">
+                <h2 className="font-heading text-base sm:text-lg font-bold text-[#0A2540] mb-2">
                   10. Contacting Legal &amp; Corporate Advisory
                 </h2>
                 <p className="text-slate-600">
@@ -262,13 +262,13 @@ export default function TermsAndConditionsPage() {
                   <p><strong>Registered Presence:</strong> New Delhi, India</p>
                   <p>
                     <strong>Email:</strong>{" "}
-                    <a href="mailto:contact@bharatstartupventures.com" className="text-[#001A40] underline hover:text-[#C58A1B]">
+                    <a href="mailto:contact@bharatstartupventures.com" className="text-[#0A2540] underline hover:text-[#C89D3C]">
                       contact@bharatstartupventures.com
                     </a>
                   </p>
                   <p>
                     <strong>Direct Desk:</strong>{" "}
-                    <a href="tel:+919876543210" className="text-[#001A40] underline hover:text-[#C58A1B]">
+                    <a href="tel:+919876543210" className="text-[#0A2540] underline hover:text-[#C89D3C]">
                       +91 98765 43210
                     </a>
                   </p>
@@ -279,7 +279,7 @@ export default function TermsAndConditionsPage() {
         </section>
 
         {/* Bottom CTA */}
-        <section className="border-t border-slate-200 bg-[#001A40] py-8 text-white">
+        <section className="border-t border-slate-200 bg-[#0A2540] py-8 text-white">
           <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
             <div>
               <h3 className="text-sm sm:text-base font-bold text-white">Ready to Structure Your Next Business Milestone?</h3>
@@ -287,7 +287,7 @@ export default function TermsAndConditionsPage() {
             </div>
             <Link
               href="/contact"
-              className="inline-flex shrink-0 items-center gap-2 rounded-md bg-[#C58A1B] hover:bg-[#d88e1b] px-4 py-2 text-xs font-bold text-white transition-colors"
+              className="inline-flex shrink-0 items-center gap-2 rounded-md bg-[#C89D3C] hover:bg-[#C89D3C] px-4 py-2 text-xs font-bold text-white transition-colors"
             >
               <span>Schedule Consultation</span>
               <ArrowRight size={14} />

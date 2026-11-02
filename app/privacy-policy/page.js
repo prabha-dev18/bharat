@@ -48,23 +48,23 @@ export default function PrivacyPolicyPage() {
     <div className="min-h-screen flex flex-col bg-white">
       <Header />
 
-      <main className="flex-1">
+      <main id="main-content" className="flex-1">
         {/* Hero Section */}
-        <section className="relative isolate overflow-hidden bg-[#001026] py-14 sm:py-18 lg:py-20 text-white">
+        <section className="relative isolate overflow-hidden bg-[#0A2540] py-14 sm:py-18 lg:py-20 text-white">
           <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
-            <div className="absolute right-1/4 top-0 h-96 w-96 rounded-full bg-[#C58A1B]/15 blur-3xl" />
-            <div className="absolute bottom-0 left-10 h-80 w-80 rounded-full bg-[#00245A]/30 blur-3xl" />
-            <div className="absolute inset-0 bg-[radial-gradient(#C58A1B08_1px,transparent_1px)] [background-size:28px_28px]" />
+            <div className="absolute right-1/4 top-0 h-96 w-96 rounded-full bg-[#C89D3C]/15 blur-3xl" />
+            <div className="absolute bottom-0 left-10 h-80 w-80 rounded-full bg-[#0A2540]/30 blur-3xl" />
+            <div className="absolute inset-0 bg-[radial-gradient(#C89D3C08_1px,transparent_1px)] [background-size:28px_28px]" />
           </div>
 
           <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 text-center">
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#C58A1B]/40 bg-[#C58A1B]/10 px-3.5 py-1 text-[11px] font-bold uppercase tracking-wider text-[#D9A12E]">
-              <Lock size={13} className="text-[#D9A12E]" />
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#C89D3C]/40 bg-[#C89D3C]/10 px-3.5 py-1 text-[11px] font-bold uppercase tracking-wider text-[#F3D072]">
+              <Lock size={13} className="text-[#F3D072]" />
               Official Legal Document
             </div>
 
             <h1 className="font-heading text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl text-white">
-              Privacy <span className="text-[#C58A1B]">Policy</span>
+              Privacy <span className="text-[#C89D3C]">Policy</span>
             </h1>
 
             <p className="mt-4 mx-auto max-w-2xl text-xs sm:text-sm text-slate-300 leading-relaxed">
@@ -87,12 +87,12 @@ export default function PrivacyPolicyPage() {
               {keyPrinciples.map(({ icon: Icon, title, desc }) => (
                 <div
                   key={title}
-                  className="rounded-lg border border-[#C58A1B]/20 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#C58A1B]/50"
+                  className="rounded-lg border border-[#C89D3C]/20 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#C89D3C]/50"
                 >
-                  <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-md bg-[#001A40] text-[#D9A12E]">
+                  <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-md bg-[#0A2540] text-[#F3D072]">
                     <Icon size={18} />
                   </div>
-                  <h3 className="text-sm font-bold text-[#001A40]">{title}</h3>
+                  <h3 className="text-sm font-bold text-[#0A2540]">{title}</h3>
                   <p className="mt-1.5 text-[11.5px] leading-relaxed text-slate-600">{desc}</p>
                 </div>
               ))}
@@ -106,14 +106,14 @@ export default function PrivacyPolicyPage() {
             <div className="prose prose-slate max-w-none text-slate-700 text-xs sm:text-sm leading-relaxed space-y-10">
               {/* Introduction */}
               <div>
-                <h2 className="font-heading text-lg sm:text-xl font-bold text-[#001A40] border-b border-slate-200 pb-2 mb-4">
+                <h2 className="font-heading text-lg sm:text-xl font-bold text-[#0A2540] border-b border-slate-200 pb-2 mb-4">
                   1. Overview &amp; Applicability
                 </h2>
                 <p>
                   This Privacy Policy applies to the website{" "}
-                  <strong className="text-[#001A40]">bharatstartupventures.com</strong> and all consulting, incorporation, financial
+                  <strong className="text-[#0A2540]">bharatstartupventures.com</strong> and all consulting, incorporation, financial
                   documentation, compliance, software development, and digital services rendered by{" "}
-                  <strong className="text-[#001A40]">Bharat Startup Ventures Pvt. Ltd.</strong> (referred to herein as &ldquo;Company&rdquo;,
+                  <strong className="text-[#0A2540]">Bharat Startup Ventures Pvt. Ltd.</strong> (referred to herein as &ldquo;Company&rdquo;,
                   &ldquo;we&rdquo;, &ldquo;us&rdquo;, or &ldquo;our&rdquo;).
                 </p>
                 <p className="mt-3">
@@ -124,14 +124,14 @@ export default function PrivacyPolicyPage() {
 
               {/* Data Collected */}
               <div>
-                <h2 className="font-heading text-lg sm:text-xl font-bold text-[#001A40] border-b border-slate-200 pb-2 mb-4">
+                <h2 className="font-heading text-lg sm:text-xl font-bold text-[#0A2540] border-b border-slate-200 pb-2 mb-4">
                   2. Information We Collect
                 </h2>
                 <p>To deliver structured advisory and corporate services, we may collect the following categories of information:</p>
 
                 <div className="mt-4 space-y-3">
                   <div className="rounded-md border border-slate-200 p-3.5 bg-slate-50/60">
-                    <h3 className="font-bold text-[#001A40] text-xs sm:text-sm">A. Contact &amp; Identity Credentials</h3>
+                    <h3 className="font-bold text-[#0A2540] text-xs sm:text-sm">A. Contact &amp; Identity Credentials</h3>
                     <p className="mt-1 text-slate-600 text-xs sm:text-[13px]">
                       Full name, authorized signatory identity, professional designation, business email address, phone number, and physical
                       corporate/office address.
@@ -139,7 +139,7 @@ export default function PrivacyPolicyPage() {
                   </div>
 
                   <div className="rounded-md border border-slate-200 p-3.5 bg-slate-50/60">
-                    <h3 className="font-bold text-[#001A40] text-xs sm:text-sm">B. Statutory &amp; Business Information</h3>
+                    <h3 className="font-bold text-[#0A2540] text-xs sm:text-sm">B. Statutory &amp; Business Information</h3>
                     <p className="mt-1 text-slate-600 text-xs sm:text-[13px]">
                       Company name, proposed entity structure (Pvt Ltd, LLP, Partnership, MSME), industry sector, Director/Partner KYC records
                       (PAN, Aadhaar/Passport as mandated by ROC/MCA/DPIIT filings), CIN, GSTIN, and MSME/Udyam certificates.
@@ -147,7 +147,7 @@ export default function PrivacyPolicyPage() {
                   </div>
 
                   <div className="rounded-md border border-slate-200 p-3.5 bg-slate-50/60">
-                    <h3 className="font-bold text-[#001A40] text-xs sm:text-sm">C. Project &amp; Financial Information</h3>
+                    <h3 className="font-bold text-[#0A2540] text-xs sm:text-sm">C. Project &amp; Financial Information</h3>
                     <p className="mt-1 text-slate-600 text-xs sm:text-[13px]">
                       Business pitch materials, Detailed Project Reports (DPR), financial projections, banking proposals, credit requirement
                       estimates, and audited or provisional financials submitted for loan/scheme readiness.
@@ -155,7 +155,7 @@ export default function PrivacyPolicyPage() {
                   </div>
 
                   <div className="rounded-md border border-slate-200 p-3.5 bg-slate-50/60">
-                    <h3 className="font-bold text-[#001A40] text-xs sm:text-sm">D. Technical &amp; Browsing Data</h3>
+                    <h3 className="font-bold text-[#0A2540] text-xs sm:text-sm">D. Technical &amp; Browsing Data</h3>
                     <p className="mt-1 text-slate-600 text-xs sm:text-[13px]">
                       IP address, browser type, operating system, pages visited, duration of visit, and referral URL collected automatically
                       through web cookies and analytics to ensure site security and optimize user experience.
@@ -166,7 +166,7 @@ export default function PrivacyPolicyPage() {
 
               {/* Purpose */}
               <div>
-                <h2 className="font-heading text-lg sm:text-xl font-bold text-[#001A40] border-b border-slate-200 pb-2 mb-4">
+                <h2 className="font-heading text-lg sm:text-xl font-bold text-[#0A2540] border-b border-slate-200 pb-2 mb-4">
                   3. Purpose of Processing
                 </h2>
                 <p>We process your data exclusively for legitimate business and regulatory purposes, including:</p>
@@ -182,7 +182,7 @@ export default function PrivacyPolicyPage() {
 
               {/* Confidentiality */}
               <div>
-                <h2 className="font-heading text-lg sm:text-xl font-bold text-[#001A40] border-b border-slate-200 pb-2 mb-4">
+                <h2 className="font-heading text-lg sm:text-xl font-bold text-[#0A2540] border-b border-slate-200 pb-2 mb-4">
                   4. Confidentiality &amp; Information Disclosure
                 </h2>
                 <p>
@@ -207,7 +207,7 @@ export default function PrivacyPolicyPage() {
 
               {/* Data Security */}
               <div>
-                <h2 className="font-heading text-lg sm:text-xl font-bold text-[#001A40] border-b border-slate-200 pb-2 mb-4">
+                <h2 className="font-heading text-lg sm:text-xl font-bold text-[#0A2540] border-b border-slate-200 pb-2 mb-4">
                   5. Security Safeguards &amp; Data Storage
                 </h2>
                 <p>
@@ -219,7 +219,7 @@ export default function PrivacyPolicyPage() {
 
               {/* Data Retention */}
               <div>
-                <h2 className="font-heading text-lg sm:text-xl font-bold text-[#001A40] border-b border-slate-200 pb-2 mb-4">
+                <h2 className="font-heading text-lg sm:text-xl font-bold text-[#0A2540] border-b border-slate-200 pb-2 mb-4">
                   6. Retention Period
                 </h2>
                 <p>
@@ -231,7 +231,7 @@ export default function PrivacyPolicyPage() {
 
               {/* Your Rights */}
               <div>
-                <h2 className="font-heading text-lg sm:text-xl font-bold text-[#001A40] border-b border-slate-200 pb-2 mb-4">
+                <h2 className="font-heading text-lg sm:text-xl font-bold text-[#0A2540] border-b border-slate-200 pb-2 mb-4">
                   7. Your Data Rights
                 </h2>
                 <p>Subject to statutory obligations, you maintain the following rights:</p>
@@ -256,8 +256,8 @@ export default function PrivacyPolicyPage() {
               </div>
 
               {/* Grievance Officer */}
-              <div className="rounded-lg border border-[#C58A1B]/30 bg-[#FFFDF9] p-5 sm:p-6">
-                <h2 className="font-heading text-base sm:text-lg font-bold text-[#001A40] mb-2">
+              <div className="rounded-lg border border-[#C89D3C]/30 bg-[#FFFDF9] p-5 sm:p-6">
+                <h2 className="font-heading text-base sm:text-lg font-bold text-[#0A2540] mb-2">
                   8. Grievance Officer &amp; Privacy Enquiries
                 </h2>
                 <p className="text-slate-600">
@@ -269,13 +269,13 @@ export default function PrivacyPolicyPage() {
                   <p><strong>Address:</strong> New Delhi, India</p>
                   <p>
                     <strong>Email:</strong>{" "}
-                    <a href="mailto:contact@bharatstartupventures.com" className="text-[#001A40] underline hover:text-[#C58A1B]">
+                    <a href="mailto:contact@bharatstartupventures.com" className="text-[#0A2540] underline hover:text-[#C89D3C]">
                       contact@bharatstartupventures.com
                     </a>
                   </p>
                   <p>
                     <strong>Helpline:</strong>{" "}
-                    <a href="tel:+919876543210" className="text-[#001A40] underline hover:text-[#C58A1B]">
+                    <a href="tel:+919876543210" className="text-[#0A2540] underline hover:text-[#C89D3C]">
                       +91 98765 43210
                     </a>
                   </p>
@@ -286,7 +286,7 @@ export default function PrivacyPolicyPage() {
         </section>
 
         {/* Bottom CTA Bar */}
-        <section className="border-t border-slate-200 bg-[#001A40] py-8 text-white">
+        <section className="border-t border-slate-200 bg-[#0A2540] py-8 text-white">
           <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
             <div>
               <h3 className="text-sm sm:text-base font-bold text-white">Have Questions About How We Protect Your Data?</h3>
@@ -294,7 +294,7 @@ export default function PrivacyPolicyPage() {
             </div>
             <Link
               href="/contact"
-              className="inline-flex shrink-0 items-center gap-2 rounded-md bg-[#C58A1B] hover:bg-[#d88e1b] px-4 py-2 text-xs font-bold text-white transition-colors"
+              className="inline-flex shrink-0 items-center gap-2 rounded-md bg-[#C89D3C] hover:bg-[#C89D3C] px-4 py-2 text-xs font-bold text-white transition-colors"
             >
               <span>Contact Compliance Team</span>
               <ArrowRight size={14} />

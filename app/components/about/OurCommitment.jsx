@@ -17,18 +17,18 @@ export default function OurCommitment() {
         <div className="mx-auto max-w-4xl">
           {/* Header */}
           <div className="text-center mb-10">
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#C58A1B]/35 bg-[#C58A1B]/10 px-3 py-1 mb-3">
-              <span className="h-1.5 w-1.5 rounded-full bg-[#C58A1B]" />
-              <span className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.18em] text-[#001A40]">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#C89D3C]/35 bg-[#C89D3C]/10 px-3 py-1 mb-3">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#C89D3C]" />
+              <span className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.18em] text-[#0A2540]">
                 Professional Responsibility
               </span>
             </div>
 
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-[#001A40] mb-3">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-[#0A2540] mb-3">
               Our Commitment
             </h2>
 
-            <p className="text-base sm:text-lg font-semibold text-[#001A40] mb-3">
+            <p className="text-base sm:text-lg font-semibold text-[#0A2540] mb-3">
               Clear Communication and Practical Execution
             </p>
 
@@ -53,7 +53,7 @@ export default function OurCommitment() {
 
           {/* Regulatory Note from PDF */}
           <div className="flex items-start gap-3 rounded-xl border border-amber-200/80 bg-amber-50/60 p-4 text-xs text-amber-900 leading-relaxed">
-            <AlertCircle size={18} className="text-[#C58A1B] shrink-0 mt-0.5" />
+            <AlertCircle size={18} className="text-[#C89D3C] shrink-0 mt-0.5" />
             <p>
               For government schemes, licences, certifications, funding and statutory matters, eligibility and final decisions remain subject to the relevant authorities, financial institutions and applicable rules.
             </p>

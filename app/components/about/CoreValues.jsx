@@ -40,18 +40,18 @@ export default function CoreValues() {
     <section className="relative py-16 sm:py-20 lg:py-24 bg-white overflow-hidden">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center mb-12 lg:mb-16">
-          <div className="inline-flex items-center gap-2 rounded-full border border-[#C58A1B]/35 bg-[#C58A1B]/10 px-3 py-1 mb-3">
-            <span className="h-1.5 w-1.5 rounded-full bg-[#C58A1B]" />
-            <span className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.18em] text-[#001A40]">
+          <div className="inline-flex items-center gap-2 rounded-full border border-[#C89D3C]/35 bg-[#C89D3C]/10 px-3 py-1 mb-3">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#C89D3C]" />
+            <span className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.18em] text-[#0A2540]">
               Guiding Ethos
             </span>
           </div>
 
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-[#001A40] mb-3">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-[#0A2540] mb-3">
             Our Core Values
           </h2>
 
-          <p className="text-base sm:text-lg font-semibold text-[#001A40] mb-3">
+          <p className="text-base sm:text-lg font-semibold text-[#0A2540] mb-3">
             The Principles Behind Our Approach
           </p>
 
@@ -67,13 +67,13 @@ export default function CoreValues() {
             return (
               <div
                 key={item.title}
-                className="group relative rounded-2xl border border-slate-200/90 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#C58A1B]/50 hover:shadow-lg"
+                className="group relative rounded-2xl border border-slate-200/90 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#C89D3C]/50 hover:shadow-lg"
               >
-                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#001A40]/5 text-[#001A40] mb-4 transition-colors duration-300 group-hover:bg-[#001A40] group-hover:text-[#E5A93C]">
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#0A2540]/5 text-[#0A2540] mb-4 transition-colors duration-300 group-hover:bg-[#0A2540] group-hover:text-[#C89D3C]">
                   <Icon size={20} />
                 </div>
 
-                <h3 className="text-base font-bold text-[#001A40] mb-2 group-hover:text-[#C58A1B] transition-colors">
+                <h3 className="text-base font-bold text-[#0A2540] mb-2 group-hover:text-[#C89D3C] transition-colors">
                   {item.title}
                 </h3>
 

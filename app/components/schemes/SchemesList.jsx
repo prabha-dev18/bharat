@@ -193,7 +193,7 @@ export default function SchemesList() {
     <section className="relative py-16 sm:py-20 bg-white overflow-hidden">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center mb-14">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#001A40] mb-3">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#0A2540] mb-3">
             Explore Government Schemes &amp; Programmes
           </h2>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
@@ -209,19 +209,19 @@ export default function SchemesList() {
               <div
                 key={scheme.id}
                 id={scheme.id}
-                className="scroll-mt-24 group relative flex flex-col justify-between rounded-3xl border border-slate-200/90 bg-white p-6 sm:p-8 shadow-sm transition-all duration-300 hover:border-[#C58A1B]/50 hover:shadow-xl"
+                className="scroll-mt-24 group relative flex flex-col justify-between rounded-3xl border border-slate-200/90 bg-white p-6 sm:p-8 shadow-sm transition-all duration-300 hover:border-[#C89D3C]/50 hover:shadow-xl"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#001A40]/5 text-[#001A40] transition-colors duration-300 group-hover:bg-[#001A40] group-hover:text-[#E5A93C]">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#0A2540]/5 text-[#0A2540] transition-colors duration-300 group-hover:bg-[#0A2540] group-hover:text-[#C89D3C]">
                       <Icon size={22} />
                     </div>
-                    <span className="text-xs font-mono font-bold text-[#C58A1B] rounded-full bg-[#C58A1B]/10 px-2.5 py-0.5">
+                    <span className="text-xs font-mono font-bold text-[#C89D3C] rounded-full bg-[#C89D3C]/10 px-2.5 py-0.5">
                       Scheme {scheme.number}
                     </span>
                   </div>
 
-                  <h3 className="text-lg font-bold text-[#001A40] mb-2.5 group-hover:text-[#C58A1B] transition-colors">
+                  <h3 className="text-lg font-bold text-[#0A2540] mb-2.5 group-hover:text-[#C89D3C] transition-colors">
                     {scheme.title}
                   </h3>
 
@@ -230,7 +230,7 @@ export default function SchemesList() {
                   </p>
 
                   <div className="border-t border-slate-100 pt-4 mb-6">
-                    <h4 className="text-[11px] font-bold uppercase tracking-wider text-[#001A40] mb-3">
+                    <h4 className="text-[11px] font-bold uppercase tracking-wider text-[#0A2540] mb-3">
                       How Bharat Startup Ventures Can Assist:
                     </h4>
                     <ul className="space-y-2">
@@ -247,10 +247,10 @@ export default function SchemesList() {
                 <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
                   <Link
                     href="/contact"
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-[#001A40] hover:text-[#C58A1B] transition-colors"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0A2540] hover:text-[#C89D3C] transition-colors"
                   >
                     <span>Enquire for {scheme.title.split("(")[0].trim()}</span>
-                    <ArrowRight size={13} className="text-[#C58A1B]" />
+                    <ArrowRight size={13} className="text-[#C89D3C]" />
                   </Link>
                 </div>
               </div>

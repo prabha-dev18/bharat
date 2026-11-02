@@ -132,13 +132,12 @@ export default function Preloader({ onComplete }) {
     };
   }, [replayKey, clearAllTimers]);
 
-  // Phase 4: Loading progress starts after the square reveal finishes
   useEffect(() => {
     if (phase !== "revealed") return;
 
     let currentVal = 0;
     const startTime = Date.now();
-    const targetDuration = 2200; // ~2.2s silky corporate progression
+    const targetDuration = 2200; 
 
     progressIntervalRef.current = setInterval(() => {
       const elapsed = Date.now() - startTime;
@@ -207,11 +206,12 @@ export default function Preloader({ onComplete }) {
           <div className="preloader-brand-showcase">
             <div className="preloader-logo-frame">
               <Image
-                src="/images/logo1.png"
+                src="/images/logo2.png"
                 alt="Bharat Startup Ventures Pvt. Ltd."
-                width={340}
-                height={84}
+                width={380}
+                height={95}
                 priority
+                style={{ width: "auto", height: "auto" }}
                 className="preloader-brand-img"
               />
             </div>

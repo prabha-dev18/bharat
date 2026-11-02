@@ -1,11 +1,79 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Rocket, Building2, Factory, Sprout, ShoppingCart, BriefcaseBusiness, Cpu, Layers, ArrowRight } from "lucide-react";
+import Image from "next/image";
+import { BadgeCheck, Building2, Factory, Sprout, Store, Scale, Cpu, TrendingUp } from "lucide-react";
+
+const sectors = [
+  {
+    title: "Entrepreneurs & Early-Stage Startups",
+    description:
+      "Business incorporation, DPIIT recognition, pitch deck preparation, startup funding documentation, and essential setup guidance.",
+    icon: BadgeCheck,
+    image: "/images/gov-startups.jpg",
+    ministry: "DPIIT • STARTUP INDIA",
+  },
+  {
+    title: "Micro, Small & Medium Enterprises (MSMEs)",
+    description:
+      "Udyam registration, CGTMSE credit assistance, detailed project reports, banking documentation, and MSME growth support.",
+    icon: Building2,
+    image: "/images/gov-msme.jpg",
+    ministry: "MINISTRY OF MSME",
+  },
+  {
+    title: "Manufacturing & Industrial Enterprises",
+    description:
+      "Industrial licensing, ZED certification, government incentives, working capital assistance, and regulatory compliance.",
+    icon: Factory,
+    image: "/images/gov-manufacturing.jpg",
+    ministry: "HEAVY INDUSTRY • ZED",
+  },
+  {
+    title: "Agriculture & Food-Processing Units",
+    description:
+      "PMFME schemes, Agri-Infrastructure Fund support, cold chain subsidies, FSSAI licensing, and food business guidance.",
+    icon: Sprout,
+    image: "/images/gov-agri.jpg",
+    ministry: "MOFPI • AGRI-INFRA",
+  },
+  {
+    title: "Retail & E-commerce Companies",
+    description:
+      "E-commerce website development, GST registration, payment gateway integration, digital marketing, and brand growth.",
+    icon: Store,
+    image: "/images/gov-retail.jpg",
+    ministry: "COMMERCE • ONDC",
+  },
+  {
+    title: "Professional Service Organizations",
+    description:
+      "ROC compliance, statutory filings, accounting automation, client portal development, and professional brand visibility.",
+    icon: Scale,
+    image: "/images/gov-legal.jpg",
+    ministry: "MCA • STATUTORY",
+  },
+  {
+    title: "Technology-Driven Ventures",
+    description:
+      "Custom software development, AI-powered automation, CRM implementation, digital transformation, and startup tax support.",
+    icon: Cpu,
+    image: "/images/gov-tech.jpg",
+    ministry: "MEITY • DIGITAL INDIA",
+  },
+  {
+    title: "Established Growing Businesses",
+    description:
+      "Business expansion planning, digital transformation, corporate restructuring, IEC registration, and financial assistance.",
+    icon: TrendingUp,
+    image: "/images/gov-export.jpg",
+    ministry: "DGFT • COMMERCE",
+  },
+];
 
 export default function WhoWeSupport() {
   const sectionRef = useRef(null);
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -25,122 +93,97 @@ export default function WhoWeSupport() {
     return () => observer.disconnect();
   }, []);
 
-  const sectors = [
-    {
-      title: "Entrepreneurs & Early-Stage Startups",
-      description:
-        "Business incorporation, DPIIT recognition, pitch deck preparation, startup funding documentation, and essential setup guidance.",
-      icon: Rocket,
-    },
-    {
-      title: "Micro, Small & Medium Enterprises (MSMEs)",
-      description:
-        "Udyam registration, CGTMSE credit assistance, detailed project reports, banking documentation, and MSME growth support.",
-      icon: Building2,
-    },
-    {
-      title: "Manufacturing & Industrial Enterprises",
-      description: "Industrial licensing, ZED certification, government incentives, working capital assistance, and regulatory compliance.",
-      icon: Factory,
-    },
-    {
-      title: "Agriculture & Food-Processing Units",
-      description: "PMFME schemes, Agri-Infrastructure Fund support, cold chain subsidies, FSSAI licensing, and food business guidance.",
-      icon: Sprout,
-    },
-    {
-      title: "Retail & E-commerce Companies",
-      description: "E-commerce website development, GST registration, payment gateway integration, digital marketing, and brand growth.",
-      icon: ShoppingCart,
-    },
-    {
-      title: "Professional Service Organizations",
-      description:
-        "ROC compliance, statutory filings, accounting automation, client portal development, and professional brand visibility.",
-      icon: BriefcaseBusiness,
-    },
-    {
-      title: "Technology-Driven Ventures",
-      description:
-        "Custom software development, AI-powered automation, CRM implementation, digital transformation, and startup tax support.",
-      icon: Cpu,
-    },
-    {
-      title: "Established Growing Businesses",
-      description:
-        "Business expansion planning, digital transformation, corporate restructuring, IEC registration, and financial assistance.",
-      icon: Layers,
-    },
-  ];
-
   return (
-    <section ref={sectionRef} className="relative overflow-hidden bg-white py-6 sm:py-8 lg:py-10">
-      <div className="relative z-10 mx-auto w-full max-w-[1200px] px-3 sm:px-5 lg:px-8 xl:px-0">
-        {/* Section Heading (Fade Down) */}
+    <section id="who-we-support" ref={sectionRef} className="relative w-full bg-[#FAFBFD] py-12 sm:py-16 lg:py-14">
+      <div className="relative z-10 mx-auto w-full max-w-[1200px] px-5 sm:px-8 lg:px-12 xl:px-0">
+        {/* Section Heading */}
         <div
-          className={`mx-auto mb-6 max-w-3xl text-center transition-all duration-800 sm:mb-7 ${
-            isVisible ? "translate-y-0 opacity-100" : "-translate-y-6 opacity-0"
+          className={`mx-auto mb-10 flex max-w-3xl flex-col items-center text-center transition-all duration-700 sm:mb-12 lg:mb-14 ${
+            isVisible ? "translate-y-0 opacity-100" : "-translate-y-4 opacity-0"
           }`}
         >
-          <div className="mb-6 flex items-center justify-center gap-3 sm:mb-7">
-            <span className="h-px w-8 bg-[#C58A1B]" />
-
-            <span className="text-center text-[10px] font-bold uppercase tracking-[0.22em] text-[#C58A1B] sm:text-[11px]">
-              Diverse Enterprise Ecosystem
+          {/* Eyebrow Badge */}
+          <div className="mb-3.5 inline-flex">
+            <span className="rounded-sm border border-[#D5E2F0] bg-[#EEF4FB] px-3.5 py-1 text-[11px] font-bold tracking-widest text-[#0A2540] uppercase">
+              WHO WE SUPPORT
             </span>
-
-            <span className="h-px w-12 bg-[#00245A]/15" />
           </div>
-          {/* Heading Title - Unchanged */}
 
-          <h3 className="mb-3 text-center font-heading text-[clamp(1.25rem,2.2vw,2.25rem)] font-semibold leading-[1.12] tracking-tight text-[#00245A]">
-            Multiple Capabilities. One <span className="text-[#C58A1B]">Trusted Partner.</span>
-          </h3>
-          <span className="mx-auto mt-3 mb-3 block h-[3px] w-16 rounded-full bg-gradient-to-r from-[#C58A1B] to-[#E9D6A5] transition-all duration-700 delay-500 sm:w-20" />
+          {/* Heading Title */}
+          <h2 className="font-heading text-2xl font-bold tracking-tight text-[#0A2540] sm:text-3xl md:text-[34px]">
+            Diverse Enterprise <span className="text-[#C89D3C]">Ecosystem</span>
+          </h2>
 
-          <p className="mx-auto max-w-2xl text-center text-[12px] leading-[1.8] text-slate-600 sm:text-[13px]">
-            We offer integrated business and technology solutions with practical guidance, clear communication and long-term support.
+          {/* Centered Gold Accent Bar */}
+          <div className="mt-3.5 h-1 w-16 rounded-full bg-[#C89D3C]" />
+
+          {/* Subheading / Description */}
+          <p className="mt-4 max-w-2xl text-[13.5px] leading-relaxed text-slate-700 sm:text-[14px] sm:leading-[1.8]">
+            We offer integrated business and technology solutions with practical guidance, clear communication and long-term support across diverse industry sectors.
           </p>
         </div>
 
-        {/* Directory-Style Sector Structure (Staggered Fade) */}
-        <div className="grid grid-cols-1 gap-x-8 lg:grid-cols-2 lg:gap-x-10">
+        {/* 2-Column Horizontal Dossier Cards with Government Imagery (NO PEOPLE) */}
+        <div className="grid grid-cols-1 gap-5 lg:grid-cols-2 lg:gap-6">
           {sectors.map((sector, index) => {
             const Icon = sector.icon;
-            const isLeftCol = index % 2 === 0;
 
             return (
               <div
                 key={sector.title}
-                style={{
-                  transitionDelay: `${Math.floor(index / 2) * 90 + 100}ms`,
-                }}
-                className={`group relative flex items-start gap-3 border-b border-slate-200/80 py-4 transition-all duration-700 hover:border-[#C58A1B] sm:gap-4 ${
-                  isVisible
-                    ? "translate-x-0 opacity-100"
-                    : isLeftCol
-                    ? "-translate-x-6 opacity-0"
-                    : "translate-x-6 opacity-0"
+                style={{ transitionDelay: `${index * 60 + 100}ms` }}
+                className={`group relative flex flex-col overflow-hidden rounded-xl border border-slate-200/90 bg-white shadow-[0_2px_8px_rgba(0,0,0,0.02)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#C89D3C] hover:shadow-md sm:flex-row ${
+                  isVisible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
                 }`}
               >
-                {/* Number and Icon */}
-                <div className="flex shrink-0 flex-col items-center gap-2">
-                  <span className="font-heading text-[12px] font-semibold tracking-wider text-[#C58A1B]">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
+                {/* Left: Government Architecture & Infrastructure Image Frame (STRICTLY NO PEOPLE) */}
+                <div className="relative h-44 w-full shrink-0 overflow-hidden bg-slate-100 sm:h-auto sm:w-[155px] lg:w-[175px]">
+                  <Image
+                    src={sector.image}
+                    alt={sector.title}
+                    fill
+                    sizes="(max-width: 640px) 100vw, 175px"
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  />
 
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#F5F7FB] text-[#00245A] transition-all duration-300 group-hover:bg-[#00245A] group-hover:text-[#E5A93C]">
-                    <Icon size={18} strokeWidth={1.7} />
+                  {/* Gradient Depth */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent sm:bg-gradient-to-r sm:from-transparent sm:to-black/25" />
+
+                  {/* Sector Number Badge */}
+                  <div className="absolute left-2.5 top-2.5 z-10">
+                    <span className="rounded bg-[#0A192F]/90 px-2 py-0.5 font-mono text-[10px] font-bold text-[#F3D072] border border-[#C89D3C]/40 shadow-sm backdrop-blur-sm">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
                   </div>
+
+                  {/* Gold Separator Accent */}
+                  <div className="absolute bottom-0 left-0 h-1 w-full bg-[#C89D3C] sm:bottom-0 sm:right-0 sm:top-0 sm:h-full sm:w-1" />
                 </div>
 
-                {/* Sector Information */}
-                <div className="min-w-0 flex-1 pt-1">
-                  <h3 className="text-[12px] font-bold leading-snug text-[#00245A] transition-colors duration-300 group-hover:text-[#C58A1B] sm:text-[13px]">
-                    {sector.title}
-                  </h3>
+                {/* Right: Exact Content Preserved with Ministry Framework Tag */}
+                <div className="flex flex-1 flex-col justify-between p-4 sm:p-5">
+                  <div>
+                    {/* Top Row: Nodal Ministry Tag & Emblem Icon */}
+                    <div className="mb-2 flex items-center justify-between gap-2">
+                      <span className="rounded border border-[#D5E2F0] bg-[#EEF4FB] px-2 py-0.5 text-[8.5px] font-bold tracking-wider text-[#0A2540] uppercase">
+                        {sector.ministry}
+                      </span>
 
-                  <p className="mt-1.5 text-[11px] leading-[1.7] text-slate-500 sm:text-xs">{sector.description}</p>
+                      <div className="flex h-7 w-7 items-center justify-center rounded-sm border border-[#C89D3C]/25 bg-[#FAF7F0] text-[#C89D3C] transition-colors duration-300 group-hover:bg-[#0A2540] group-hover:text-[#F3D072]">
+                        <Icon size={14} strokeWidth={2} />
+                      </div>
+                    </div>
+
+                    {/* Sector Title - EXACT UNCHANGED */}
+                    <h3 className="text-[14px] font-bold leading-snug text-[#0A2540] transition-colors duration-300 group-hover:text-[#C89D3C] sm:text-[15px]">
+                      {sector.title}
+                    </h3>
+
+                    {/* Sector Description - EXACT UNCHANGED */}
+                    <p className="mt-1.5 text-[11.5px] leading-relaxed text-slate-600 sm:text-[12px]">
+                      {sector.description}
+                    </p>
+                  </div>
                 </div>
               </div>
             );

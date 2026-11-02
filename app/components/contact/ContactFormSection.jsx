@@ -60,12 +60,12 @@ export default function ContactFormSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14">
           {/* Left Form (7 Cols) */}
           <div className="lg:col-span-7">
-            <div className="rounded-3xl border border-slate-200/90 bg-white p-6 sm:p-9 shadow-[0_12px_40px_rgba(0,26,64,0.06)]">
+            <div className="rounded-3xl border border-slate-200/90 bg-white p-6 sm:p-9 shadow-[0_12px_40px_rgba(10, 37, 64,0.06)]">
               <div className="mb-6">
-                <span className="text-[10px] font-bold uppercase tracking-wider text-[#C58A1B]">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-[#C89D3C]">
                   Enquiry Form
                 </span>
-                <h2 className="text-xl sm:text-2xl font-extrabold text-[#001A40] mt-1">
+                <h2 className="text-xl sm:text-2xl font-extrabold text-[#0A2540] mt-1">
                   Tell Us How We Can Help
                 </h2>
                 <p className="text-xs sm:text-sm text-slate-500 mt-1">
@@ -98,7 +98,7 @@ export default function ContactFormSection() {
                         description: "",
                       });
                     }}
-                    className="inline-flex items-center gap-2 rounded-xl bg-[#001A40] px-5 py-2.5 text-xs font-bold text-white hover:bg-[#00122E] transition-colors"
+                    className="inline-flex items-center gap-2 rounded-xl bg-[#0A2540] px-5 py-2.5 text-xs font-bold text-white hover:bg-[#0A2540] transition-colors"
                   >
                     <span>Submit Another Enquiry</span>
                   </button>
@@ -108,7 +108,7 @@ export default function ContactFormSection() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {/* Full Name */}
                     <div>
-                      <label className="block text-xs font-bold text-[#001A40] mb-1.5">
+                      <label className="block text-xs font-bold text-[#0A2540] mb-1.5">
                         Full Name <span className="text-red-500">*</span>
                       </label>
                       <input
@@ -117,13 +117,13 @@ export default function ContactFormSection() {
                         placeholder="e.g. Rajesh Sharma"
                         value={formData.fullName}
                         onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                        className="w-full rounded-xl border border-slate-200 bg-slate-50/70 px-3.5 py-2.5 text-xs text-slate-900 placeholder-slate-400 focus:border-[#C58A1B] focus:bg-white focus:outline-none transition-colors"
+                        className="w-full rounded-xl border border-slate-200 bg-slate-50/70 px-3.5 py-2.5 text-xs text-slate-900 placeholder-slate-400 focus:border-[#C89D3C] focus:bg-white focus:outline-none transition-colors"
                       />
                     </div>
 
                     {/* Company / Organization Name */}
                     <div>
-                      <label className="block text-xs font-bold text-[#001A40] mb-1.5">
+                      <label className="block text-xs font-bold text-[#0A2540] mb-1.5">
                         Company or Organization Name
                       </label>
                       <input
@@ -131,7 +131,7 @@ export default function ContactFormSection() {
                         placeholder="e.g. Bharat Tech Pvt Ltd"
                         value={formData.companyName}
                         onChange={(e) => setFormData({ ...formData, companyName: e.target.value })}
-                        className="w-full rounded-xl border border-slate-200 bg-slate-50/70 px-3.5 py-2.5 text-xs text-slate-900 placeholder-slate-400 focus:border-[#C58A1B] focus:bg-white focus:outline-none transition-colors"
+                        className="w-full rounded-xl border border-slate-200 bg-slate-50/70 px-3.5 py-2.5 text-xs text-slate-900 placeholder-slate-400 focus:border-[#C89D3C] focus:bg-white focus:outline-none transition-colors"
                       />
                     </div>
                   </div>
@@ -139,7 +139,7 @@ export default function ContactFormSection() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {/* Email Address */}
                     <div>
-                      <label className="block text-xs font-bold text-[#001A40] mb-1.5">
+                      <label className="block text-xs font-bold text-[#0A2540] mb-1.5">
                         Email Address <span className="text-red-500">*</span>
                       </label>
                       <input
@@ -148,13 +148,13 @@ export default function ContactFormSection() {
                         placeholder="name@company.com"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="w-full rounded-xl border border-slate-200 bg-slate-50/70 px-3.5 py-2.5 text-xs text-slate-900 placeholder-slate-400 focus:border-[#C58A1B] focus:bg-white focus:outline-none transition-colors"
+                        className="w-full rounded-xl border border-slate-200 bg-slate-50/70 px-3.5 py-2.5 text-xs text-slate-900 placeholder-slate-400 focus:border-[#C89D3C] focus:bg-white focus:outline-none transition-colors"
                       />
                     </div>
 
                     {/* Phone Number */}
                     <div>
-                      <label className="block text-xs font-bold text-[#001A40] mb-1.5">
+                      <label className="block text-xs font-bold text-[#0A2540] mb-1.5">
                         Phone Number <span className="text-red-500">*</span>
                       </label>
                       <input
@@ -163,7 +163,7 @@ export default function ContactFormSection() {
                         placeholder="+91 98765 43210"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        className="w-full rounded-xl border border-slate-200 bg-slate-50/70 px-3.5 py-2.5 text-xs text-slate-900 placeholder-slate-400 focus:border-[#C58A1B] focus:bg-white focus:outline-none transition-colors"
+                        className="w-full rounded-xl border border-slate-200 bg-slate-50/70 px-3.5 py-2.5 text-xs text-slate-900 placeholder-slate-400 focus:border-[#C89D3C] focus:bg-white focus:outline-none transition-colors"
                       />
                     </div>
                   </div>
@@ -171,7 +171,7 @@ export default function ContactFormSection() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {/* Industry */}
                     <div>
-                      <label className="block text-xs font-bold text-[#001A40] mb-1.5">
+                      <label className="block text-xs font-bold text-[#0A2540] mb-1.5">
                         Industry / Sector
                       </label>
                       <input
@@ -179,19 +179,19 @@ export default function ContactFormSection() {
                         placeholder="e.g. IT, Manufacturing, Agribusiness"
                         value={formData.industry}
                         onChange={(e) => setFormData({ ...formData, industry: e.target.value })}
-                        className="w-full rounded-xl border border-slate-200 bg-slate-50/70 px-3.5 py-2.5 text-xs text-slate-900 placeholder-slate-400 focus:border-[#C58A1B] focus:bg-white focus:outline-none transition-colors"
+                        className="w-full rounded-xl border border-slate-200 bg-slate-50/70 px-3.5 py-2.5 text-xs text-slate-900 placeholder-slate-400 focus:border-[#C89D3C] focus:bg-white focus:outline-none transition-colors"
                       />
                     </div>
 
                     {/* Service Required Dropdown (All 12 options from PDF!) */}
                     <div>
-                      <label className="block text-xs font-bold text-[#001A40] mb-1.5">
+                      <label className="block text-xs font-bold text-[#0A2540] mb-1.5">
                         Service Required <span className="text-red-500">*</span>
                       </label>
                       <select
                         value={formData.serviceRequired}
                         onChange={(e) => setFormData({ ...formData, serviceRequired: e.target.value })}
-                        className="w-full rounded-xl border border-slate-200 bg-slate-50/70 px-3 py-2.5 text-xs font-medium text-slate-900 focus:border-[#C58A1B] focus:bg-white focus:outline-none transition-colors"
+                        className="w-full rounded-xl border border-slate-200 bg-slate-50/70 px-3 py-2.5 text-xs font-medium text-slate-900 focus:border-[#C89D3C] focus:bg-white focus:outline-none transition-colors"
                       >
                         {serviceOptions.map((opt) => (
                           <option key={opt} value={opt}>
@@ -204,7 +204,7 @@ export default function ContactFormSection() {
 
                   {/* Brief Description */}
                   <div>
-                    <label className="block text-xs font-bold text-[#001A40] mb-1.5">
+                    <label className="block text-xs font-bold text-[#0A2540] mb-1.5">
                       Brief Description of Your Requirement <span className="text-red-500">*</span>
                     </label>
                     <textarea
@@ -213,7 +213,7 @@ export default function ContactFormSection() {
                       placeholder="Please summarize your current business situation, what services or schemes you are exploring, and any specific deadlines..."
                       value={formData.description}
                       onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-                      className="w-full rounded-xl border border-slate-200 bg-slate-50/70 p-3 text-xs text-slate-900 placeholder-slate-400 focus:border-[#C58A1B] focus:bg-white focus:outline-none transition-colors"
+                      className="w-full rounded-xl border border-slate-200 bg-slate-50/70 p-3 text-xs text-slate-900 placeholder-slate-400 focus:border-[#C89D3C] focus:bg-white focus:outline-none transition-colors"
                     />
                   </div>
 
@@ -222,9 +222,9 @@ export default function ContactFormSection() {
                     <button
                       type="submit"
                       disabled={loading}
-                      className="group relative inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#001A40] via-[#00245A] to-[#00122E] px-6 py-3.5 text-xs sm:text-sm font-bold text-white shadow-lg shadow-[#001A40]/15 hover:shadow-xl hover:shadow-[#C58A1B]/20 transition-all disabled:opacity-75 cursor-pointer"
+                      className="group relative inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#0A2540] via-[#0A2540] to-[#0A2540] px-6 py-3.5 text-xs sm:text-sm font-bold text-white shadow-lg shadow-[#0A2540]/15 hover:shadow-xl hover:shadow-[#C89D3C]/20 transition-all disabled:opacity-75 cursor-pointer"
                     >
-                      <Send size={15} className="text-[#E5A93C] transition-transform group-hover:translate-x-1" />
+                      <Send size={15} className="text-[#C89D3C] transition-transform group-hover:translate-x-1" />
                       <span>{loading ? "Submitting Your Request..." : "Submit Enquiry"}</span>
                     </button>
                   </div>
@@ -242,10 +242,10 @@ export default function ContactFormSection() {
           <div className="lg:col-span-5 flex flex-col gap-6">
             {/* Contact Card */}
             <div className="rounded-3xl border border-slate-200/90 bg-gradient-to-br from-slate-50 via-white to-[#F8F5ED] p-6 sm:p-8 shadow-sm">
-              <span className="text-[10px] font-bold uppercase tracking-wider text-[#C58A1B]">
+              <span className="text-[10px] font-bold uppercase tracking-wider text-[#C89D3C]">
                 Direct Contact
               </span>
-              <h3 className="text-xl font-bold text-[#001A40] mt-1 mb-2">
+              <h3 className="text-xl font-bold text-[#0A2540] mt-1 mb-2">
                 Connect with Bharat Startup Ventures
               </h3>
               <p className="text-xs text-slate-600 mb-6 leading-relaxed">
@@ -254,41 +254,41 @@ export default function ContactFormSection() {
 
               <div className="space-y-4 text-xs">
                 <div className="flex items-start gap-3">
-                  <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#001A40] text-[#E5A93C] shrink-0 shadow-2xs">
+                  <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#0A2540] text-[#C89D3C] shrink-0 shadow-2xs">
                     <Building2 size={16} />
                   </div>
                   <div>
                     <span className="text-[10px] font-bold uppercase text-slate-400">Legal Company Name</span>
-                    <p className="font-bold text-[#001A40] text-sm">Bharat Startup Ventures Pvt. Ltd.</p>
+                    <p className="font-bold text-[#0A2540] text-sm">Bharat Startup Ventures Pvt. Ltd.</p>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#001A40] text-[#E5A93C] shrink-0 shadow-2xs">
+                  <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#0A2540] text-[#C89D3C] shrink-0 shadow-2xs">
                     <Phone size={16} />
                   </div>
                   <div>
                     <span className="text-[10px] font-bold uppercase text-slate-400">Direct Helpline</span>
-                    <a href="tel:+919876543210" className="block font-bold text-[#001A40] text-sm hover:text-[#C58A1B]">
+                    <a href="tel:+919876543210" className="block font-bold text-[#0A2540] text-sm hover:text-[#C89D3C]">
                       +91 98765 43210
                     </a>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#001A40] text-[#E5A93C] shrink-0 shadow-2xs">
+                  <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#0A2540] text-[#C89D3C] shrink-0 shadow-2xs">
                     <Mail size={16} />
                   </div>
                   <div>
                     <span className="text-[10px] font-bold uppercase text-slate-400">Official Business Email</span>
-                    <a href="mailto:contact@bharatstartupventures.com" className="block font-bold text-[#001A40] text-xs hover:text-[#C58A1B] break-all">
+                    <a href="mailto:contact@bharatstartupventures.com" className="block font-bold text-[#0A2540] text-xs hover:text-[#C89D3C] break-all">
                       contact@bharatstartupventures.com
                     </a>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#001A40] text-[#E5A93C] shrink-0 shadow-2xs">
+                  <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#0A2540] text-[#C89D3C] shrink-0 shadow-2xs">
                     <Clock size={16} />
                   </div>
                   <div>
@@ -298,7 +298,7 @@ export default function ContactFormSection() {
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#001A40] text-[#E5A93C] shrink-0 shadow-2xs">
+                  <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#0A2540] text-[#C89D3C] shrink-0 shadow-2xs">
                     <MapPin size={16} />
                   </div>
                   <div>
@@ -310,7 +310,7 @@ export default function ContactFormSection() {
             </div>
 
             {/* Trust Assurance Badge */}
-            <div className="rounded-2xl border border-[#C58A1B]/30 bg-[#C58A1B]/10 p-4 flex items-center gap-3">
+            <div className="rounded-2xl border border-[#C89D3C]/30 bg-[#C89D3C]/10 p-4 flex items-center gap-3">
               <ShieldCheck size={20} className="text-[#00843D] shrink-0" />
               <p className="text-xs text-slate-800 leading-snug">
                 <strong>Confidentiality Assured:</strong> All financial and business information shared with our team is governed by strict non-disclosure ethics.

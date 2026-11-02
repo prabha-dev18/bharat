@@ -1,4 +1,6 @@
 import "./global.css";
+import SmoothScrollProvider from "./components/layout/SmoothScrollProvider";
+import PreloaderProvider from "./components/layout/PreloaderProvider";
 
 export const metadata = {
   metadataBase: new URL("https://bharatstartupventures.com"),
@@ -52,7 +54,7 @@ export const viewport = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth" data-scroll-behavior="smooth">
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/images/favicon.png" type="image/png" />
@@ -66,7 +68,9 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body className="antialiased min-h-screen flex flex-col bg-white text-[#1E293B]">
-        {children}
+        <PreloaderProvider>
+          <SmoothScrollProvider>{children}</SmoothScrollProvider>
+        </PreloaderProvider>
       </body>
     </html>
   );

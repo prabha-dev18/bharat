@@ -21,15 +21,13 @@ export default function AnimateOnScroll({
   threshold = 0.12,
 }) {
   const ref = useRef(null);
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
 
-    // Respect reduced-motion preferences immediately
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setIsVisible(true);
       return;
     }
 
