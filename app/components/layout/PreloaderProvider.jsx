@@ -1,21 +1,25 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Preloader from "./Preloader";
 
 export default function PreloaderProvider({ children }) {
-  const [showPreloader, setShowPreloader] = useState(() => {
-    if (typeof window !== "undefined") {
-      return !sessionStorage.getItem("bsv_preloader_seen");
+  const [showPreloader, setShowPreloader] = useState(true);
+
+  useEffect(() => {
+    // Clear any previous persistent preloader seen state so refreshes and reloads always show it
+    try {
+      sessionStorage.removeItem("bsv_preloader_seen");
+    } catch {
+      // ignore
     }
-    return false;
-  });
+  }, []);
 
   const handleComplete = () => {
-    if (typeof window !== "undefined") {
-      sessionStorage.setItem("bsv_preloader_seen", "true");
-    }
     setShowPreloader(false);
+    if (typeof window !== "undefined") {
+      window.dispatchEvent(new CustomEvent("bsv_preloader_completed"));
+    }
   };
 
   return (

@@ -1,6 +1,8 @@
 import "./global.css";
 import SmoothScrollProvider from "./components/layout/SmoothScrollProvider";
 import PreloaderProvider from "./components/layout/PreloaderProvider";
+import GoogleTranslator from "./components/layout/GoogleTranslator";
+import InquiryPopup from "./components/layout/InquiryPopup";
 
 export const metadata = {
   metadataBase: new URL("https://bharatstartupventures.com"),
@@ -68,8 +70,12 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body className="antialiased min-h-screen flex flex-col bg-white text-[#1E293B]">
+        <GoogleTranslator />
         <PreloaderProvider>
-          <SmoothScrollProvider>{children}</SmoothScrollProvider>
+          <SmoothScrollProvider>
+            {children}
+            <InquiryPopup />
+          </SmoothScrollProvider>
         </PreloaderProvider>
       </body>
     </html>

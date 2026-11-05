@@ -25,18 +25,52 @@ import {
   CheckCircle2,
   ChevronRight,
   FileText,
+  Building2,
+  Award,
+  BarChart3,
+  Check,
 } from "lucide-react";
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false);
+  const [isSchemesDropdownOpen, setIsSchemesDropdownOpen] = useState(false);
   const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
+  const [isMobileSchemesOpen, setIsMobileSchemesOpen] = useState(false);
+  const [isLangDropdownOpen, setIsLangDropdownOpen] = useState(false);
+  const [currentLang, setCurrentLang] = useState(() => {
+    if (typeof window !== "undefined") {
+      const saved = localStorage.getItem("bsv_lang");
+      if (saved === "hi" || (document.cookie && document.cookie.includes("googtrans=/en/hi"))) {
+        return "hi";
+      }
+    }
+    return "en";
+  });
   const [formattedTime, setFormattedTime] = useState("");
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPos = window.scrollY || window.pageYOffset || 0;
+      setIsScrolled(scrollPos > 110);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const pathname = usePathname();
   const [clickedPath, setClickedPath] = useState(null);
   const dropdownRef = useRef(null);
   const hoverTimeoutRef = useRef(null);
+  const schemesDropdownRef = useRef(null);
+  const schemesHoverTimeoutRef = useRef(null);
+  const langDropdownRef = useRef(null);
 
   const isActive = (path) => {
     const current = clickedPath || pathname || (typeof window !== "undefined" ? window.location.pathname : "/");
@@ -90,13 +124,22 @@ export default function Header() {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         setIsServicesDropdownOpen(false);
       }
+      if (schemesDropdownRef.current && !schemesDropdownRef.current.contains(event.target)) {
+        setIsSchemesDropdownOpen(false);
+      }
+      if (langDropdownRef.current && !langDropdownRef.current.contains(event.target)) {
+        setIsLangDropdownOpen(false);
+      }
     };
 
     const handleKeyDown = (event) => {
       if (event.key === "Escape") {
         setIsServicesDropdownOpen(false);
+        setIsSchemesDropdownOpen(false);
+        setIsLangDropdownOpen(false);
         setIsMobileMenuOpen(false);
         setIsMobileServicesOpen(false);
+        setIsMobileSchemesOpen(false);
       }
     };
 
@@ -110,6 +153,9 @@ export default function Header() {
       if (hoverTimeoutRef.current) {
         clearTimeout(hoverTimeoutRef.current);
       }
+      if (schemesHoverTimeoutRef.current) {
+        clearTimeout(schemesHoverTimeoutRef.current);
+      }
     };
   }, []);
 
@@ -117,6 +163,7 @@ export default function Header() {
     if (hoverTimeoutRef.current) {
       clearTimeout(hoverTimeoutRef.current);
     }
+    setIsSchemesDropdownOpen(false);
     setIsServicesDropdownOpen(true);
   };
 
@@ -126,13 +173,32 @@ export default function Header() {
     }
     hoverTimeoutRef.current = setTimeout(() => {
       setIsServicesDropdownOpen(false);
-    }, 180);
+    }, 200);
+  };
+
+  const handleSchemesMouseEnter = () => {
+    if (schemesHoverTimeoutRef.current) {
+      clearTimeout(schemesHoverTimeoutRef.current);
+    }
+    setIsServicesDropdownOpen(false);
+    setIsSchemesDropdownOpen(true);
+  };
+
+  const handleSchemesMouseLeave = () => {
+    if (schemesHoverTimeoutRef.current) {
+      clearTimeout(schemesHoverTimeoutRef.current);
+    }
+    schemesHoverTimeoutRef.current = setTimeout(() => {
+      setIsSchemesDropdownOpen(false);
+    }, 200);
   };
 
   const handleNavigationClick = (href, event) => {
     setIsServicesDropdownOpen(false);
+    setIsSchemesDropdownOpen(false);
     setIsMobileMenuOpen(false);
     setIsMobileServicesOpen(false);
+    setIsMobileSchemesOpen(false);
 
     if (href === "/") {
       if (typeof window !== "undefined") {
@@ -171,6 +237,43 @@ export default function Header() {
     }
   };
 
+  const handleLanguageSelect = (langCode) => {
+    setCurrentLang(langCode);
+    setIsLangDropdownOpen(false);
+    if (typeof window !== "undefined") {
+      localStorage.setItem("bsv_lang", langCode);
+      const cookieValue = langCode === "hi" ? "/en/hi" : "/en/en";
+
+      // Set cookie for current domain and root path
+      document.cookie = `googtrans=${cookieValue}; path=/;`;
+      try {
+        if (window.location.hostname && window.location.hostname !== "localhost") {
+          document.cookie = `googtrans=${cookieValue}; path=/; domain=.${window.location.hostname};`;
+        }
+      } catch {
+        // ignore cookie domain errors
+      }
+
+      window.dispatchEvent(new CustomEvent("bsv_change_language", { detail: { lang: langCode } }));
+
+      const combo = document.querySelector(".goog-te-combo");
+      if (combo) {
+        combo.value = langCode;
+        combo.dispatchEvent(new Event("change"));
+      } else {
+        setTimeout(() => {
+          const retryCombo = document.querySelector(".goog-te-combo");
+          if (retryCombo) {
+            retryCombo.value = langCode;
+            retryCombo.dispatchEvent(new Event("change"));
+          } else {
+            window.location.reload();
+          }
+        }, 150);
+      }
+    }
+  };
+
   const handleFontSize = (delta) => {
     if (typeof document === "undefined") return;
     const current = parseFloat(document.documentElement.style.fontSize || "16");
@@ -182,59 +285,167 @@ export default function Header() {
     }
   };
 
-  const serviceGroups = [
+  const allServicesNav = [
     {
-      title: "Business Registration & Compliance",
-      category: "Incorporation & Statutory Filings",
-      description: "Pvt Ltd, LLP, MSME registration, ROC statutory annual filings & corporate legal governance.",
+      title: "Business Registration & Incorporation",
+      category: "Pvt Ltd, LLP, OPC & Partnerships",
       icon: Briefcase,
-      badge: "Pillar 01",
-      href: "/services#business-registration",
+      href: "/services/business-registration",
     },
     {
-      title: "Loans & Financial Assistance",
-      category: "MSME Loans & Working Capital",
-      description: "MSME business loans, Detailed Project Reports (DPR), CMA banking data & proposal readiness.",
+      title: "MSME / Udyam Registration",
+      category: "Official URN & Statutory Benefits",
+      icon: Building2,
+      href: "/services/udyam-registration",
+    },
+    {
+      title: "Taxation & Statutory Compliance",
+      category: "GST Returns, ITR, TDS & ROC Filings",
+      icon: ShieldCheck,
+      href: "/services/taxation-compliance",
+    },
+    {
+      title: "Startup Funding & DPR Preparation",
+      category: "Bankable DPRs, Pitch Decks & CMA Projections",
       icon: Landmark,
-      badge: "Pillar 02",
-      href: "/services#startup-funding",
+      href: "/services/startup-funding",
     },
     {
-      title: "Startup Funding & Government Schemes",
-      category: "DPIIT Recognition & Grants",
-      description: "Startup India Seed Fund (SISFS), Section 80-IAC tax exemption & pitch deck preparation.",
-      icon: Rocket,
-      badge: "Pillar 03",
-      href: "/government-schemes",
+      title: "Licences, Certifications & IP",
+      category: "FSSAI, Trade Licences, ISO & Trademarks",
+      icon: FileText,
+      href: "/services/licences-certifications",
     },
     {
-      title: "Agriculture, Food & Livestock",
-      category: "Agri-Infrastructure & Processing",
-      description: "Agri-Infrastructure Fund (AIF), PMFME food processing grants, cold chain & dairy schemes.",
-      icon: Sprout,
-      badge: "Pillar 04",
-      href: "/services#sector-specific-solutions",
+      title: "Website & E-Commerce Development",
+      category: "Modern Corporate Websites & Web Stores",
+      icon: Globe,
+      href: "/services/website-ecommerce",
     },
     {
-      title: "Technology & Innovation",
-      category: "Custom Software & AI Automation",
-      description: "Enterprise software, mobile & web applications, custom CRM platforms & AI workflow systems.",
+      title: "Mobile Apps & Custom Software",
+      category: "iOS / Android Apps & Custom Business CRM",
       icon: Cpu,
-      badge: "Pillar 05",
-      href: "/services#technology-web-app",
+      href: "/services/mobile-software",
     },
     {
-      title: "Digital Marketing & Creative Services",
-      category: "Brand Growth & Digital Presence",
-      description: "Performance SEO, corporate identity design, search visibility & multi-channel digital marketing.",
+      title: "AI & Business Automation",
+      category: "Intelligent Chatbots & WhatsApp Workflows",
+      icon: Sparkles,
+      href: "/services/ai-automation",
+    },
+    {
+      title: "Digital Marketing, SEO & Branding",
+      category: "Google SEO, Lead Campaigns & Identity",
       icon: Megaphone,
-      badge: "Pillar 06",
-      href: "/services#digital-marketing-branding",
+      href: "/services/digital-marketing",
+    },
+    {
+      title: "Data Analytics & Digital Transformation",
+      category: "Executive BI Dashboards & Digitization",
+      icon: BarChart3,
+      href: "/services/data-analytics",
+    },
+    {
+      title: "Industry-Specific Business Support",
+      category: "Advisory for Agri, Food, Mfg & Tech Units",
+      icon: Sprout,
+      href: "/services/industry-specific",
     },
   ];
 
+  const allSchemesNav = [
+    {
+      title: "PMEGP Scheme (15-35% Subsidy)",
+      category: "Margin Money Subsidy up to ₹50L",
+      icon: Landmark,
+      href: "/government-schemes/pmegp",
+      badge: "Flagship",
+    },
+    {
+      title: "Pradhan Mantri MUDRA Yojana",
+      category: "Collateral-Free Credit up to ₹20 Lakhs",
+      icon: Building2,
+      href: "/government-schemes/mudra",
+      badge: "Credit",
+    },
+    {
+      title: "CGTMSE Credit Guarantee",
+      category: "Collateral-Free Bank Loans up to ₹5 Crore",
+      icon: ShieldCheck,
+      href: "/government-schemes/cgtmse",
+      badge: "Guarantee",
+    },
+    {
+      title: "Startup India & DPIIT Recognition",
+      category: "Section 80-IAC 3-Year Tax Exemption & SISFS",
+      icon: Rocket,
+      href: "/government-schemes/startup-india",
+      badge: "Tax Exemption",
+    },
+    {
+      title: "Udyam Registration & MSME Support",
+      category: "Priority Lending & 45-Day Payment Rule",
+      icon: Building2,
+      href: "/government-schemes/udyam-registration",
+      badge: "Statutory",
+    },
+    {
+      title: "Government e-Marketplace (GeM)",
+      category: "Direct Public Procurement & EMD Waivers",
+      icon: Globe,
+      href: "/government-schemes/gem-registration",
+      badge: "Tenders",
+    },
+    {
+      title: "ZED Certification Scheme",
+      category: "Up to 80% Subsidy on Bronze/Silver/Gold",
+      icon: Award,
+      href: "/government-schemes/zed-certification",
+      badge: "Quality",
+    },
+    {
+      title: "PMFME & Agri-Infrastructure Fund",
+      category: "35% Food Processing Subsidy & 3% Subvention",
+      icon: Sprout,
+      href: "/government-schemes/pmfme-agri",
+      badge: "Agro / Food",
+    },
+    {
+      title: "State Government Incentives",
+      category: "Capital Subsidies & Stamp Duty Exemptions",
+      icon: Landmark,
+      href: "/government-schemes/state-incentives",
+      badge: "State Level",
+    },
+    {
+      title: "Technology & Innovation Grants",
+      category: "MeitY TIDE 2.0, BIRAC & DST Non-Dilutive Grants",
+      icon: Cpu,
+      href: "/government-schemes/technology-grants",
+      badge: "R&D Grants",
+    },
+    {
+      title: "Import Export Code (IEC) & DGFT",
+      category: "10-Digit DGFT Licence & Export Incentives",
+      icon: Globe,
+      href: "/government-schemes/iec-code",
+      badge: "Export",
+    },
+    {
+      title: "Licences, Certification & Sector Support",
+      category: "FSSAI, Trade Licences, ISO & Labour Support",
+      icon: FileText,
+      href: "/government-schemes/licences-certifications",
+      badge: "Compliance",
+    },
+  ];
+
+  const serviceGroups = allServicesNav.slice(0, 6);
+
   return (
-    <header className="sticky top-0 z-50 w-full bg-white shadow-md">
+    <>
+      <header className="relative z-40 w-full bg-white">
       {/* =========================================================================
           TOP TRICOLOR MICRO-STRIP
           ========================================================================= */}
@@ -296,11 +507,60 @@ export default function Header() {
               </div>
             </div>
 
-            {/* Language Selector */}
-            <div className="inline-flex items-center gap-1 rounded border border-slate-700 bg-[#07192C] px-2 py-0.5 text-[10.5px] font-medium text-slate-200">
-              <Globe size={11} className="text-[#C89D3C]" />
-              <span>English (English)</span>
-              <ChevronDown size={10} className="text-slate-400" />
+            {/* Language Selector (English / Hindi Full-Site Switcher) */}
+            <div ref={langDropdownRef} className="relative inline-block text-left notranslate">
+              <button
+                type="button"
+                onClick={() => setIsLangDropdownOpen((prev) => !prev)}
+                aria-expanded={isLangDropdownOpen}
+                aria-haspopup="true"
+                className="inline-flex items-center gap-1.5 rounded border border-slate-700 bg-[#07192C] px-2 py-0.5 text-[10.5px] font-medium text-slate-200 hover:border-[#C89D3C] hover:text-[#F3D072] transition-colors cursor-pointer"
+              >
+                <Globe size={11} className="text-[#C89D3C]" />
+                <span className="font-semibold">{currentLang === "hi" ? "हिंदी (Hindi)" : "English (English)"}</span>
+                <ChevronDown
+                  size={10}
+                  className={`text-slate-400 transition-transform duration-200 ${
+                    isLangDropdownOpen ? "rotate-180 text-[#F3D072]" : ""
+                  }`}
+                />
+              </button>
+
+              {/* Language Dropdown Menu */}
+              {isLangDropdownOpen && (
+                <div
+                  className="absolute right-0 top-full mt-1 w-36 rounded-md border border-slate-700 bg-[#0A2540] py-1 shadow-xl z-50 text-xs font-sans notranslate"
+                  role="menu"
+                >
+                  <button
+                    type="button"
+                    onClick={() => handleLanguageSelect("en")}
+                    className={`w-full flex items-center justify-between px-3 py-1.5 text-left text-[11px] transition-colors cursor-pointer ${
+                      currentLang === "en"
+                        ? "bg-[#C89D3C]/20 text-[#F3D072] font-bold"
+                        : "text-slate-200 hover:bg-slate-800/80 hover:text-white"
+                    }`}
+                    role="menuitem"
+                  >
+                    <span>English</span>
+                    {currentLang === "en" && <Check size={12} className="text-[#F3D072]" />}
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => handleLanguageSelect("hi")}
+                    className={`w-full flex items-center justify-between px-3 py-1.5 text-left text-[11px] transition-colors cursor-pointer ${
+                      currentLang === "hi"
+                        ? "bg-[#C89D3C]/20 text-[#F3D072] font-bold"
+                        : "text-slate-200 hover:bg-slate-800/80 hover:text-white"
+                    }`}
+                    role="menuitem"
+                  >
+                    <span>हिंदी (Hindi)</span>
+                    {currentLang === "hi" && <Check size={12} className="text-[#F3D072]" />}
+                  </button>
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -381,14 +641,60 @@ export default function Header() {
           </div>
         </div>
       </div>
+    </header>
 
-      {/* =========================================================================
-          TIER 3: PRIMARY HORIZONTAL NAVIGATION BAR (Navy #0A2540 + Gold Trim)
-          ========================================================================= */}
-      <nav className="w-full bg-[#0A2540] border-t-2 border-[#C89D3C] relative shadow-md">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-3 sm:px-6 lg:px-8">
-          {/* Desktop Navigation Links */}
-          <div className="hidden lg:flex items-center">
+    {/* =========================================================================
+        TIER 3: PRIMARY HORIZONTAL NAVIGATION BAR (Navy #0A2540 + Gold Trim)
+        Fixed top-0 when scrolling down so ONLY this menu portion stays visible!
+        ========================================================================= */}
+    <nav
+      className={`w-full bg-[#0A2540] border-t-2 border-[#C89D3C] transition-all duration-200 ${
+        isScrolled
+          ? "fixed top-0 left-0 right-0 z-50 shadow-2xl"
+          : "relative z-40 shadow-md"
+      }`}
+    >
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-3 sm:px-6 lg:px-8">
+        {/* Mobile Sticky Bar: Visible on screens < lg when scrolled */}
+        <div className={`flex lg:hidden items-center justify-between w-full py-1.5 ${isScrolled ? "flex" : "hidden"}`}>
+          <Link
+            href="/"
+            onClick={(event) => handleNavigationClick("/", event)}
+            className="flex items-center"
+            aria-label="Bharat Startup Ventures home"
+          >
+            <Image
+              src="/images/logo2.png"
+              alt="Bharat Startup Ventures"
+              width={140}
+              height={34}
+              priority
+              className="h-7 w-auto object-contain brightness-0 invert"
+            />
+          </Link>
+
+          <div className="flex items-center gap-2">
+            <Link
+              href="/contact"
+              onClick={(event) => handleNavigationClick("/contact", event)}
+              className="rounded-sm border border-[#C89D3C]/60 bg-[#C89D3C]/20 px-2.5 py-1 text-[11px] font-bold text-[#F3D072] hover:bg-[#C89D3C]/30 transition-colors"
+            >
+              Apply
+            </Link>
+            <button
+              type="button"
+              onClick={() => setIsMobileMenuOpen((prev) => !prev)}
+              className="p-1 rounded text-white hover:text-[#F3D072] border border-white/20 active:scale-95 transition-all cursor-pointer"
+              aria-label={isMobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+              aria-expanded={isMobileMenuOpen}
+            >
+              {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+            </button>
+          </div>
+        </div>
+
+        {/* Desktop Navigation Links */}
+        <div className="hidden lg:flex items-center">
             {/* 1. Home */}
             <Link
               href="/"
@@ -417,7 +723,12 @@ export default function Header() {
             </Link>
 
             {/* 3. Our Services (Mega Dropdown) */}
-            <div ref={dropdownRef} className="relative flex items-center" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+            <div
+              ref={dropdownRef}
+              className="relative flex items-center"
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            >
               <Link
                 href="/services"
                 onClick={(event) => handleNavigationClick("/services", event)}
@@ -430,29 +741,231 @@ export default function Header() {
                 aria-haspopup="true"
               >
                 <span>Our Services</span>
-                <ChevronDown
-                  size={14}
-                  style={{ color: isActive("/services") || isServicesDropdownOpen ? "#C89D3C" : "#FFFFFF" }}
-                  className={`transition-transform duration-300 ${
-                    isActive("/services") || isServicesDropdownOpen ? "rotate-180" : ""
-                  }`}
-                />
+                <span
+                  role="button"
+                  tabIndex={0}
+                  aria-label="Toggle services dropdown"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    setIsServicesDropdownOpen((prev) => !prev);
+                  }}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      setIsServicesDropdownOpen((prev) => !prev);
+                    }
+                  }}
+                  className="p-0.5 cursor-pointer"
+                >
+                  <ChevronDown
+                    size={14}
+                    style={{ color: isActive("/services") || isServicesDropdownOpen ? "#C89D3C" : "#FFFFFF" }}
+                    className={`transition-transform duration-300 ${
+                      isActive("/services") || isServicesDropdownOpen ? "rotate-180" : ""
+                    }`}
+                  />
+                </span>
               </Link>
-              ...
+
+              {/* Desktop Services Mega Menu Card */}
+              {isServicesDropdownOpen && (
+                <div
+                  className="absolute left-0 top-full mt-0 w-[720px] max-w-[calc(100vw-40px)] rounded-sm border border-slate-200/90 bg-white p-5 shadow-2xl z-50 font-sans before:absolute before:-top-3 before:left-0 before:right-0 before:h-3 before:content-['']"
+                  role="menu"
+                >
+                  {/* Top Golden Decorative Strip */}
+                  <div className="absolute top-0 left-6 right-6 h-1 bg-gradient-to-r from-[#FF9933] via-[#C89D3C] to-[#138808] rounded-t-sm" />
+
+                  <div className="flex items-center justify-between pb-3 border-b border-slate-100 mb-2.5 pt-1">
+                    <div>
+                      <span className="text-xs font-extrabold uppercase tracking-wider text-[#0A2540]">
+                        Single-Window Business &amp; IT Services
+                      </span>
+                      <p className="text-[11px] text-slate-500">
+                        Explore dedicated service pages tailored for founders, MSMEs &amp; corporations
+                      </p>
+                    </div>
+                    <Link
+                      href="/services"
+                      onClick={(e) => handleNavigationClick("/services", e)}
+                      className="text-xs font-bold text-[#C89D3C] hover:underline flex items-center gap-1"
+                    >
+                      <span>All Services Directory</span>
+                      <ArrowRight size={13} />
+                    </Link>
+                  </div>
+
+                  {/* 2-column grid of all 11 services */}
+                  <div className="grid grid-cols-2 gap-1.5 max-h-[380px] overflow-y-auto pr-1">
+                    {allServicesNav.map((item) => {
+                      const Icon = item.icon;
+                      return (
+                        <Link
+                          key={item.href}
+                          href={item.href}
+                          onClick={(e) => handleNavigationClick(item.href, e)}
+                          className="group flex items-start gap-2.5 rounded-sm p-2 transition-colors hover:bg-slate-50 border border-transparent hover:border-slate-200/80"
+                        >
+                          <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-sm bg-[#0A2540]/5 text-[#0A2540] transition-colors group-hover:bg-[#0A2540] group-hover:text-[#C89D3C] mt-0.5">
+                            <Icon size={14} />
+                          </div>
+                          <div className="min-w-0">
+                            <span className="block text-xs font-bold text-[#0A2540] group-hover:text-[#C89D3C] transition-colors truncate">
+                              {item.title}
+                            </span>
+                            <span className="block text-[10.5px] text-slate-500 truncate">
+                              {item.category}
+                            </span>
+                          </div>
+                        </Link>
+                      );
+                    })}
+                  </div>
+
+                  {/* Bottom Action Strip */}
+                  <div className="mt-3 pt-2.5 border-t border-slate-100 flex items-center justify-between text-xs bg-slate-50/70 -mx-5 -mb-5 px-5 py-2.5 rounded-b-2xl">
+                    <span className="text-slate-600 text-[11.5px]">
+                      Need assistance choosing the right business structure or DPR?
+                    </span>
+                    <Link
+                      href="/contact"
+                      onClick={(e) => handleNavigationClick("/contact", e)}
+                      className="font-bold text-[#0A2540] hover:text-[#C89D3C] flex items-center gap-1 text-[11.5px]"
+                    >
+                      <span>Request Free Consultation</span>
+                      <ArrowRight size={12} className="text-[#C89D3C]" />
+                    </Link>
+                  </div>
+                </div>
+              )}
             </div>
 
-            {/* 4. Government Schemes */}
-            <Link
-              href="/government-schemes"
-              onClick={(event) => handleNavigationClick("/government-schemes", event)}
-              style={{
-                color: isActive("/government-schemes") ? "#C89D3C" : "#FFFFFF",
-                borderColor: isActive("/government-schemes") ? "#C89D3C" : "transparent",
-              }}
-              className="px-4 py-3 text-[13.5px] font-bold transition-colors border-b-[3px] hover:!text-[#C89D3C] hover:!border-[#C89D3C]"
+            {/* 4. Government Schemes (Mega Dropdown) */}
+            <div
+              ref={schemesDropdownRef}
+              className="relative flex items-center"
+              onMouseEnter={handleSchemesMouseEnter}
+              onMouseLeave={handleSchemesMouseLeave}
             >
-              <span>Government Schemes</span>
-            </Link>
+              <Link
+                href="/government-schemes"
+                onClick={(event) => handleNavigationClick("/government-schemes", event)}
+                style={{
+                  color: isActive("/government-schemes") || isSchemesDropdownOpen ? "#C89D3C" : "#FFFFFF",
+                  borderColor: isActive("/government-schemes") || isSchemesDropdownOpen ? "#C89D3C" : "transparent",
+                }}
+                className="flex items-center gap-1.5 px-4 py-3 text-[13.5px] font-bold transition-colors border-b-[3px] cursor-pointer hover:!text-[#C89D3C] hover:!border-[#C89D3C]"
+                aria-expanded={isSchemesDropdownOpen}
+                aria-haspopup="true"
+              >
+                <span>Government Schemes</span>
+                <span
+                  role="button"
+                  tabIndex={0}
+                  aria-label="Toggle government schemes dropdown"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    setIsSchemesDropdownOpen((prev) => !prev);
+                  }}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      setIsSchemesDropdownOpen((prev) => !prev);
+                    }
+                  }}
+                  className="p-0.5 cursor-pointer"
+                >
+                  <ChevronDown
+                    size={14}
+                    style={{ color: isActive("/government-schemes") || isSchemesDropdownOpen ? "#C89D3C" : "#FFFFFF" }}
+                    className={`transition-transform duration-300 ${
+                      isActive("/government-schemes") || isSchemesDropdownOpen ? "rotate-180" : ""
+                    }`}
+                  />
+                </span>
+              </Link>
+
+              {/* Desktop Schemes Mega Menu Card */}
+              {isSchemesDropdownOpen && (
+                <div
+                  className="absolute lg:-left-28 xl:left-0 top-full mt-0 w-[740px] max-w-[calc(100vw-40px)] rounded-sm border border-slate-200/90 bg-white p-5 shadow-2xl z-50 font-sans before:absolute before:-top-3 before:left-0 before:right-0 before:h-3 before:content-['']"
+                  role="menu"
+                >
+                  {/* Top Golden Decorative Strip */}
+                  <div className="absolute top-0 left-6 right-6 h-1 bg-gradient-to-r from-[#FF9933] via-[#C89D3C] to-[#138808] rounded-t-sm" />
+
+                  <div className="flex items-center justify-between pb-3 border-b border-slate-100 mb-2.5 pt-1">
+                    <div>
+                      <span className="text-xs font-extrabold uppercase tracking-wider text-[#0A2540]">
+                        Central &amp; State Government Schemes
+                      </span>
+                      <p className="text-[11px] text-slate-500">
+                        15% to 35% margin money subsidies, collateral-free credit &amp; tax holidays
+                      </p>
+                    </div>
+                    <Link
+                      href="/government-schemes"
+                      onClick={(e) => handleNavigationClick("/government-schemes", e)}
+                      className="text-xs font-bold text-[#C89D3C] hover:underline flex items-center gap-1"
+                    >
+                      <span>All 12 Schemes Directory</span>
+                      <ArrowRight size={13} />
+                    </Link>
+                  </div>
+
+                  {/* 2-column grid of all 12 schemes */}
+                  <div className="grid grid-cols-2 gap-1.5 max-h-[380px] overflow-y-auto pr-1">
+                    {allSchemesNav.map((scheme) => {
+                      const Icon = scheme.icon;
+                      return (
+                        <Link
+                          key={scheme.href}
+                          href={scheme.href}
+                          onClick={(e) => handleNavigationClick(scheme.href, e)}
+                          className="group flex items-start gap-2.5 rounded-sm p-2 transition-colors hover:bg-slate-50 border border-transparent hover:border-slate-200/80"
+                        >
+                          <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-sm bg-[#00843D]/10 text-[#00843D] transition-colors group-hover:bg-[#00843D] group-hover:text-white mt-0.5">
+                            <Icon size={14} />
+                          </div>
+                          <div className="min-w-0 flex-1">
+                            <div className="flex items-center justify-between gap-1">
+                              <span className="block text-xs font-bold text-[#0A2540] group-hover:text-[#C89D3C] transition-colors truncate">
+                                {scheme.title}
+                              </span>
+                              {scheme.badge && (
+                                <span className="text-[9.5px] font-bold uppercase rounded-full bg-[#C89D3C]/10 text-[#0A2540] px-1.5 py-0.2 shrink-0">
+                                  {scheme.badge}
+                                </span>
+                              )}
+                            </div>
+                            <span className="block text-[10.5px] text-slate-500 truncate">
+                              {scheme.category}
+                            </span>
+                          </div>
+                        </Link>
+                      );
+                    })}
+                  </div>
+
+                  {/* Bottom Action Strip */}
+                  <div className="mt-3 pt-2.5 border-t border-slate-100 flex items-center justify-between text-xs bg-slate-50/70 -mx-5 -mb-5 px-5 py-2.5 rounded-b-2xl">
+                    <span className="text-slate-600 text-[11.5px]">
+                      Check eligibility for PMEGP, MUDRA, CGTMSE &amp; Section 80-IAC
+                    </span>
+                    <Link
+                      href="/government-schemes#eligibility-matcher"
+                      onClick={(e) => handleNavigationClick("/government-schemes#eligibility-matcher", e)}
+                      className="font-bold text-[#0A2540] hover:text-[#C89D3C] flex items-center gap-1 text-[11.5px]"
+                    >
+                      <span>Interactive Scheme Matcher</span>
+                      <ArrowRight size={12} className="text-[#C89D3C]" />
+                    </Link>
+                  </div>
+                </div>
+              )}
+            </div>
 
             {/* 5. Contact Us */}
             <Link
@@ -545,7 +1058,7 @@ export default function Header() {
                   className="flex-1 flex items-center gap-2"
                 >
                   <span>Our Services</span>
-                  <span className="rounded-full bg-[#C89D3C]/15 px-2 py-0.5 text-[10px] font-bold text-[#C89D3C]">6 Pillars</span>
+                  <span className="rounded-full bg-[#C89D3C]/15 px-2 py-0.5 text-[10px] font-bold text-[#C89D3C]">All 11</span>
                 </Link>
 
                 <button
@@ -568,27 +1081,27 @@ export default function Header() {
                 }`}
               >
                 <div className="overflow-hidden">
-                  <div className="mt-1 flex flex-col gap-1.5 rounded-sm border border-slate-200/80 bg-slate-50/70 p-2 sm:p-2.5">
-                    {serviceGroups.map((group) => {
-                      const Icon = group.icon;
+                  <div className="mt-1 flex flex-col gap-1 rounded-sm border border-slate-200/80 bg-slate-50/70 p-2 sm:p-2.5">
+                    {allServicesNav.map((service) => {
+                      const Icon = service.icon;
                       return (
                         <Link
-                          key={group.badge}
-                          href={group.href}
+                          key={service.href}
+                          href={service.href}
                           tabIndex={isMobileMenuOpen && isMobileServicesOpen ? 0 : -1}
-                          onClick={(event) => handleNavigationClick(group.href, event)}
+                          onClick={(event) => handleNavigationClick(service.href, event)}
                           className="group/mobile flex items-center justify-between gap-2.5 rounded-sm border border-transparent p-2 transition-colors duration-200 hover:border-[#C89D3C]/30 hover:bg-white hover:text-[#C89D3C] active:bg-white cursor-pointer"
                         >
                           <div className="flex min-w-0 items-center gap-2.5">
                             <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-sm bg-white text-[#0A2540] border border-slate-200/70 shadow-2xs">
-                              <Icon size={14} className="text-[#0A2540]" />
+                              <Icon size={13} className="text-[#0A2540]" />
                             </div>
 
                             <div className="min-w-0">
                               <span className="block text-xs font-semibold leading-snug text-slate-800 group-hover/mobile:text-[#C89D3C] truncate">
-                                {group.title}
+                                {service.title}
                               </span>
-                              <span className="block text-[10px] text-[#C89D3C] font-medium leading-tight">{group.category}</span>
+                              <span className="block text-[10px] text-[#C89D3C] font-medium leading-tight">{service.category}</span>
                             </div>
                           </div>
 
@@ -606,7 +1119,7 @@ export default function Header() {
                       onClick={(event) => handleNavigationClick("/services", event)}
                       className="mt-1 flex items-center justify-between rounded-sm bg-[#0A2540]/5 p-2 text-xs font-bold text-[#0A2540] hover:bg-[#0A2540]/10 transition-colors"
                     >
-                      <span>Explore All Services</span>
+                      <span>Explore All 11 Services Catalogue</span>
                       <ArrowRight size={13} className="text-[#C89D3C]" />
                     </Link>
                   </div>
@@ -614,23 +1127,90 @@ export default function Header() {
               </div>
             </div>
 
-            {/* 4. Government Schemes */}
-            <Link
-              href="/government-schemes"
-              tabIndex={isMobileMenuOpen ? 0 : -1}
-              onClick={(event) => handleNavigationClick("/government-schemes", event)}
-              className={`min-h-[44px] flex items-center justify-between rounded-sm px-3.5 py-2.5 transition-colors duration-200 hover:bg-slate-50 hover:text-[#C89D3C] active:bg-slate-100 ${
-                isActive("/government-schemes") ? "bg-slate-50 text-[#C89D3C] font-bold" : ""
-              }`}
-            >
-              <div className="flex items-center gap-2">
-                <span>Government Schemes</span>
-                <span className="rounded-full bg-emerald-500/10 px-2 py-0.5 text-[10px] font-bold text-emerald-700 border border-emerald-500/20">
-                  Schemes
-                </span>
+            {/* 4. Government Schemes (Accordion) */}
+            <div className="rounded-sm overflow-hidden">
+              <div
+                className={`min-h-[44px] flex w-full items-center justify-between rounded-sm px-3.5 py-2.5 transition-colors duration-200 hover:bg-slate-50 hover:text-[#C89D3C] active:bg-slate-100 ${
+                  isActive("/government-schemes") ? "bg-slate-50 text-[#C89D3C] font-bold" : ""
+                }`}
+              >
+                <Link
+                  href="/government-schemes"
+                  tabIndex={isMobileMenuOpen ? 0 : -1}
+                  onClick={(event) => handleNavigationClick("/government-schemes", event)}
+                  className="flex-1 flex items-center gap-2"
+                >
+                  <span>Government Schemes</span>
+                  <span className="rounded-full bg-emerald-500/10 px-2 py-0.5 text-[10px] font-bold text-emerald-700 border border-emerald-500/20">
+                    All 12
+                  </span>
+                </Link>
+
+                <button
+                  type="button"
+                  onClick={() => setIsMobileSchemesOpen((previous) => !previous)}
+                  className="p-1.5 text-[#C89D3C] hover:bg-slate-100 rounded-sm cursor-pointer"
+                  aria-label="Toggle schemes list"
+                  aria-expanded={isMobileSchemesOpen}
+                >
+                  <ChevronDown
+                    size={16}
+                    className={`text-[#C89D3C] transition-transform duration-300 ${isMobileSchemesOpen ? "rotate-180" : ""}`}
+                  />
+                </button>
               </div>
-              <ArrowRight size={14} className={isActive("/government-schemes") ? "text-[#C89D3C]" : "text-slate-400"} />
-            </Link>
+
+              <div
+                className={`grid transition-[grid-template-rows,opacity] duration-300 ease-in-out ${
+                  isMobileSchemesOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+                }`}
+              >
+                <div className="overflow-hidden">
+                  <div className="mt-1 flex flex-col gap-1 rounded-sm border border-slate-200/80 bg-slate-50/70 p-2 sm:p-2.5">
+                    {allSchemesNav.map((scheme) => {
+                      const Icon = scheme.icon;
+                      return (
+                        <Link
+                          key={scheme.href}
+                          href={scheme.href}
+                          tabIndex={isMobileMenuOpen && isMobileSchemesOpen ? 0 : -1}
+                          onClick={(event) => handleNavigationClick(scheme.href, event)}
+                          className="group/mobile flex items-center justify-between gap-2.5 rounded-sm border border-transparent p-2 transition-colors duration-200 hover:border-[#C89D3C]/30 hover:bg-white hover:text-[#C89D3C] active:bg-white cursor-pointer"
+                        >
+                          <div className="flex min-w-0 items-center gap-2.5">
+                            <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-sm bg-white text-[#00843D] border border-slate-200/70 shadow-2xs">
+                              <Icon size={13} className="text-[#00843D]" />
+                            </div>
+
+                            <div className="min-w-0">
+                              <span className="block text-xs font-semibold leading-snug text-slate-800 group-hover/mobile:text-[#C89D3C] truncate">
+                                {scheme.title}
+                              </span>
+                              <span className="block text-[10px] text-[#C89D3C] font-medium leading-tight">{scheme.category}</span>
+                            </div>
+                          </div>
+
+                          <ChevronRight
+                            size={13}
+                            className="shrink-0 text-slate-400 transition-transform duration-200 group-hover/mobile:translate-x-0.5"
+                          />
+                        </Link>
+                      );
+                    })}
+
+                    <Link
+                      href="/government-schemes"
+                      tabIndex={isMobileMenuOpen && isMobileSchemesOpen ? 0 : -1}
+                      onClick={(event) => handleNavigationClick("/government-schemes", event)}
+                      className="mt-1 flex items-center justify-between rounded-sm bg-[#0A2540]/5 p-2 text-xs font-bold text-[#0A2540] hover:bg-[#0A2540]/10 transition-colors"
+                    >
+                      <span>Explore All 12 Government Schemes</span>
+                      <ArrowRight size={13} className="text-[#C89D3C]" />
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
 
             {/* 5. Contact Us */}
             <Link
@@ -682,18 +1262,49 @@ export default function Header() {
                 <span>Send Email</span>
               </a>
             </div>
+
+            {/* Mobile Language Switcher (English / Hindi) */}
+            <div className="mt-2.5 pt-2.5 border-t border-slate-100 flex items-center justify-between text-xs px-1 notranslate">
+              <span className="text-slate-500 font-medium flex items-center gap-1.5">
+                <Globe size={13} className="text-[#C89D3C]" />
+                Language / भाषा:
+              </span>
+              <div className="inline-flex rounded border border-slate-300 overflow-hidden text-xs">
+                <button
+                  type="button"
+                  onClick={() => handleLanguageSelect("en")}
+                  className={`px-3 py-1 font-semibold transition-colors cursor-pointer ${
+                    currentLang === "en" ? "bg-[#0A2540] text-[#F3D072]" : "bg-white text-slate-700 hover:bg-slate-50"
+                  }`}
+                >
+                  English
+                </button>
+                <button
+                  type="button"
+                  onClick={() => handleLanguageSelect("hi")}
+                  className={`px-3 py-1 font-semibold transition-colors border-l border-slate-300 cursor-pointer ${
+                    currentLang === "hi" ? "bg-[#0A2540] text-[#F3D072]" : "bg-white text-slate-700 hover:bg-slate-50"
+                  }`}
+                >
+                  हिंदी
+                </button>
+              </div>
+            </div>
           </div>
         </div>
 
         {/* Backdrop overlay for mobile drawer */}
         {isMobileMenuOpen && (
           <div
-            className="fixed inset-0 top-[140px] bg-[#0A2540]/40 backdrop-blur-[2px] z-[-1] lg:hidden"
+            className="fixed inset-0 top-[52px] bg-[#0A2540]/50 backdrop-blur-[2px] z-[-1] lg:hidden"
             onClick={() => setIsMobileMenuOpen(false)}
             aria-hidden="true"
           />
         )}
       </nav>
-    </header>
+
+      {/* Layout Spacer when nav is fixed on desktop to prevent content jump */}
+      {isScrolled && <div className="hidden lg:block h-[47px] w-full" aria-hidden="true" />}
+    </>
   );
 }

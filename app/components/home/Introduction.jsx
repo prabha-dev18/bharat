@@ -1,35 +1,90 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
-import { Users, Landmark, ShieldCheck, CheckCircle2, ArrowRight } from "lucide-react";
+import {
+  Building2,
+  Scale,
+  Landmark,
+  ShieldCheck,
+  CheckCircle2,
+  ArrowRight,
+  ArrowUpRight,
+  FileCheck2,
+  Compass,
+  Award,
+} from "lucide-react";
 
 export default function Introduction() {
-  const highlights = [
+  const pillars = [
     {
-      icon: Users,
-      title: "One Partner Many Solutions",
-      sub: "End-to-end statutory & business support across the enterprise lifecycle",
-      badgeColor: "border-[#C89D3C]/40 text-[#0A2540] bg-white",
+      num: "01",
+      icon: Building2,
+      title: "Statutory Formation & Incorporation",
+      badge: "Corporate Formation",
+      description:
+        "Fast-track company incorporation under MCA SPICe+, LLP structuring, OPC, Section 8, and statutory documentation tailored for Indian enterprise scale.",
+      benefits: [
+        "MCA SPICe+ Expedited Incorporation",
+        "PAN, TAN, MOA, AOA & Digital Signature",
+        "Bank Account & Capital Structuring",
+      ],
+      accent: "border-[#C89D3C]/40 text-[#C89D3C] bg-[#C89D3C]/10",
     },
     {
+      num: "02",
+      icon: Scale,
+      title: "Taxation & Regulatory Adherence",
+      badge: "Tax & Compliance",
+      description:
+        "End-to-end statutory compliance management ensuring seamless alignment with GST regulations, direct taxes, and ROC annual filing mandates.",
+      benefits: [
+        "GST Registration & Monthly Return Desk",
+        "Income Tax & TDS Statutory Filings",
+        "ROC Annual Returns & Board Resolutions",
+      ],
+      accent: "border-emerald-400/40 text-[#00843D] bg-emerald-50",
+    },
+    {
+      num: "03",
       icon: Landmark,
-      title: "Trusted by Entrepreneurs",
-      sub: "Facilitating startups and MSMEs across 28 States & 8 Union Territories",
-      badgeColor: "border-emerald-300 text-[#00843D] bg-emerald-50/50",
+      title: "Government Schemes & Subsidies",
+      badge: "Government Desk",
+      description:
+        "Single-window facilitation unlocking central and state incentive frameworks, seed funds, capital margin subsidies, and collateral-free credit.",
+      benefits: [
+        "DPIIT Recognition & Section 80-IAC Exemption",
+        "Startup India Seed Fund & Grant Advisory",
+        "PMEGP (Up to 35% Subsidy) & CGTMSE Loans",
+      ],
+      accent: "border-[#0A2540]/30 text-[#0A2540] bg-[#0A2540]/5",
     },
     {
+      num: "04",
       icon: ShieldCheck,
-      title: "Focused on Long-Term Growth",
-      sub: "Robust governance, regulatory adherence and continuous advisory",
-      badgeColor: "border-sky-300 text-[#0A2540] bg-sky-50/50",
+      title: "IPR & Enterprise Governance",
+      badge: "Asset Protection",
+      description:
+        "Robust intellectual property safeguarding and corporate governance advisory to build defensible valuation and long-term enterprise credibility.",
+      benefits: [
+        "Trademark Search, Filing & Prosecution",
+        "Patent Drafting & Copyright Registration",
+        "ISO Certifications & Trade Licences",
+      ],
+      accent: "border-sky-400/40 text-sky-700 bg-sky-50",
     },
+  ];
+
+  const trustMetrics = [
+    { label: "National Coverage", value: "28 States & 8 UTs", icon: Compass },
+    { label: "Regulatory Standard", value: "MCA & DPIIT Aligned", icon: Award },
+    { label: "Execution Model", value: "100% Digital Single-Window", icon: FileCheck2 },
+    { label: "Compliance Quality", value: "End-to-End Governance", icon: ShieldCheck },
   ];
 
   return (
     <section
       id="introduction"
-      className="relative py-8 sm:py-10 lg:py-12 bg-[#FAF9F5] border-t border-b border-slate-200/80 font-sans scroll-mt-24 overflow-hidden"
+      className="relative py-12 sm:py-16 lg:py-20 bg-[#FAF9F5] border-t border-b border-slate-200/80 font-sans scroll-mt-24 overflow-hidden"
     >
       {/* Background Micro Gov Pattern */}
       <div
@@ -38,180 +93,155 @@ export default function Introduction() {
       />
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Equal-Height 3-Column Grid - Compact Vertical Footprint */}
-        <div className="grid grid-cols-1 gap-5 sm:gap-6 lg:grid-cols-12 lg:gap-5 xl:gap-6 lg:items-stretch">
-          
-          {/* ===================================================================
-              1. LEFT: India Gate Visual Card (Decreased Height, Equal to Row)
-              =================================================================== */}
-          <div className="lg:col-span-5 flex flex-col h-full">
-            <div className="group relative overflow-hidden rounded-xl sm:rounded-2xl border border-slate-300/80 bg-white shadow-md shadow-slate-900/5 w-full h-full min-h-[290px] sm:min-h-[320px] lg:min-h-full flex flex-col justify-between">
-              {/* 1200x896 True HD Image filling full height */}
-              <Image
-                src="/images/who-we-are-india-gate-hd.jpg"
-                alt="India Gate, New Delhi - Supporting Entrepreneurs Building A Stronger India"
-                fill
-                priority
-                quality={100}
-                className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.02]"
-                sizes="(max-width: 1024px) 100vw, 480px"
-              />
+        
+        {/* ===================================================================
+            1. HEADER BLOCK: Single-Window Government Facilitation Overview
+            =================================================================== */}
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
+          {/* Eyebrow */}
+          <div className="mb-3 inline-flex items-center gap-2">
+            <span className="h-0.5 w-6 bg-[#C89D3C]" />
+            <span className="text-[11px] font-bold uppercase tracking-[0.22em] text-[#C89D3C]">
+              NATIONAL SINGLE-WINDOW FACILITATION &bull; BHARAT STARTUP
+            </span>
+            <span className="h-0.5 w-6 bg-[#C89D3C]" />
+          </div>
 
-              {/* Subtle Ambient Light Gradient on right edge for motto clarity */}
+          {/* Main Headline */}
+          <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-[#0A2540] leading-tight mb-3 sm:mb-4">
+            One Unified Institutional Gateway for India&apos;s Next Generation of Entrepreneurs
+          </h2>
+
+          {/* Core Introduction Paragraph */}
+          <p className="text-xs sm:text-[14px] leading-relaxed text-slate-700 max-w-2xl mx-auto sm:leading-[1.7]">
+            From early-stage ideation to market scale, Bharat Startup Ventures delivers the statutory clarity, corporate governance, and government scheme facilitation founders need to thrive across India&apos;s 28 States and 8 Union Territories.
+          </p>
+
+          {/* Horizontal National Trust Metrics Bar */}
+          <div className="mt-6 pt-5 border-t border-slate-200/90 grid grid-cols-2 md:grid-cols-4 gap-3">
+            {trustMetrics.map(({ label, value, icon: Icon }) => (
               <div
-                aria-hidden="true"
-                className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent sm:bg-gradient-to-l sm:from-white/80 sm:via-white/30 sm:to-transparent"
-              />
+                key={label}
+                className="rounded-sm border border-slate-200/90 bg-white/90 p-2.5 sm:p-3 text-center shadow-xs backdrop-blur-xs"
+              >
+                <div className="flex items-center justify-center gap-1.5 text-[#C89D3C] mb-1">
+                  <Icon size={14} />
+                  <span className="text-[9.5px] font-bold uppercase tracking-wider text-slate-500">{label}</span>
+                </div>
+                <p className="text-xs sm:text-[13px] font-bold text-[#0A2540] leading-snug">{value}</p>
+              </div>
+            ))}
+          </div>
+        </div>
 
-              {/* Official Motto Overlay matching reference design */}
-              <div className="relative z-10 pt-3 pr-3 sm:pt-4 sm:pr-4 ml-auto max-w-[200px] sm:max-w-[220px] text-right pointer-events-none">
-                <div className="inline-block rounded-lg bg-white/85 p-2.5 sm:p-3 backdrop-blur-xs border border-white/60 shadow-xs text-right">
-                  <p className="font-heading italic text-sm sm:text-base md:text-lg font-bold text-[#0A2540] leading-snug">
-                    Supporting <br />
-                    Entrepreneurs <br />
-                    Building <br />
-                    A Stronger <br />
-                    <span className="not-italic font-extrabold text-[#0A2540] tracking-wide">India</span>
-                  </p>
-
-                  {/* Official Saffron-White-Green Tricolor Accent Ribbon */}
-                  <div className="mt-1.5 ml-auto flex h-[3px] w-12 overflow-hidden rounded-full shadow-2xs">
-                    <div className="h-full w-1/3 bg-[#FF9933]" />
-                    <div className="h-full w-1/3 bg-[#FFFFFF]" />
-                    <div className="h-full w-1/3 bg-[#138808]" />
+        {/* ===================================================================
+            2. MAIN FEATURE GRID: 4 Enterprise Lifecycle Strategic Pillars
+            (Modern rounded-sm cards with soft shadows, zero rigid squares)
+            =================================================================== */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
+          {pillars.map(({ num, icon: Icon, title, badge, description, benefits, accent }) => (
+            <div
+              key={title}
+              className="group relative rounded-sm border border-slate-200 bg-white p-5 sm:p-6 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between hover:border-[#C89D3C]/60"
+            >
+              <div>
+                {/* Header row: Icon & Step Number */}
+                <div className="flex items-center justify-between mb-4">
+                  <div className={`flex h-11 w-11 items-center justify-center rounded-sm border ${accent}`}>
+                    <Icon size={20} strokeWidth={2} />
                   </div>
+                  <span className="font-mono text-xs font-bold text-slate-400 group-hover:text-[#C89D3C] transition-colors">
+                    {num}
+                  </span>
+                </div>
+
+                {/* Pillar Badge */}
+                <span className="inline-block rounded-full bg-slate-100 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-slate-700 mb-2.5 border border-slate-200/60">
+                  {badge}
+                </span>
+
+                {/* Pillar Title */}
+                <h3 className="font-heading text-base sm:text-lg font-bold text-[#0A2540] leading-snug mb-2 group-hover:text-[#C89D3C] transition-colors">
+                  {title}
+                </h3>
+
+                {/* Description */}
+                <p className="text-xs sm:text-[12.5px] leading-relaxed text-slate-600 mb-4">
+                  {description}
+                </p>
+
+                {/* Deliverables Checklist */}
+                <div className="space-y-1.5 pt-3 border-t border-slate-100">
+                  {benefits.map((b) => (
+                    <div key={b} className="flex items-start gap-1.5">
+                      <CheckCircle2 size={13} className="text-[#00843D] shrink-0 mt-0.5" />
+                      <span className="text-[11px] font-medium text-slate-700 leading-tight">{b}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
 
-              {/* Bottom Authority Micro-Label */}
-              <div className="relative z-10 pb-2.5 pl-2.5 sm:pb-3 sm:pl-3 mt-auto">
-                <span className="inline-flex items-center gap-1.5 rounded-sm bg-[#0A2540]/85 px-2.5 py-0.5 text-[10px] font-semibold text-white backdrop-blur-xs border border-white/10">
-                  <span className="h-1.5 w-1.5 rounded-full bg-[#F3D072]" />
-                  National Capital Territory of Delhi • Kartavya Path
-                </span>
+              {/* Bottom Assurance Tag */}
+              <div className="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between text-[10.5px] text-slate-500 font-semibold">
+                <span>Single-Window Advisory</span>
+                <span className="text-[#00843D]">● Active Desk</span>
               </div>
+            </div>
+          ))}
+        </div>
+
+        {/* ===================================================================
+            3. BOTTOM EXECUTIVE MISSION & ACTION RIBBON
+            =================================================================== */}
+        <div className="mt-10 sm:mt-12 rounded-sm border-2 border-[#C89D3C]/40 bg-gradient-to-r from-[#0A2540] via-[#0E3359] to-[#0A2540] p-6 sm:p-7 shadow-xl shadow-slate-900/10 text-white flex flex-col lg:flex-row items-center justify-between gap-6">
+          
+          <div className="max-w-2xl text-center lg:text-left">
+            <div className="flex items-center justify-center lg:justify-start gap-2 mb-1.5">
+              <span className="text-[10px] font-bold uppercase tracking-widest text-[#F3D072]">
+                Sovereign Enterprise Mission
+              </span>
+              <span className="text-white/40">&bull;</span>
+              <span className="text-[10px] font-mono text-emerald-400 font-bold">28 States &bull; 8 UTs</span>
+            </div>
+
+            <p className="font-heading italic text-lg sm:text-xl font-bold text-white leading-snug">
+              Supporting Entrepreneurs Building A Stronger{" "}
+              <span className="not-italic font-extrabold text-[#F3D072] tracking-wide">India</span>
+            </p>
+
+            <p className="mt-1.5 text-xs text-slate-300 leading-relaxed max-w-xl">
+              Navigate government schemes, institutional banking, statutory compliances, and corporate expansion through one trusted public-private facilitation window.
+            </p>
+
+            {/* Tricolor Ribbon Accent */}
+            <div className="mt-3 flex h-[3.5px] w-14 overflow-hidden rounded-full shadow-2xs mx-auto lg:mx-0">
+              <div className="h-full w-1/3 bg-[#FF9933]" />
+              <div className="h-full w-1/3 bg-[#FFFFFF]" />
+              <div className="h-full w-1/3 bg-[#138808]" />
             </div>
           </div>
 
-          {/* ===================================================================
-              2. MIDDLE: Center Content (Compact Padding, Exact Same Fonts)
-              =================================================================== */}
-          <div className="lg:col-span-4 flex flex-col justify-between h-full text-left py-0.5">
-            <div>
-              {/* Gov Eyebrow */}
-              <div className="mb-2 flex items-center gap-2">
-                <span className="h-0.5 w-5 bg-[#C89D3C]" />
-                <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#C89D3C]">
-                  INTRODUCTION
-                </span>
-              </div>
+          {/* Action Buttons */}
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full lg:w-auto shrink-0">
+            <Link
+              href="/government-schemes"
+              className="group relative inline-flex min-h-10 items-center justify-center gap-2 overflow-hidden rounded-sm bg-[#C89D3C] px-5 py-2.5 text-xs sm:text-sm font-bold text-[#0A2540] shadow-md transition-all hover:bg-[#F3D072]"
+            >
+              <span>Explore Government Schemes</span>
+              <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1" />
+            </Link>
 
-              {/* Headline */}
-              <h2 className="font-heading text-2xl sm:text-3xl font-bold tracking-tight text-[#0A2540] leading-snug mb-2 sm:mb-2.5">
-                One Partner for Your Business Journey
-              </h2>
-
-              {/* Paragraphs - Exact Same Font Styles & Sizes, Compact Spacing */}
-              <p className="text-xs sm:text-[13px] leading-relaxed text-slate-700 mb-2 sm:mb-2">
-                Every business needs a strong foundation, informed decisions and effective execution. Company registration, documentation, financial planning, compliance, technology and customer acquisition can each require time and specialist attention.
-              </p>
-
-              <p className="text-xs sm:text-[13px] leading-relaxed text-slate-700 mb-2 sm:mb-2">
-                <strong className="font-semibold text-[#0A2540]">Bharat Startup Ventures Pvt. Ltd.</strong> brings a range of business support and technology capabilities together under one unified brand. We help clients understand their requirements, explore suitable service options and navigate the steps involved in moving their projects forward.
-              </p>
-
-              <p className="text-xs sm:text-[13px] leading-relaxed text-slate-700 mb-2.5 sm:mb-3">
-                Whether you are launching a startup, expanding an existing enterprise or improving business processes, our approach focuses on practical guidance, clear communication and solutions aligned with your objectives.
-              </p>
-            </div>
-
-            {/* Action & Institutional Strip at bottom */}
-            <div className="pt-2.5 border-t border-slate-300/80 flex flex-wrap items-center gap-2.5 mt-auto">
-              <Link
-                href="/about"
-                className="group inline-flex items-center gap-2 rounded-sm bg-[#0A2540] px-4 py-2 text-xs font-bold text-white shadow-xs transition-all duration-300 hover:bg-[#0A192F] hover:shadow-md"
-              >
-                <span>Discover Who We Are</span>
-                <ArrowRight size={13} className="text-[#F3D072] transition-transform duration-300 group-hover:translate-x-1" />
-              </Link>
-
-              <div className="hidden sm:flex items-center gap-2 text-[11px] font-semibold text-slate-600 pl-1">
-                <span className="inline-flex items-center gap-1.5 text-[#0A2540]">
-                  <CheckCircle2 size={13.5} className="text-[#00843D]" />
-                  <span>Single-Window Facilitation</span>
-                </span>
-              </div>
-            </div>
-          </div>
-
-          {/* ===================================================================
-              3. RIGHT: 3rd Table / Attributes Card (Compact, Equal Height)
-              =================================================================== */}
-          <div className="lg:col-span-3 flex flex-col h-full">
-            <div className="relative overflow-hidden rounded-xl sm:rounded-2xl border border-[#E5D7B7] bg-[#FAF7F0] p-4 sm:p-4.5 lg:p-5 shadow-sm flex flex-col justify-between h-full w-full space-y-3">
-              {/* Top Card Authority Micro-Header */}
-              <div className="relative z-10 flex items-center justify-between border-b border-[#E5D7B7]/80 pb-2">
-                <span className="text-[10px] font-bold uppercase tracking-[0.16em] text-[#0A2540]">
-                  Core Facilitation Attributes
-                </span>
-                <span className="rounded bg-[#C89D3C]/15 px-1.5 py-0.5 text-[9.5px] font-bold text-[#C89D3C]">
-                  EST. 2026
-                </span>
-              </div>
-
-              {/* 24-Spoke Dharma Chakra Watermark */}
-              <div
-                aria-hidden="true"
-                className="pointer-events-none absolute -right-12 -top-10 h-44 w-44 opacity-[0.07] select-none"
-              >
-                <svg viewBox="0 0 100 100" fill="none" className="text-[#C89D3C] w-full h-full">
-                  <circle cx="50" cy="50" r="46" stroke="currentColor" strokeWidth="2.5" />
-                  <circle cx="50" cy="50" r="10" stroke="currentColor" strokeWidth="2.5" />
-                  {Array.from({ length: 24 }).map((_, i) => (
-                    <line
-                      key={i}
-                      x1="50"
-                      y1="50"
-                      x2="50"
-                      y2="4"
-                      stroke="currentColor"
-                      strokeWidth="1.6"
-                      transform={`rotate(${i * 15} 50 50)`}
-                    />
-                  ))}
-                </svg>
-              </div>
-
-              {/* 3 Value Pillars distributed evenly in height */}
-              <div className="relative z-10 flex-1 flex flex-col justify-around py-0.5 space-y-2.5 sm:space-y-3">
-                {highlights.map(({ icon: Icon, title, sub, badgeColor }) => (
-                  <div key={title} className="flex items-start gap-2.5 text-left">
-                    <div
-                      className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full border ${badgeColor} shadow-2xs mt-0.5`}
-                    >
-                      <Icon size={16} strokeWidth={1.8} />
-                    </div>
-                    <div>
-                      <h3 className="text-[13px] font-bold text-[#0A2540] leading-snug">
-                        {title}
-                      </h3>
-                      <p className="text-[11px] font-normal leading-relaxed text-slate-600 mt-0.5">
-                        {sub}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              {/* Institutional Bottom Seal Strip */}
-              <div className="relative z-10 pt-2 border-t border-[#E5D7B7]/80 flex items-center justify-between text-[10px] text-slate-500 font-medium mt-auto">
-                <span>Pan-India Coverage</span>
-                <span className="font-bold text-[#00843D]">● Active Portal</span>
-              </div>
-            </div>
+            <Link
+              href="/contact"
+              className="inline-flex min-h-10 items-center justify-center gap-2 rounded-sm border border-white/25 bg-white/10 px-5 py-2.5 text-xs sm:text-sm font-semibold text-white backdrop-blur-sm transition-all hover:bg-white/20 hover:border-white/40"
+            >
+              <span>Consult Facilitation Desk</span>
+              <ArrowUpRight size={14} className="text-[#F3D072]" />
+            </Link>
           </div>
 
         </div>
+
       </div>
     </section>
   );

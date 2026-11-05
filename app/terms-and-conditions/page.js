@@ -87,9 +87,9 @@ export default function TermsAndConditionsPage() {
               {keyClauses.map(({ icon: Icon, title, desc }) => (
                 <div
                   key={title}
-                  className="rounded-lg border border-[#C89D3C]/20 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#C89D3C]/50"
+                  className="rounded-sm border border-[#C89D3C]/20 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#C89D3C]/50"
                 >
-                  <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-md bg-[#0A2540] text-[#F3D072]">
+                  <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-sm bg-[#0A2540] text-[#F3D072]">
                     <Icon size={18} />
                   </div>
                   <h3 className="text-sm font-bold text-[#0A2540]">{title}</h3>
@@ -105,7 +105,7 @@ export default function TermsAndConditionsPage() {
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
             <div className="prose prose-slate max-w-none text-slate-700 text-xs sm:text-sm leading-relaxed space-y-10">
               {/* Important Statutory Disclaimer Banner */}
-              <div className="rounded-lg border-2 border-[#C89D3C] bg-[#FFFBF0] p-5 sm:p-6 text-[#0A2540]">
+              <div className="rounded-sm border-2 border-[#C89D3C] bg-[#FFFBF0] p-5 sm:p-6 text-[#0A2540]">
                 <div className="flex items-start gap-3">
                   <AlertCircle size={22} className="text-[#C89D3C] shrink-0 mt-0.5" />
                   <div>
@@ -117,7 +117,8 @@ export default function TermsAndConditionsPage() {
                       services. It is <strong>not</strong> a government agency, department, statutory ministry, or affiliated entity of the
                       Government of India or any State Government. Government scheme sanctions, grant approvals, seed funding disbursements,
                       and bank loans are granted solely at the discretion of respective government bodies, nodal agencies, and financial
-                      institutions based on their statutory guidelines. No success fee, guarantee, or assured approval is implied or warranted.
+                      institutions based on their statutory guidelines. No success fee, guarantee, or assured approval is implied or
+                      warranted.
                     </p>
                   </div>
                 </div>
@@ -129,11 +130,10 @@ export default function TermsAndConditionsPage() {
                   1. Acceptance of Terms
                 </h2>
                 <p>
-                  By accessing, browsing, or utilizing the web portal{" "}
-                  <strong className="text-[#0A2540]">bharatstartupventures.com</strong>, or by entering into an advisory engagement, signing
-                  a service mandate, or commissioning technical development with{" "}
-                  <strong className="text-[#0A2540]">Bharat Startup Ventures Pvt. Ltd.</strong> (&ldquo;Company&rdquo;), you (&ldquo;Client&rdquo;
-                  or &ldquo;User&rdquo;) agree to be legally bound by these Terms and Conditions in their entirety.
+                  By accessing, browsing, or utilizing the web portal <strong className="text-[#0A2540]">bharatstartupventures.com</strong>,
+                  or by entering into an advisory engagement, signing a service mandate, or commissioning technical development with{" "}
+                  <strong className="text-[#0A2540]">Bharat Startup Ventures Pvt. Ltd.</strong> (&ldquo;Company&rdquo;), you
+                  (&ldquo;Client&rdquo; or &ldquo;User&rdquo;) agree to be legally bound by these Terms and Conditions in their entirety.
                 </p>
                 <p className="mt-3">
                   If you are entering into this agreement on behalf of a company, startup, or partnership, you warrant that you have the
@@ -146,14 +146,35 @@ export default function TermsAndConditionsPage() {
                 <h2 className="font-heading text-lg sm:text-xl font-bold text-[#0A2540] border-b border-slate-200 pb-2 mb-4">
                   2. Scope of Services
                 </h2>
-                <p>The Company delivers advisory, documentation, compliance, and technology enablement services across six strategic divisions:</p>
+                <p>
+                  The Company delivers advisory, documentation, compliance, and technology enablement services across six strategic
+                  divisions:
+                </p>
                 <ul className="mt-3 list-inside list-disc space-y-1.5 text-slate-600">
-                  <li><strong>Business Incorporation &amp; Structuring:</strong> Pvt Ltd, LLP, Section 8, OPC, Partnership, MSME/Udyam registrations.</li>
-                  <li><strong>Government Scheme Guidance:</strong> DPIIT recognition, Startup India Seed Fund (SISFS), 80-IAC tax exemption assistance, PMEGP, CGTMSE, AIF, and PMFME documentation.</li>
-                  <li><strong>Financial &amp; Funding Readiness:</strong> Detailed Project Reports (DPR), CMA banking data, financial models, pitch deck preparation, and loan proposal compilation.</li>
-                  <li><strong>Taxation &amp; Regulatory Compliance:</strong> GST filings, annual ROC/MCA compliance, accounting automation, and statutory filings.</li>
-                  <li><strong>Software &amp; Digital Solutions:</strong> Enterprise web development, mobile applications, AI workflows, and custom CRM systems.</li>
-                  <li><strong>Branding &amp; Growth Marketing:</strong> Digital presence, SEO, brand identity, and multi-channel marketing advisory.</li>
+                  <li>
+                    <strong>Business Incorporation &amp; Structuring:</strong> Pvt Ltd, LLP, Section 8, OPC, Partnership, MSME/Udyam
+                    registrations.
+                  </li>
+                  <li>
+                    <strong>Government Scheme Guidance:</strong> DPIIT recognition, Startup India Seed Fund (SISFS), 80-IAC tax exemption
+                    assistance, PMEGP, CGTMSE, AIF, and PMFME documentation.
+                  </li>
+                  <li>
+                    <strong>Financial &amp; Funding Readiness:</strong> Detailed Project Reports (DPR), CMA banking data, financial models,
+                    pitch deck preparation, and loan proposal compilation.
+                  </li>
+                  <li>
+                    <strong>Taxation &amp; Regulatory Compliance:</strong> GST filings, annual ROC/MCA compliance, accounting automation,
+                    and statutory filings.
+                  </li>
+                  <li>
+                    <strong>Software &amp; Digital Solutions:</strong> Enterprise web development, mobile applications, AI workflows, and
+                    custom CRM systems.
+                  </li>
+                  <li>
+                    <strong>Branding &amp; Growth Marketing:</strong> Digital presence, SEO, brand identity, and multi-channel marketing
+                    advisory.
+                  </li>
                 </ul>
               </div>
 
@@ -164,9 +185,18 @@ export default function TermsAndConditionsPage() {
                 </h2>
                 <p>To ensure timely delivery, the Client covenants and undertakes that:</p>
                 <ul className="mt-3 list-inside list-disc space-y-1.5 text-slate-600">
-                  <li>All KYC credentials, identity proofs, address documents, financial records, bank statements, and declarations provided to the Company are authentic, accurate, valid, and legally acquired.</li>
-                  <li>The Company shall bear no liability for delays, fines, rejections, or penalties resulting from incorrect, fraudulent, forged, or delayed documentation supplied by the Client.</li>
-                  <li>The Client shall promptly furnish required OTPs, digital signature tokens (DSC), or verifications necessary to execute authorized filings on government portals (e.g., MCA V3, GSTN, Income Tax, DGFT).</li>
+                  <li>
+                    All KYC credentials, identity proofs, address documents, financial records, bank statements, and declarations provided
+                    to the Company are authentic, accurate, valid, and legally acquired.
+                  </li>
+                  <li>
+                    The Company shall bear no liability for delays, fines, rejections, or penalties resulting from incorrect, fraudulent,
+                    forged, or delayed documentation supplied by the Client.
+                  </li>
+                  <li>
+                    The Client shall promptly furnish required OTPs, digital signature tokens (DSC), or verifications necessary to execute
+                    authorized filings on government portals (e.g., MCA V3, GSTN, Income Tax, DGFT).
+                  </li>
                 </ul>
               </div>
 
@@ -175,13 +205,21 @@ export default function TermsAndConditionsPage() {
                 <h2 className="font-heading text-lg sm:text-xl font-bold text-[#0A2540] border-b border-slate-200 pb-2 mb-4">
                   4. Professional Fees, Taxes &amp; Refund Policy
                 </h2>
-                <p>
-                  Professional charges for assignments are governed by the approved quotation, milestone schedule, or service invoice.
-                </p>
+                <p>Professional charges for assignments are governed by the approved quotation, milestone schedule, or service invoice.</p>
                 <ul className="mt-3 list-inside list-disc space-y-1.5 text-slate-600">
-                  <li><strong>Statutory Fees:</strong> Government portal fees, stamp duties, MCA challans, trademark filing fees, and GST are payable additionally as statutory out-of-pocket expenses.</li>
-                  <li><strong>Milestones:</strong> Invoices are payable within the agreed credit window. The Company reserves the right to withhold subsequent deliverables or filings in the event of default.</li>
-                  <li><strong>Refund Policy:</strong> Consultancy, research, advisory, and document drafting involve upfront professional hours and resource commitments. Professional advisory fees are generally non-refundable once service execution has commenced, except where explicitly agreed under a signed service level agreement (SLA).</li>
+                  <li>
+                    <strong>Statutory Fees:</strong> Government portal fees, stamp duties, MCA challans, trademark filing fees, and GST are
+                    payable additionally as statutory out-of-pocket expenses.
+                  </li>
+                  <li>
+                    <strong>Milestones:</strong> Invoices are payable within the agreed credit window. The Company reserves the right to
+                    withhold subsequent deliverables or filings in the event of default.
+                  </li>
+                  <li>
+                    <strong>Refund Policy:</strong> Consultancy, research, advisory, and document drafting involve upfront professional
+                    hours and resource commitments. Professional advisory fees are generally non-refundable once service execution has
+                    commenced, except where explicitly agreed under a signed service level agreement (SLA).
+                  </li>
                 </ul>
               </div>
 
@@ -205,12 +243,17 @@ export default function TermsAndConditionsPage() {
                 <h2 className="font-heading text-lg sm:text-xl font-bold text-[#0A2540] border-b border-slate-200 pb-2 mb-4">
                   6. Limitation of Liability
                 </h2>
-                <p>
-                  To the maximum extent permitted by applicable Indian law:
-                </p>
+                <p>To the maximum extent permitted by applicable Indian law:</p>
                 <ul className="mt-3 list-inside list-disc space-y-1.5 text-slate-600">
-                  <li>The Company shall not be liable for any indirect, incidental, punitive, special, or consequential damages, including loss of profits, commercial opportunities, business interruption, or loss of goodwill.</li>
-                  <li>The Company&rsquo;s cumulative aggregate liability arising under any claim, whether in contract, tort (including negligence), or statutory breach, shall be strictly capped at the total professional fee received by the Company for the specific mandate giving rise to the claim.</li>
+                  <li>
+                    The Company shall not be liable for any indirect, incidental, punitive, special, or consequential damages, including
+                    loss of profits, commercial opportunities, business interruption, or loss of goodwill.
+                  </li>
+                  <li>
+                    The Company&rsquo;s cumulative aggregate liability arising under any claim, whether in contract, tort (including
+                    negligence), or statutory breach, shall be strictly capped at the total professional fee received by the Company for the
+                    specific mandate giving rise to the claim.
+                  </li>
                 </ul>
               </div>
 
@@ -220,9 +263,9 @@ export default function TermsAndConditionsPage() {
                   7. Force Majeure
                 </h2>
                 <p>
-                  Neither party shall be held in breach of these terms for delays or non-performance caused by circumstances beyond reasonable
-                  control, including acts of God, governmental policy changes, prolonged server outages on government portals (e.g., MCA, GSTN,
-                  Income Tax), strikes, floods, utility failures, or civil disturbances.
+                  Neither party shall be held in breach of these terms for delays or non-performance caused by circumstances beyond
+                  reasonable control, including acts of God, governmental policy changes, prolonged server outages on government portals
+                  (e.g., MCA, GSTN, Income Tax), strikes, floods, utility failures, or civil disturbances.
                 </p>
               </div>
 
@@ -250,7 +293,7 @@ export default function TermsAndConditionsPage() {
               </div>
 
               {/* Contact Box */}
-              <div className="rounded-lg border border-[#C89D3C]/30 bg-[#FFFDF9] p-5 sm:p-6">
+              <div className="rounded-sm border border-[#C89D3C]/30 bg-[#FFFDF9] p-5 sm:p-6">
                 <h2 className="font-heading text-base sm:text-lg font-bold text-[#0A2540] mb-2">
                   10. Contacting Legal &amp; Corporate Advisory
                 </h2>
@@ -258,8 +301,12 @@ export default function TermsAndConditionsPage() {
                   For clarifications regarding service agreements, terms of use, or formal legal notices, please write to:
                 </p>
                 <div className="mt-4 space-y-1 text-xs sm:text-[13px] text-slate-800 font-medium">
-                  <p><strong>Legal Department:</strong> Bharat Startup Ventures Pvt. Ltd.</p>
-                  <p><strong>Registered Presence:</strong> New Delhi, India</p>
+                  <p>
+                    <strong>Legal Department:</strong> Bharat Startup Ventures Pvt. Ltd.
+                  </p>
+                  <p>
+                    <strong>Registered Presence:</strong> New Delhi, India
+                  </p>
                   <p>
                     <strong>Email:</strong>{" "}
                     <a href="mailto:contact@bharatstartupventures.com" className="text-[#0A2540] underline hover:text-[#C89D3C]">
@@ -287,7 +334,7 @@ export default function TermsAndConditionsPage() {
             </div>
             <Link
               href="/contact"
-              className="inline-flex shrink-0 items-center gap-2 rounded-md bg-[#C89D3C] hover:bg-[#C89D3C] px-4 py-2 text-xs font-bold text-white transition-colors"
+              className="inline-flex shrink-0 items-center gap-2 rounded-sm bg-[#C89D3C] hover:bg-[#C89D3C] px-4 py-2 text-xs font-bold text-white transition-colors"
             >
               <span>Schedule Consultation</span>
               <ArrowRight size={14} />
@@ -295,7 +342,6 @@ export default function TermsAndConditionsPage() {
           </div>
         </section>
       </main>
-
       <Footer />
     </div>
   );

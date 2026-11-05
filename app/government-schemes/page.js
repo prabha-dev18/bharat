@@ -1,12 +1,14 @@
 import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
 import SchemesHero from "../components/schemes/SchemesHero";
+import SchemesTrustStrip from "../components/schemes/SchemesTrustStrip";
 import SchemeMatcher from "../components/schemes/SchemeMatcher";
 import SchemesList from "../components/schemes/SchemesList";
 import SchemeProcess from "../components/schemes/SchemeProcess";
 import WhyChooseForSchemes from "../components/schemes/WhyChooseForSchemes";
 import SchemesFaq from "../components/schemes/SchemesFaq";
-import SchemesCta from "../components/schemes/SchemesCta";
+import StatutoryDisclaimer from "../components/schemes/StatutoryDisclaimer";
+import HomeCta from "../components/layout/HomeCta";
 
 export const metadata = {
   title: "Government Schemes for Startups & MSMEs | Bharat Startup Ventures",
@@ -33,12 +35,14 @@ export default function GovernmentSchemesPage() {
       <Header />
       <main id="main-content" className="flex-1">
         <SchemesHero />
+        <SchemesTrustStrip />
         <SchemeMatcher />
         <SchemesList />
         <SchemeProcess />
         <WhyChooseForSchemes />
         <SchemesFaq />
-        <SchemesCta />
+        <StatutoryDisclaimer />
+        <HomeCta />
       </main>
       <Footer />
     </div>

@@ -61,7 +61,7 @@ export default function ServicesFaq() {
             return (
               <div
                 key={faq.question}
-                className="rounded-2xl border border-slate-200/90 bg-white shadow-2xs overflow-hidden transition-all duration-200"
+                className="rounded-sm border border-slate-200/90 bg-white shadow-2xs overflow-hidden transition-all duration-200"
               >
                 <button
                   type="button"

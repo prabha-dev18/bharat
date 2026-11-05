@@ -68,8 +68,8 @@ export default function PrivacyPolicyPage() {
             </h1>
 
             <p className="mt-4 mx-auto max-w-2xl text-xs sm:text-sm text-slate-300 leading-relaxed">
-              Bharat Startup Ventures Pvt. Ltd. is committed to protecting the privacy, confidentiality, and integrity of the personal
-              and commercial information entrusted to us by entrepreneurs, MSMEs, and enterprises.
+              Bharat Startup Ventures Pvt. Ltd. is committed to protecting the privacy, confidentiality, and integrity of the personal and
+              commercial information entrusted to us by entrepreneurs, MSMEs, and enterprises.
             </p>
 
             <div className="mt-6 flex items-center justify-center gap-4 text-[11px] text-slate-400">
@@ -87,9 +87,9 @@ export default function PrivacyPolicyPage() {
               {keyPrinciples.map(({ icon: Icon, title, desc }) => (
                 <div
                   key={title}
-                  className="rounded-lg border border-[#C89D3C]/20 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#C89D3C]/50"
+                  className="rounded-sm border border-[#C89D3C]/20 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#C89D3C]/50"
                 >
-                  <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-md bg-[#0A2540] text-[#F3D072]">
+                  <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-sm bg-[#0A2540] text-[#F3D072]">
                     <Icon size={18} />
                   </div>
                   <h3 className="text-sm font-bold text-[#0A2540]">{title}</h3>
@@ -110,11 +110,10 @@ export default function PrivacyPolicyPage() {
                   1. Overview &amp; Applicability
                 </h2>
                 <p>
-                  This Privacy Policy applies to the website{" "}
-                  <strong className="text-[#0A2540]">bharatstartupventures.com</strong> and all consulting, incorporation, financial
-                  documentation, compliance, software development, and digital services rendered by{" "}
-                  <strong className="text-[#0A2540]">Bharat Startup Ventures Pvt. Ltd.</strong> (referred to herein as &ldquo;Company&rdquo;,
-                  &ldquo;we&rdquo;, &ldquo;us&rdquo;, or &ldquo;our&rdquo;).
+                  This Privacy Policy applies to the website <strong className="text-[#0A2540]">bharatstartupventures.com</strong> and all
+                  consulting, incorporation, financial documentation, compliance, software development, and digital services rendered by{" "}
+                  <strong className="text-[#0A2540]">Bharat Startup Ventures Pvt. Ltd.</strong> (referred to herein as
+                  &ldquo;Company&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo;, or &ldquo;our&rdquo;).
                 </p>
                 <p className="mt-3">
                   By accessing our platform, filling our contact or assessment questionnaires, or engaging our consulting services, you
@@ -130,7 +129,7 @@ export default function PrivacyPolicyPage() {
                 <p>To deliver structured advisory and corporate services, we may collect the following categories of information:</p>
 
                 <div className="mt-4 space-y-3">
-                  <div className="rounded-md border border-slate-200 p-3.5 bg-slate-50/60">
+                  <div className="rounded-sm border border-slate-200 p-3.5 bg-slate-50/60">
                     <h3 className="font-bold text-[#0A2540] text-xs sm:text-sm">A. Contact &amp; Identity Credentials</h3>
                     <p className="mt-1 text-slate-600 text-xs sm:text-[13px]">
                       Full name, authorized signatory identity, professional designation, business email address, phone number, and physical
@@ -138,15 +137,15 @@ export default function PrivacyPolicyPage() {
                     </p>
                   </div>
 
-                  <div className="rounded-md border border-slate-200 p-3.5 bg-slate-50/60">
+                  <div className="rounded-sm border border-slate-200 p-3.5 bg-slate-50/60">
                     <h3 className="font-bold text-[#0A2540] text-xs sm:text-sm">B. Statutory &amp; Business Information</h3>
                     <p className="mt-1 text-slate-600 text-xs sm:text-[13px]">
-                      Company name, proposed entity structure (Pvt Ltd, LLP, Partnership, MSME), industry sector, Director/Partner KYC records
-                      (PAN, Aadhaar/Passport as mandated by ROC/MCA/DPIIT filings), CIN, GSTIN, and MSME/Udyam certificates.
+                      Company name, proposed entity structure (Pvt Ltd, LLP, Partnership, MSME), industry sector, Director/Partner KYC
+                      records (PAN, Aadhaar/Passport as mandated by ROC/MCA/DPIIT filings), CIN, GSTIN, and MSME/Udyam certificates.
                     </p>
                   </div>
 
-                  <div className="rounded-md border border-slate-200 p-3.5 bg-slate-50/60">
+                  <div className="rounded-sm border border-slate-200 p-3.5 bg-slate-50/60">
                     <h3 className="font-bold text-[#0A2540] text-xs sm:text-sm">C. Project &amp; Financial Information</h3>
                     <p className="mt-1 text-slate-600 text-xs sm:text-[13px]">
                       Business pitch materials, Detailed Project Reports (DPR), financial projections, banking proposals, credit requirement
@@ -154,7 +153,7 @@ export default function PrivacyPolicyPage() {
                     </p>
                   </div>
 
-                  <div className="rounded-md border border-slate-200 p-3.5 bg-slate-50/60">
+                  <div className="rounded-sm border border-slate-200 p-3.5 bg-slate-50/60">
                     <h3 className="font-bold text-[#0A2540] text-xs sm:text-sm">D. Technical &amp; Browsing Data</h3>
                     <p className="mt-1 text-slate-600 text-xs sm:text-[13px]">
                       IP address, browser type, operating system, pages visited, duration of visit, and referral URL collected automatically
@@ -199,8 +198,8 @@ export default function PrivacyPolicyPage() {
                     technical partners who operate under written non-disclosure and confidentiality obligations.
                   </li>
                   <li>
-                    <strong>Legal Mandates:</strong> Where disclosure is strictly required by Indian law, a competent court order, or an official
-                    regulatory summons.
+                    <strong>Legal Mandates:</strong> Where disclosure is strictly required by Indian law, a competent court order, or an
+                    official regulatory summons.
                   </li>
                 </ul>
               </div>
@@ -212,8 +211,8 @@ export default function PrivacyPolicyPage() {
                 </h2>
                 <p>
                   We employ industry-standard technical and operational safeguards to protect your personal and commercial files against
-                  unauthorized access, accidental loss, alteration, or disclosure. These measures include TLS/SSL data transmission encryption,
-                  role-based access controls, secured file repositories, and periodic data audits.
+                  unauthorized access, accidental loss, alteration, or disclosure. These measures include TLS/SSL data transmission
+                  encryption, role-based access controls, secured file repositories, and periodic data audits.
                 </p>
               </div>
 
@@ -224,8 +223,8 @@ export default function PrivacyPolicyPage() {
                 </h2>
                 <p>
                   Personal and corporate records are retained only as long as necessary to fulfill the engagement purposes or to meet
-                  statutory record-keeping periods mandated by Indian corporate, taxation, and accounting regulations (typically up to 8 years
-                  for financial and incorporation filings).
+                  statutory record-keeping periods mandated by Indian corporate, taxation, and accounting regulations (typically up to 8
+                  years for financial and incorporation filings).
                 </p>
               </div>
 
@@ -256,7 +255,7 @@ export default function PrivacyPolicyPage() {
               </div>
 
               {/* Grievance Officer */}
-              <div className="rounded-lg border border-[#C89D3C]/30 bg-[#FFFDF9] p-5 sm:p-6">
+              <div className="rounded-sm border border-[#C89D3C]/30 bg-[#FFFDF9] p-5 sm:p-6">
                 <h2 className="font-heading text-base sm:text-lg font-bold text-[#0A2540] mb-2">
                   8. Grievance Officer &amp; Privacy Enquiries
                 </h2>
@@ -265,8 +264,12 @@ export default function PrivacyPolicyPage() {
                   grievances may be directed to our Privacy Officer:
                 </p>
                 <div className="mt-4 space-y-1 text-xs sm:text-[13px] text-slate-800 font-medium">
-                  <p><strong>Entity:</strong> Bharat Startup Ventures Pvt. Ltd.</p>
-                  <p><strong>Address:</strong> New Delhi, India</p>
+                  <p>
+                    <strong>Entity:</strong> Bharat Startup Ventures Pvt. Ltd.
+                  </p>
+                  <p>
+                    <strong>Address:</strong> New Delhi, India
+                  </p>
                   <p>
                     <strong>Email:</strong>{" "}
                     <a href="mailto:contact@bharatstartupventures.com" className="text-[#0A2540] underline hover:text-[#C89D3C]">
@@ -294,7 +297,7 @@ export default function PrivacyPolicyPage() {
             </div>
             <Link
               href="/contact"
-              className="inline-flex shrink-0 items-center gap-2 rounded-md bg-[#C89D3C] hover:bg-[#C89D3C] px-4 py-2 text-xs font-bold text-white transition-colors"
+              className="inline-flex shrink-0 items-center gap-2 rounded-sm bg-[#C89D3C] hover:bg-[#C89D3C] px-4 py-2 text-xs font-bold text-white transition-colors"
             >
               <span>Contact Compliance Team</span>
               <ArrowRight size={14} />

@@ -67,7 +67,7 @@ export default function OurProcess() {
         >
           {/* Eyebrow Badge */}
           <div className="mb-3.5 inline-flex">
-            <span className="rounded-md border border-[#D5E2F0] bg-[#EEF4FB] px-3.5 py-1 text-[11px] font-bold tracking-widest text-[#0A2540] uppercase">
+            <span className="rounded-sm border border-[#D5E2F0] bg-[#EEF4FB] px-3.5 py-1 text-[11px] font-bold tracking-widest text-[#0A2540] uppercase">
               OUR PROCESS
             </span>
           </div>

@@ -18,6 +18,8 @@ export default function Hero() {
         backgroundImage: "url('/images/home-bg.png')",
       }}
     >
+     
+
       {/* Background Overlay */}
       <div
         aria-hidden="true"
@@ -27,15 +29,11 @@ export default function Hero() {
       {/* Main Content */}
       <div className="relative z-10 mx-auto flex h-full w-full max-w-[1200px] items-center px-5 sm:px-8 lg:px-12 xl:px-0">
         <div className="flex max-h-full w-full flex-col justify-center py-2 sm:py-4 lg:w-[60%] xl:w-[56%]">
-          {/* Eyebrow */}
-          <div className="mb-3 flex items-center gap-3 sm:mb-4">
-            <span className="h-px w-8 bg-[#C89D3C] sm:w-10" />
-
-            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#0A2540] sm:text-xs">
-              Your Partner in Business Growth
+          {/* Official Government Eyebrow Badge */}
+          <div className="mb-3.5 inline-flex">
+            <span className="rounded-sm border border-[#D5E2F0] bg-[#EEF4FB] px-3.5 py-1 text-[10.5px] sm:text-[11px] font-bold tracking-widest text-[#0A2540] uppercase shadow-2xs">
+              NATIONAL STARTUP &amp; MSME FACILITATION PLATFORM
             </span>
-
-            <span className="h-px w-8 bg-[#C89D3C] sm:w-10" />
           </div>
 
           {/* Main Heading */}
@@ -44,8 +42,7 @@ export default function Hero() {
             <br />
             Enabling Innovation.
             <br />
-            <span className="bg-[#C89D3C]
-             bg-clip-text text-transparent">
+            <span className="bg-[#C89D3C] bg-clip-text text-transparent">
               Creating Opportunities.
             </span>
           </h1>
@@ -62,10 +59,10 @@ export default function Hero() {
           </p>
 
           {/* CTA Buttons */}
-          <div className="mt-4 flex flex-wrap items-center gap-3 sm:mt-5 sm:gap-4">
+          <div className="mt-4 flex flex-col min-[420px]:flex-row flex-wrap items-stretch min-[420px]:items-center gap-3 sm:mt-5 sm:gap-4">
             <Link
               href="/services"
-              className="group relative inline-flex min-h-10 shrink-0 items-center justify-center gap-2 overflow-hidden rounded-sm bg-[#0A2540] px-5 py-2.5 text-xs font-semibold sm:px-6 sm:text-sm"
+              className="group relative inline-flex min-h-10 w-full min-[420px]:w-auto shrink-0 items-center justify-center gap-2 overflow-hidden rounded-sm bg-[#0A2540] px-5 py-2.5 text-xs font-semibold sm:px-6 sm:text-sm"
             >
               {/* Animated Gold Border */}
               <span className="pointer-events-none absolute left-0 top-0 h-[2px] w-full animate-border-top bg-gradient-to-l from-transparent to-[#C89D3C]" />
@@ -83,7 +80,7 @@ export default function Hero() {
 
             <Link
               href="/contact"
-              className="group inline-flex min-h-10 items-center justify-center gap-2 rounded-sm border border-[#0A2540]/30 bg-white/75 px-5 py-2.5 text-xs font-semibold text-[#0A2540] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#C89D3C] hover:bg-white sm:px-6 sm:text-sm"
+              className="group inline-flex min-h-10 w-full min-[420px]:w-auto items-center justify-center gap-2 rounded-sm border border-[#0A2540]/30 bg-white/75 px-5 py-2.5 text-xs font-semibold text-[#0A2540] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#C89D3C] hover:bg-white sm:px-6 sm:text-sm"
             >
               <Users size={15} className="text-[#C89D3C]" />
 
@@ -97,7 +94,6 @@ export default function Hero() {
           </div>
 
           {/* Feature Badges */}
-
           <div className="mt-4 grid grid-cols-2 gap-3 border-t border-[#0A2540]/15 pt-3.5 sm:mt-5 sm:grid-cols-4 sm:gap-4 sm:pt-4">
             {features.map(({ icon: Icon, label, sub }) => (
               <div key={label} className="flex min-w-0 items-center gap-2.5 text-left sm:gap-3">

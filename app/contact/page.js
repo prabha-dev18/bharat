@@ -3,7 +3,7 @@ import Footer from "../components/layout/Footer";
 import ContactHero from "../components/contact/ContactHero";
 import ContactFormSection from "../components/contact/ContactFormSection";
 import WhatHappensNext from "../components/contact/WhatHappensNext";
-import ContactCta from "../components/contact/ContactCta";
+import HomeCta from "../components/layout/HomeCta";
 
 export const metadata = {
   title: "Contact Bharat Startup Ventures Pvt. Ltd. | Business Enquiries",
@@ -29,7 +29,7 @@ export default function ContactPage() {
         <ContactHero />
         <ContactFormSection />
         <WhatHappensNext />
-        <ContactCta />
+        <HomeCta />
       </main>
       <Footer />
     </div>

@@ -2,14 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import {
-  PhoneCall,
-  CheckCircle2,
-  FileCheck2,
-  Landmark,
-  ShieldCheck,
-  MapPin,
-} from "lucide-react";
+import { PhoneCall, CheckCircle2, FileCheck2, Landmark, ShieldCheck, MapPin } from "lucide-react";
 
 export default function HomeCta({
   badge = "SINGLE-WINDOW SCHEME & STATUTORY ADVISORY",
@@ -41,7 +34,7 @@ export default function HomeCta({
           observer.unobserve(entry.target);
         }
       },
-      { threshold: 0.12 }
+      { threshold: 0.12 },
     );
 
     observer.observe(section);
@@ -49,23 +42,7 @@ export default function HomeCta({
   }, []);
 
   return (
-    <section
-      ref={sectionRef}
-      id={id}
-      className={`relative w-full overflow-hidden bg-[#051329] text-white ${className}`}
-    >
-      {/* =========================================================================
-          TRICOLOR ACCENT TOP STRIP
-          ========================================================================= */}
-      <div className="grid h-1.5 w-full grid-cols-3">
-        <div className="bg-[#FF9933]" />
-        <div className="bg-[#FFFFFF]" />
-        <div className="bg-[#138808]" />
-      </div>
-
-      {/* =========================================================================
-          BACKGROUND (GUILLOCHE LATTICE & LEFT-SIDE INDIA MAP ONLY)
-          ========================================================================= */}
+    <section ref={sectionRef} id={id} className={`relative w-full overflow-hidden bg-[#051329] text-white ${className}`}>
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
         {/* Subtle Architectural Radial Glow */}
         <div className="absolute -top-32 left-1/4 h-[420px] w-[500px] rounded-full bg-[#1A3A6B]/25 blur-[100px]" />
@@ -91,6 +68,7 @@ export default function HomeCta({
             src="/images/map.jpg"
             alt="India Map Watermark"
             fill
+            sizes="(max-width: 640px) 192px, 224px"
             className="object-contain filter invert"
           />
         </div>
@@ -101,7 +79,6 @@ export default function HomeCta({
           ========================================================================= */}
       <div className="relative z-10 mx-auto w-full max-w-[1240px] px-5 py-6 sm:px-8 sm:py-7 lg:px-10 lg:py-8">
         <div className="grid grid-cols-1 items-center gap-6 lg:grid-cols-12 lg:gap-8">
-          
           {/* -------------------------------------------------------------------
               LEFT COLUMN: Official Heading, Subtitle & 4 Pillars
               ------------------------------------------------------------------- */}
@@ -113,27 +90,21 @@ export default function HomeCta({
             {/* Institutional Badge */}
             <div className="mb-2.5 inline-flex items-center gap-2 rounded-full border border-[#C89D3C]/40 bg-[#0A2244]/80 px-3 py-1 shadow-sm backdrop-blur-md">
               <Landmark size={12} className="text-[#F3D072]" />
-              <span className="text-[10px] font-bold uppercase tracking-wider text-[#F3D072]">
-                {badge}
-              </span>
+              <span className="text-[10px] font-bold uppercase tracking-wider text-[#F3D072]">{badge}</span>
             </div>
 
             {/* Main Headline */}
-            <h2 className="font-heading text-xl font-bold tracking-tight text-white sm:text-2xl lg:text-[26px] leading-snug">
-              {title}
-            </h2>
+            <h2 className="font-heading text-xl font-bold tracking-tight text-white sm:text-2xl lg:text-[26px] leading-snug">{title}</h2>
 
             {/* Explanatory Paragraph */}
-            <p className="mt-1.5 text-xs leading-relaxed text-slate-200 sm:text-[13px]">
-              {description}
-            </p>
+            <p className="mt-1.5 text-xs leading-relaxed text-slate-200 sm:text-[13px]">{description}</p>
 
             {/* 4 Pillars / Verification Grid */}
             <div className="mt-3.5 grid grid-cols-1 gap-2 sm:grid-cols-2">
               {pillars.map((pillar, idx) => (
                 <div
                   key={idx}
-                  className="flex items-center gap-2 rounded-md border border-white/10 bg-white/5 px-2.5 py-1.5 text-[11px] text-slate-200 backdrop-blur-sm sm:text-[11.5px]"
+                  className="flex items-center gap-2 rounded-sm border border-white/10 bg-white/5 px-2.5 py-1.5 text-[11px] text-slate-200 backdrop-blur-sm sm:text-[11.5px]"
                 >
                   <CheckCircle2 size={13} className="text-[#F3D072] shrink-0" />
                   <span>{pillar}</span>
@@ -150,16 +121,14 @@ export default function HomeCta({
               isVisible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
             }`}
           >
-            <div className="relative overflow-hidden rounded-xl border border-[#C89D3C]/40 bg-gradient-to-b from-[#091F3C] to-[#061427] p-4 shadow-xl backdrop-blur-md sm:p-5">
+            <div className="relative overflow-hidden rounded-sm border border-[#C89D3C]/40 bg-gradient-to-b from-[#091F3C] to-[#061427] p-4 shadow-xl backdrop-blur-md sm:p-5">
               {/* Card Top Header: Desk Title & Status */}
               <div className="flex items-center justify-between border-b border-white/10 pb-2.5">
                 <div className="flex items-center gap-2">
-                  <div className="flex h-6 w-6 items-center justify-center rounded border border-[#C89D3C]/40 bg-[#C89D3C]/10 text-[#F3D072]">
+                  <div className="flex h-6 w-6 items-center justify-center rounded-sm border border-[#C89D3C]/40 bg-[#C89D3C]/10 text-[#F3D072]">
                     <ShieldCheck size={14} />
                   </div>
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#F3D072]">
-                    Enterprise Advisory Desk
-                  </span>
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#F3D072]">Enterprise Advisory Desk</span>
                 </div>
                 <div className="inline-flex items-center gap-1.5 rounded-full border border-emerald-500/30 bg-emerald-950/60 px-2 py-0.5 text-[9px] font-semibold text-emerald-300">
                   <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
@@ -170,7 +139,8 @@ export default function HomeCta({
               {/* Action Prompt */}
               <div className="my-2.5">
                 <p className="text-[11px] leading-relaxed text-slate-300">
-                  Initiate your official inquiry or connect directly with our advisory officers for tailored scheme mapping and documentation guidance.
+                  Initiate your official inquiry or connect directly with our advisory officers for tailored scheme mapping and
+                  documentation guidance.
                 </p>
               </div>
 
@@ -178,7 +148,7 @@ export default function HomeCta({
               <div className="flex flex-col gap-2">
                 <a
                   href={`tel:${phoneTel}`}
-                  className="group flex w-full items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-[#C89D3C] via-[#E2BD5F] to-[#C89D3C] px-4 py-2.5 text-center text-xs font-bold uppercase tracking-wider text-[#051329] shadow-md transition-all duration-300 hover:brightness-110 active:scale-[0.99] sm:text-[13px]"
+                  className="group flex w-full items-center justify-center gap-2 rounded-sm bg-gradient-to-r from-[#C89D3C] via-[#E2BD5F] to-[#C89D3C] px-4 py-2.5 text-center text-xs font-bold uppercase tracking-wider text-[#051329] shadow-md transition-all duration-300 hover:brightness-110 active:scale-[0.99] sm:text-[13px]"
                 >
                   <PhoneCall size={14} className="text-[#051329] transition-transform duration-300 group-hover:scale-110" />
                   <span>Advisory Desk: {phone}</span>

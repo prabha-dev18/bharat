@@ -134,7 +134,7 @@ export default function CoreSolutions() {
                 style={{
                   transitionDelay: `${150 + index * 80}ms`,
                 }}
-                className={`group relative flex min-h-[250px] flex-col overflow-hidden rounded-xl border transition-all duration-700 hover:-translate-y-1 ${
+                className={`group relative flex min-h-[250px] flex-col overflow-hidden rounded-sm border transition-all duration-700 hover:-translate-y-1 ${
                   isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
                 } ${
                   featured

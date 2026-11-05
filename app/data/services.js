@@ -1,5 +1,4 @@
 export const servicesContent = {
-  // Page 1 — Section 3: Core Services Overview
   coreServicesOverview: {
     title: "Comprehensive Business Solutions Under One Roof",
     subtitle:
@@ -10,44 +9,28 @@ export const servicesContent = {
         title: "1. Business Registration & Startup Support",
         description:
           "Assistance with company incorporation, LLP and partnership registration, MSME registration, startup recognition and business documentation.",
-        keywords: [
-          "company registration services",
-          "startup registration assistance",
-          "MSME registration",
-        ],
+        keywords: ["company registration services", "startup registration assistance", "MSME registration"],
       },
       {
         id: 2,
         title: "2. Funding & Financial Assistance",
         description:
           "Support with funding readiness, loan documentation, business plans, project reports, financial projections and relevant funding opportunities.",
-        keywords: [
-          "startup funding assistance",
-          "MSME loan documentation",
-          "business project report",
-        ],
+        keywords: ["startup funding assistance", "MSME loan documentation", "business project report"],
       },
       {
         id: 3,
         title: "3. Taxation & Business Compliance",
         description:
           "Assistance with GST, income tax returns, TDS documentation, statutory filings, accounting support and applicable regulatory requirements.",
-        keywords: [
-          "GST filing assistance",
-          "income tax return services",
-          "business compliance",
-        ],
+        keywords: ["GST filing assistance", "income tax return services", "business compliance"],
       },
       {
         id: 4,
         title: "4. Software, AI & Digital Solutions",
         description:
           "Website and e-commerce development, mobile applications, custom software, CRM systems, workflow automation and AI integration.",
-        keywords: [
-          "website development services",
-          "custom software development",
-          "AI business automation",
-        ],
+        keywords: ["website development services", "custom software development", "AI business automation"],
       },
     ],
     additionalCapabilities:
@@ -133,8 +116,7 @@ export const servicesContent = {
         "Accounting and Bookkeeping Support",
         "Compliance Calendar Preparation and Tracking",
       ],
-      seoFocus:
-        "GST registration and filing, income tax return services, ROC filing assistance, business compliance services.",
+      seoFocus: "GST registration and filing, income tax return services, ROC filing assistance, business compliance services.",
       note: "Actual filing and professional services should be provided only where appropriately qualified and authorized.",
     },
     {
@@ -160,8 +142,7 @@ export const servicesContent = {
       ],
       seoFocus:
         "Startup funding assistance, MSME loan documentation, business project report, startup pitch deck, business loan application support.",
-      disclaimer:
-        "Funding availability, lender decisions, scheme eligibility and approvals are not guaranteed.",
+      disclaimer: "Funding availability, lender decisions, scheme eligibility and approvals are not guaranteed.",
     },
     {
       id: "government-schemes",
@@ -193,8 +174,7 @@ export const servicesContent = {
       sectionNumber: "Section 6",
       title: "Licences, Certifications & Intellectual Property",
       tagline: "Navigate Business Licensing and Certification Requirements",
-      intro:
-        "Identify the documentation and processes relevant to your business activity, sector and operating location.",
+      intro: "Identify the documentation and processes relevant to your business activity, sector and operating location.",
       services: [
         "FSSAI Registration and Licensing Assistance",
         "Trade Licence Assistance",
@@ -240,8 +220,7 @@ export const servicesContent = {
       sectionNumber: "Section 8",
       title: "Mobile Applications & Custom Software",
       tagline: "Develop Technology Around Your Business Processes",
-      intro:
-        "Create digital solutions to support customer management, internal workflows, reporting and day-to-day operations.",
+      intro: "Create digital solutions to support customer management, internal workflows, reporting and day-to-day operations.",
       services: [
         "Android Application Development",
         "iOS Application Development",
@@ -286,8 +265,7 @@ export const servicesContent = {
       sectionNumber: "Section 10",
       title: "Digital Marketing, SEO & Branding",
       tagline: "Strengthen Your Online Visibility and Brand Identity",
-      intro:
-        "Build a consistent digital presence through search optimization, content, marketing campaigns and creative communication.",
+      intro: "Build a consistent digital presence through search optimization, content, marketing campaigns and creative communication.",
       services: [
         "Search Engine Optimization (SEO)",
         "Local SEO",
@@ -301,8 +279,7 @@ export const servicesContent = {
         "Video and Creative Content",
         "Website Analytics and Performance Reporting",
       ],
-      seoFocus:
-        "Digital marketing services, SEO services, local SEO, branding and graphic design, online marketing solutions.",
+      seoFocus: "Digital marketing services, SEO services, local SEO, branding and graphic design, online marketing solutions.",
       disclaimer:
         "Marketing results depend on competition, budgets, strategy, implementation and other factors. Search rankings and advertising outcomes cannot be guaranteed.",
     },
@@ -311,8 +288,7 @@ export const servicesContent = {
       sectionNumber: "Section 11",
       title: "Data Analytics & Digital Transformation",
       tagline: "Turn Business Data into Useful Insights",
-      intro:
-        "Organize business information and explore technology-led improvements to support more informed decisions.",
+      intro: "Organize business information and explore technology-led improvements to support more informed decisions.",
       services: [
         "Business Intelligence Dashboards",
         "Data Visualization and Reporting",
@@ -331,8 +307,7 @@ export const servicesContent = {
       sectionNumber: "Section 12",
       title: "Industry-Specific Business Support",
       tagline: "Solutions for Diverse Business Requirements",
-      intro:
-        "We can explore service combinations based on the operational and documentation needs of different sectors.",
+      intro: "We can explore service combinations based on the operational and documentation needs of different sectors.",
       industries: [
         "Agriculture and Agribusiness",
         "Food Processing and Food Enterprises",
@@ -346,8 +321,7 @@ export const servicesContent = {
       ],
       scopeNote:
         "Support may involve business setup, documentation, relevant compliance guidance, technology implementation and research into applicable funding opportunities.",
-      disclaimer:
-        "Industry-specific services should be listed as active offerings only where the company can genuinely deliver them.",
+      disclaimer: "Industry-specific services should be listed as active offerings only where the company can genuinely deliver them.",
     },
   ],
 
@@ -358,28 +332,23 @@ export const servicesContent = {
     steps: [
       {
         title: "Requirement Assessment",
-        description:
-          "Understand the objective and identify the underlying need.",
+        description: "Understand the objective and identify the underlying need.",
       },
       {
         title: "Service Planning",
-        description:
-          "Review suitable options and relevant requirements.",
+        description: "Review suitable options and relevant requirements.",
       },
       {
         title: "Scope Definition",
-        description:
-          "Agree on deliverables, documentation, responsibilities and timelines.",
+        description: "Agree on deliverables, documentation, responsibilities and timelines.",
       },
       {
         title: "Execution",
-        description:
-          "Carry out the agreed services with clear communication.",
+        description: "Carry out the agreed services with clear communication.",
       },
       {
         title: "Follow-Up",
-        description:
-          "Coordinate outstanding steps and further assistance where included.",
+        description: "Coordinate outstanding steps and further assistance where included.",
       },
     ],
   },

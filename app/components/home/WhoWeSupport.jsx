@@ -132,7 +132,7 @@ export default function WhoWeSupport() {
               <div
                 key={sector.title}
                 style={{ transitionDelay: `${index * 60 + 100}ms` }}
-                className={`group relative flex flex-col overflow-hidden rounded-xl border border-slate-200/90 bg-white shadow-[0_2px_8px_rgba(0,0,0,0.02)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#C89D3C] hover:shadow-md sm:flex-row ${
+                className={`group relative flex flex-col overflow-hidden rounded-sm border border-slate-200/90 bg-white shadow-[0_2px_8px_rgba(0,0,0,0.02)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#C89D3C] hover:shadow-md sm:flex-row ${
                   isVisible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
                 }`}
               >

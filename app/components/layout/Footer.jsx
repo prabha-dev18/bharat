@@ -32,27 +32,27 @@ export default function Footer() {
   const centralSchemes = [
     {
       name: "DPIIT & Startup India Recognition",
-      href: "/government-schemes#scheme-4",
+      href: "/government-schemes/startup-india",
     },
     {
       name: "Section 80-IAC 3-Year Tax Exemption",
-      href: "/government-schemes#scheme-4",
+      href: "/government-schemes/startup-india",
     },
     {
       name: "Startup India Seed Fund Scheme (SISFS)",
-      href: "/government-schemes",
+      href: "/government-schemes/startup-india",
     },
     {
-      name: "MSME PMEGP & CGTMSE Credit Subsidies",
-      href: "/government-schemes#scheme-1",
+      name: "MSME PMEGP 15-35% Credit Subsidy",
+      href: "/government-schemes/pmegp",
     },
     {
       name: "Banking DPR & CMA Proposal Readiness",
-      href: "/services#startup-funding",
+      href: "/services/startup-funding",
     },
     {
       name: "GeM Registration & ROC Compliance",
-      href: "/services#taxation-compliance",
+      href: "/services/gem-registration",
     },
   ];
 
@@ -172,7 +172,7 @@ export default function Footer() {
               {/* Phone Helpline */}
               <a
                 href="tel:+919876543210"
-                className="group flex items-start gap-2.5 rounded-lg border border-white/10 bg-white/5 p-2.5 transition-all duration-200 hover:border-[#F3D072]/50 hover:bg-white/10"
+                className="group flex items-start gap-2.5 rounded-sm border border-white/10 bg-white/5 p-2.5 transition-all duration-200 hover:border-[#F3D072]/50 hover:bg-white/10"
               >
                 <Phone size={14} className="mt-0.5 shrink-0 text-[#F3D072] transition-transform group-hover:scale-110" />
                 <div>
@@ -215,7 +215,7 @@ export default function Footer() {
         </div>
         <div
           data-footer-animate
-          className="mt-10 rounded-lg border border-[#C89D3C]/30 bg-[#06152B]/80 p-3.5 sm:p-4 text-[11px] leading-relaxed text-slate-300 backdrop-blur-sm"
+          className="mt-10 rounded-sm border border-[#C89D3C]/30 bg-[#06152B]/80 p-3.5 sm:p-4 text-[11px] leading-relaxed text-slate-300 backdrop-blur-sm"
         >
           <div className="flex items-center gap-2 font-bold text-[#F3D072] mb-1">
             <AlertCircle size={14} className="text-[#C89D3C] shrink-0" />

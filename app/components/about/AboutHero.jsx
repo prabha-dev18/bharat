@@ -1,95 +1,103 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
-import { ArrowRight, ArrowUpRight, Landmark, Cpu, Users, Globe2, ShieldCheck, Sparkles } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Building2, Landmark, Scale, Cpu, Users } from "lucide-react";
 
 export default function AboutHero() {
   const features = [
-    { icon: Landmark, label: "Institutional", sub: "Scheme Advisory" },
-    { icon: Globe2, label: "Pan-India", sub: "28 States & 8 UTs" },
-    { icon: ShieldCheck, label: "Regulatory", sub: "ROC & Compliance" },
-    { icon: Cpu, label: "Technology-Driven", sub: "Digital Solutions" },
+    { icon: Building2, label: "Business", sub: "Setup Support" },
+    { icon: Landmark, label: "Financial", sub: "Preparation" },
+    { icon: Scale, label: "Regulatory", sub: "Compliance" },
+    { icon: Cpu, label: "Technology-Driven", sub: "Solutions" },
   ];
 
   return (
     <section
-      className="relative isolate flex min-h-[460px] sm:min-h-[500px] lg:h-[calc(100svh-220px)] lg:max-h-[580px] w-full overflow-hidden bg-no-repeat bg-[position:center_40%] font-sans"
+      className="relative isolate flex min-h-[460px] sm:min-h-[500px] lg:h-[calc(100svh-220px)] lg:max-h-[580px] w-full overflow-hidden bg-cover bg-[78%_center] sm:bg-[center_30%] bg-no-repeat font-sans border-b border-slate-200/80"
       style={{
-        backgroundImage: "url('/images/about-bg-hd.png')",
-        backgroundSize: "cover",
-        backgroundPosition: "center 40%",
+        backgroundImage: "url('/images/about-hero-gov.jpg')",
       }}
     >
-      {/* Background HD Image - Full Height Matching the Hero Component */}
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
-        {/* Gradient Overlay for Text Clarity matching Home Hero */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#FAF7F0] via-[#FAF7F0]/92 to-transparent sm:via-[#FAF7F0]/75 lg:via-[#FAF7F0]/25" />
-      </div>
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 z-0 bg-gradient-to-b from-[#FAF7F0]/90 via-[#FAF7F0]/75 to-[#FAF7F0]/95"
+      />
 
-      {/* Main Content Container - EXACT SAME STRUCTURE AS HOME HERO */}
-      <div className="relative z-10 mx-auto flex h-full w-full max-w-[1200px] items-center px-5 sm:px-8 lg:px-12 xl:px-0">
-        <div className="flex max-h-full w-full flex-col justify-center py-2 sm:py-4 lg:w-[60%] xl:w-[56%]">
+      {/* Main Content - Full-Width Executive Editorial Architecture */}
+      <div className="relative z-10 mx-auto flex h-full w-full max-w-[1200px] flex-col justify-between px-5 sm:px-8 lg:px-12 xl:px-0 py-6 sm:py-7">
+        {/* Top & Middle Section: Headline, 2-Column Story & Action Buttons */}
+        <div className="my-auto">
           {/* Eyebrow */}
-          <div className="mb-3 flex items-center gap-3 sm:mb-4">
-            <span className="h-px w-8 bg-[#C89D3C] sm:w-10" />
-
-            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#0A2540] sm:text-xs">
-              About Bharat Startup Ventures Pvt. Ltd.
+          <div className="mb-3 inline-flex">
+            <span className="rounded-sm border border-[#D5E2F0] bg-[#EEF4FB] px-3.5 py-1 text-[10.5px] sm:text-[11px] font-bold tracking-widest text-[#0A2540] uppercase shadow-2xs">
+              ABOUT BHARAT STARTUP VENTURES PVT. LTD.
             </span>
-
-            <span className="h-px w-8 bg-[#C89D3C] sm:w-10" />
           </div>
 
           {/* Main Heading */}
-          <h1 className="font-heading max-w-2xl text-[clamp(1.5rem,2.8vw,3rem)] font-bold leading-[1.12] tracking-tight text-[#0A2540]">
-            Supporting Business Ambitions
-            <br />
-            Through Guidance, Services
-            <br />
-            <span className="bg-[#C89D3C] bg-clip-text text-transparent">&amp; Innovation.</span>
+          <h1 className="font-heading max-w-4xl text-[clamp(1.6rem,3vw,3.2rem)] font-bold leading-[1.12] tracking-tight text-[#0A2540]">
+            Supporting Ambitions.{" "}
+            <span className="bg-[#C89D3C] bg-clip-text text-transparent">
+              Institutional Guidance.
+            </span>{" "}
+            Services &amp; Innovation.
           </h1>
 
-          {/* Supporting Text */}
-          <p className="mt-3 max-w-xl text-xs font-normal leading-relaxed text-slate-700 sm:mt-4 sm:text-sm lg:text-[13px]">
-            Bharat Startup Ventures Pvt. Ltd. brings together business-focused assistance and technology capabilities to support
-            entrepreneurs, startups and organizations with essential business requirements, financial preparation, regulatory processes and
-            digital development.
-          </p>
+          {/* 2-Column Split Editorial Narrative */}
+          <div className="mt-3.5 grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 max-w-4xl">
+            <p className="text-xs sm:text-[13.5px] font-normal leading-relaxed text-slate-700 sm:leading-[1.7]">
+              Bharat Startup Ventures Pvt. Ltd. brings together business-focused assistance and technology capabilities to support entrepreneurs, startups and organizations with essential business requirements, financial preparation, regulatory processes and digital development.
+            </p>
+            <p className="text-xs sm:text-[13.5px] font-normal leading-relaxed text-slate-700 sm:leading-[1.7]">
+              Our institutional approach helps clients understand their options, organize their statutory requirements and plan their next steps with greater clarity and confidence across 28 States and 8 Union Territories.
+            </p>
+          </div>
 
-          <p className="mt-2.5 max-w-xl text-xs font-normal leading-relaxed text-slate-700 sm:mt-3 sm:text-sm lg:text-[13px]">
-            Our institutional approach helps clients understand their options, organize their statutory requirements and plan their next
-            steps with greater clarity and confidence.
-          </p>
-
-          {/* CTA Buttons */}
-          <div className="mt-4 flex flex-wrap items-center gap-3 sm:mt-5 sm:gap-4">
+          {/* 2 Action Buttons */}
+          <div className="mt-5 flex flex-col min-[420px]:flex-row flex-wrap items-stretch min-[420px]:items-center gap-3 sm:gap-4">
             <Link
               href="/contact"
-              className="group relative inline-flex min-h-10 sm:min-h-11 shrink-0 items-center justify-center gap-2 overflow-hidden rounded-sm border border-[#0A2540]/30 bg-white/90 px-5 sm:px-6 py-2.5 text-xs sm:text-sm font-semibold text-[#0A2540] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#0A2540] hover:shadow-md active:translate-y-0 active:scale-[0.98]"
+              className="group relative inline-flex min-h-10 w-full min-[420px]:w-auto shrink-0 items-center justify-center gap-2 overflow-hidden rounded-sm bg-[#0A2540] px-6 py-2.5 text-xs font-semibold sm:text-sm"
             >
-              {/* Smooth Slide-In Background Overlay */}
-              <span
-                aria-hidden="true"
-                className="pointer-events-none absolute inset-0 -translate-x-full bg-[#0A2540] transition-transform duration-300 ease-out group-hover:translate-x-0"
-              />
+              <span className="pointer-events-none absolute left-0 top-0 h-[2px] w-full animate-border-top bg-gradient-to-l from-transparent to-[#C89D3C]" />
+              <span className="pointer-events-none absolute right-0 top-0 h-full w-[2px] animate-border-right bg-gradient-to-t from-transparent to-[#C89D3C]" />
+              <span className="pointer-events-none absolute bottom-0 left-0 h-[2px] w-full animate-border-bottom bg-gradient-to-r from-transparent to-[#C89D3C]" />
+              <span className="pointer-events-none absolute left-0 top-0 h-full w-[2px] animate-border-left bg-gradient-to-b from-transparent to-[#C89D3C]" />
 
-              <Users
-                size={15}
-                className="relative z-10 text-[#C89D3C] transition-colors duration-300 group-hover:text-[#F3D072]"
-              />
+              <span className="relative z-10 font-bold text-white">Connect With Us</span>
+              <ArrowRight size={14} className="relative z-10 shrink-0 text-white transition-transform duration-300 group-hover:translate-x-1" />
+            </Link>
 
-              <span className="relative z-10 font-bold transition-colors duration-300 group-hover:text-white">
-                Connect With Us
-              </span>
-
-              <ArrowUpRight
-                size={15}
-                className="relative z-10 text-slate-500 transition-all duration-300 group-hover:text-[#F3D072] group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-              />
+            <Link
+              href="/services"
+              className="group inline-flex min-h-10 w-full min-[420px]:w-auto items-center justify-center gap-2 rounded-sm border border-[#0A2540]/30 bg-white/85 px-6 py-2.5 text-xs font-semibold text-[#0A2540] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#C89D3C] hover:bg-white sm:text-sm"
+            >
+              <Users size={15} className="text-[#C89D3C]" />
+              <span>Explore Our Services</span>
+              <ArrowUpRight size={15} className="text-[#C89D3C] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </Link>
           </div>
-         </div>
+        </div>
+
+        {/* Bottom Anchored Institutional Pillars Ribbon */}
+        <div className="mt-4 pt-3.5 border-t border-[#0A2540]/15 w-full">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4">
+            {features.map(({ icon: Icon, label, sub }) => (
+              <div
+                key={label}
+                className="flex items-center gap-2.5 sm:gap-3 rounded-sm border border-slate-200/80 bg-white/80 p-2 sm:px-3 sm:py-2 backdrop-blur-xs transition-colors hover:border-[#C89D3C]/60 hover:bg-white"
+              >
+                <div className="flex h-8 w-8 sm:h-9 sm:w-9 shrink-0 items-center justify-center rounded-sm border border-[#C89D3C]/30 bg-[#0A2540] text-[#C89D3C] shadow-2xs">
+                  <Icon size={16} strokeWidth={1.8} />
+                </div>
+                <div className="flex flex-col min-w-0">
+                  <span className="text-[11px] sm:text-xs font-bold leading-tight text-[#0A2540] truncate">{label}</span>
+                  <span className="text-[9.5px] sm:text-[10px] font-medium leading-snug text-slate-600 truncate mt-0.5">{sub}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

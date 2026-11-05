@@ -1,10 +1,11 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import {
   BriefcaseBusiness,
-  Landmark,
   ShieldCheck,
+  Landmark,
   Rocket,
   Award,
   Globe,
@@ -16,10 +17,15 @@ import {
   CheckCircle2,
   ArrowRight,
   AlertCircle,
-  HelpCircle,
+  ChevronRight,
+  Sparkles,
+  Phone,
+  Layers,
 } from "lucide-react";
 
 export default function ServicesCatalogue() {
+  const [activeCategoryIndex, setActiveCategoryIndex] = useState(0);
+
   const categories = [
     {
       id: "business-registration",
@@ -43,6 +49,7 @@ export default function ServicesCatalogue() {
       ],
       seoTopics:
         "Company registration services, private limited company incorporation, LLP registration, startup registration in India, MSME registration.",
+      slug: "business-registration",
     },
     {
       id: "taxation-compliance",
@@ -67,6 +74,7 @@ export default function ServicesCatalogue() {
       seoTopics:
         "GST registration and filing, income tax return services, ROC filing assistance, business compliance services.",
       note: "Actual filing and professional services should be provided only where appropriately qualified and authorized.",
+      slug: "taxation-compliance",
     },
     {
       id: "startup-funding",
@@ -94,6 +102,7 @@ export default function ServicesCatalogue() {
         "Startup funding assistance, MSME loan documentation, business project report, startup pitch deck, business loan application support.",
       disclaimer:
         "Funding availability, lender decisions, scheme eligibility and approvals are not guaranteed.",
+      slug: "startup-funding",
     },
     {
       id: "government-schemes",
@@ -124,6 +133,7 @@ export default function ServicesCatalogue() {
         label: "Explore Government Schemes Hub",
         href: "/government-schemes",
       },
+      slug: "government-schemes",
     },
     {
       id: "licences-certifications",
@@ -148,6 +158,7 @@ export default function ServicesCatalogue() {
         "FSSAI licence assistance, Import Export Code registration, trademark registration support, ISO certification assistance, business licence services.",
       disclaimer:
         "Specific requirements depend on the nature of the business and current applicable regulations. Certifications and statutory approvals are issued by the relevant bodies.",
+      slug: "licences-certifications",
     },
     {
       id: "website-ecommerce",
@@ -173,6 +184,7 @@ export default function ServicesCatalogue() {
       ],
       seoTopics:
         "Website development company, corporate website design, e-commerce development services, responsive website development, website SEO optimization.",
+      slug: "website-ecommerce",
     },
     {
       id: "mobile-software",
@@ -196,6 +208,7 @@ export default function ServicesCatalogue() {
       ],
       seoTopics:
         "Custom software development, mobile app development, CRM development, business management software, enterprise application development.",
+      slug: "mobile-software",
     },
     {
       id: "ai-automation",
@@ -221,6 +234,7 @@ export default function ServicesCatalogue() {
         "AI automation services, business process automation, AI chatbot development, workflow automation, AI integration for businesses.",
       disclaimer:
         "Automation scope, integrations and functionality depend on technical feasibility, platform access and project requirements.",
+      slug: "ai-automation",
     },
     {
       id: "digital-marketing",
@@ -247,6 +261,7 @@ export default function ServicesCatalogue() {
         "Digital marketing services, SEO services, local SEO, branding and graphic design, online marketing solutions.",
       disclaimer:
         "Marketing results depend on competition, budgets, strategy, implementation and other factors. Search rankings and advertising outcomes cannot be guaranteed.",
+      slug: "digital-marketing",
     },
     {
       id: "data-analytics",
@@ -268,6 +283,7 @@ export default function ServicesCatalogue() {
       ],
       seoTopics:
         "Business analytics solutions, business intelligence dashboards, digital transformation services, business reporting automation.",
+      slug: "data-analytics",
     },
     {
       id: "industry-specific",
@@ -275,7 +291,7 @@ export default function ServicesCatalogue() {
       title: "Industry-Specific Business Support",
       tagline: "Solutions for Diverse Business Requirements",
       intro:
-        "We can explore service combinations based on the operational and documentation needs of different sectors, including agriculture and agribusiness, food processing, manufacturing and industrial projects, retail and e-commerce, education and training, healthcare and professional services, real estate and construction, IT and technology businesses, and startup or innovation projects.",
+        "We can explore service combinations based on the operational and documentation needs of different sectors, including agriculture, food processing, manufacturing, retail, education, healthcare, real estate, and tech startups.",
       icon: Factory,
       services: [
         "Agriculture & Agribusiness Advisory",
@@ -290,125 +306,195 @@ export default function ServicesCatalogue() {
       seoTopics:
         "Industry-specific business setup, MSME food processing, manufacturing setup assistance, tech startup consulting.",
       disclaimer:
-        "Support may involve business setup, documentation, relevant compliance guidance, technology implementation and research into applicable funding opportunities. List industry-specific services as active offerings only where the company can genuinely deliver them.",
+        "Support may involve business setup, documentation, relevant compliance guidance, technology implementation and research into applicable funding opportunities.",
+      slug: "industry-specific",
     },
   ];
 
+  const activeCategory = categories[activeCategoryIndex] || categories[0];
+  const ActiveIcon = activeCategory.icon;
+
   return (
-    <section className="relative py-12 sm:py-16 bg-white overflow-hidden">
+    <section className="relative py-12 sm:py-16 bg-[#FAF9F5] border-b border-slate-200/80 font-sans">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Quick Division Selector Pills */}
-        <div className="mb-14 overflow-x-auto pb-2 scrollbar-none">
-          <div className="flex items-center gap-2 min-w-max">
-            <span className="text-xs font-bold text-[#0A2540] uppercase tracking-wider mr-2">
-              Jump To Division:
+        <div className="mx-auto max-w-3xl text-center mb-8 sm:mb-12">
+          <div className="mb-3.5 inline-flex">
+            <span className="rounded-sm border border-[#D5E2F0] bg-[#EEF4FB] px-3.5 py-1 text-[11px] font-bold tracking-widest text-[#0A2540] uppercase">
+              OFFICIAL SERVICES DIRECTORY
             </span>
-            {categories.map((cat) => (
-              <a
-                key={cat.id}
-                href={`#${cat.id}`}
-                className="rounded-full border border-slate-200/90 bg-slate-50 px-3.5 py-1.5 text-xs font-semibold text-slate-700 hover:border-[#C89D3C] hover:bg-white hover:text-[#0A2540] transition-colors"
-              >
-                {cat.number}. {cat.title.split("&")[0].trim()}
-              </a>
-            ))}
+          </div>
+
+          <h2 className="font-heading text-2xl font-bold tracking-tight text-[#0A2540] sm:text-3xl md:text-[34px] mb-2">
+            Explore Services by Department &amp; Pillar
+          </h2>
+          <div className="mt-3.5 h-1 w-16 rounded-full bg-[#C89D3C] mx-auto" />
+          <p className="mt-4 max-w-2xl text-[13.5px] leading-relaxed text-slate-700 sm:text-[14px] sm:leading-[1.8] mx-auto">
+            Select a service category from the government directory below to view detailed scope, deliverables, and dedicated individual pages.
+          </p>
+        </div>
+
+        <div className="lg:hidden mb-6">
+          <label htmlFor="service-mobile-select" className="block text-xs font-bold uppercase tracking-wider text-[#0A2540] mb-2">
+            Select Service Pillar ({categories.length} Categories):
+          </label>
+          <div className="relative">
+            <select
+              id="service-mobile-select"
+              value={activeCategoryIndex}
+              onChange={(e) => setActiveCategoryIndex(Number(e.target.value))}
+              className="w-full appearance-none rounded-sm border-2 border-[#0A2540] bg-white px-4 py-3 text-xs font-bold text-[#0A2540] shadow-sm focus:border-[#C89D3C] focus:outline-none"
+            >
+              {categories.map((cat, idx) => (
+                <option key={cat.id} value={idx}>
+                  {cat.number}. {cat.title}
+                </option>
+              ))}
+            </select>
+            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-[#0A2540]">
+              <ChevronRight size={16} className="rotate-90" />
+            </div>
           </div>
         </div>
 
-        {/* The 11 Detailed Divisions */}
-        <div className="space-y-12 sm:space-y-16">
-          {categories.map((cat) => {
-            const Icon = cat.icon;
-            return (
-              <div
-                key={cat.id}
-                id={cat.id}
-                className="scroll-mt-24 rounded-3xl border border-slate-200/90 bg-white p-6 sm:p-8 lg:p-10 shadow-[0_10px_35px_rgba(10, 37, 64,0.04)] transition-all hover:border-[#C89D3C]/40 hover:shadow-xl"
-              >
-                {/* Header */}
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 pb-6 mb-6">
-                  <div className="flex items-center gap-4">
-                    <div className="flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-2xl bg-[#0A2540] text-[#C89D3C] shadow-md shadow-[#0A2540]/15 shrink-0">
-                      <Icon size={24} />
-                    </div>
-                    <div>
-                      <div className="flex items-center gap-2 mb-1">
-                        <span className="rounded-full bg-[#C89D3C]/15 px-2.5 py-0.5 text-[10px] font-mono font-bold text-[#C89D3C]">
-                          Division {cat.number}
-                        </span>
-                      </div>
-                      <h2 className="text-xl sm:text-2xl font-extrabold text-[#0A2540]">
-                        {cat.title}
-                      </h2>
-                      <p className="text-xs sm:text-sm font-semibold text-[#C89D3C] mt-0.5">
-                        {cat.tagline}
-                      </p>
-                    </div>
-                  </div>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
+          <div className="hidden lg:block lg:col-span-4 sticky top-28">
+            <div className="rounded-sm border border-slate-200 bg-white p-3 shadow-md">
+              <div className="flex items-center justify-between px-3 py-2.5 border-b border-slate-100 mb-2">
+                <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#0A2540] flex items-center gap-1.5">
+                  <Layers size={14} className="text-[#C89D3C]" />
+                  Service Pillars
+                </span>
+                <span className="text-[10px] font-mono font-bold text-[#C89D3C] bg-[#C89D3C]/10 px-2 py-0.5 rounded-full">
+                  11 Categories
+                </span>
+              </div>
 
-                  <Link
-                    href="/contact"
-                    className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#0A2540] px-4 py-2.5 text-xs font-bold text-white hover:bg-[#0A2540] hover:shadow-md transition-all shrink-0"
-                  >
-                    <span>Enquire for Division</span>
-                    <ArrowRight size={13} className="text-[#C89D3C]" />
-                  </Link>
-                </div>
-
-                {/* Intro Paragraph */}
-                <p className="text-xs sm:text-sm leading-relaxed text-slate-600 mb-6">
-                  {cat.intro}
-                </p>
-
-                {/* Services Included Grid */}
-                <div className="mb-6">
-                  <h3 className="text-xs font-bold uppercase tracking-[0.16em] text-[#0A2540] mb-3.5">
-                    Services Included:
-                  </h3>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-2.5">
-                    {cat.services.map((item) => (
-                      <div
-                        key={item}
-                        className="flex items-start gap-2.5 rounded-xl border border-slate-100 bg-slate-50/60 p-2.5 sm:p-3"
-                      >
-                        <CheckCircle2 size={15} className="text-[#00843D] mt-0.5 shrink-0" />
-                        <span className="text-xs sm:text-[13px] font-medium text-slate-700">
-                          {item}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Special CTA if available */}
-                {cat.ctaLink && (
-                  <div className="mb-5">
-                    <Link
-                      href={cat.ctaLink.href}
-                      className="inline-flex items-center gap-2 text-xs font-bold text-[#0A2540] hover:text-[#C89D3C] transition-colors"
+              <div className="space-y-1 max-h-[560px] overflow-y-auto pr-1">
+                {categories.map((cat, idx) => {
+                  const Icon = cat.icon;
+                  const isActive = activeCategoryIndex === idx;
+                  return (
+                    <button
+                      key={cat.id}
+                      type="button"
+                      onClick={() => setActiveCategoryIndex(idx)}
+                      className={`w-full text-left flex items-center justify-between gap-2.5 rounded-sm px-3 py-2.5 text-xs transition-all duration-200 cursor-pointer ${
+                        isActive
+                          ? "bg-[#0A2540] text-white shadow-sm font-bold"
+                          : "text-slate-700 hover:bg-slate-100 font-medium"
+                      }`}
                     >
-                      <span>{cat.ctaLink.label}</span>
-                      <ArrowRight size={14} className="text-[#C89D3C]" />
-                    </Link>
+                      <div className="flex items-center gap-2.5 min-w-0">
+                        <span
+                          className={`font-mono text-[11px] font-bold shrink-0 ${
+                            isActive ? "text-[#F3D072]" : "text-slate-400"
+                          }`}
+                        >
+                          {cat.number}
+                        </span>
+                        <Icon
+                          size={15}
+                          className={`shrink-0 ${
+                            isActive ? "text-[#C89D3C]" : "text-[#0A2540]"
+                          }`}
+                        />
+                        <span className="truncate text-xs">{cat.title}</span>
+                      </div>
+                      <ChevronRight
+                        size={14}
+                        className={`shrink-0 transition-transform ${
+                          isActive ? "text-[#C89D3C] translate-x-0.5" : "text-slate-300"
+                        }`}
+                      />
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+          <div className="lg:col-span-8">
+            <div className="rounded-sm border border-slate-200 bg-white p-6 sm:p-8 lg:p-9 shadow-md transition-all">
+              <div className="flex flex-wrap items-center justify-between gap-3 pb-5 border-b border-slate-100 mb-6">
+                <div className="flex items-center gap-3">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-sm bg-[#0A2540] text-[#C89D3C] shadow-sm">
+                    <ActiveIcon size={24} />
                   </div>
-                )}
-
-                {/* Disclaimer / Statutory Notes */}
-                {(cat.disclaimer || cat.note) && (
-                  <div className="mb-4 flex items-start gap-2 rounded-xl border border-amber-200/80 bg-amber-50/50 p-3 text-[11.5px] text-amber-900 leading-relaxed">
-                    <AlertCircle size={15} className="text-[#C89D3C] shrink-0 mt-0.5" />
-                    <span>{cat.disclaimer || cat.note}</span>
+                  <div>
+                    <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-[#C89D3C]">
+                      PILLAR {activeCategory.number} OF 11
+                    </span>
+                    <h3 className="font-heading text-xl sm:text-2xl font-bold text-[#0A2540] leading-tight">
+                      {activeCategory.title}
+                    </h3>
                   </div>
-                )}
+                </div>
 
-                {/* SEO Focus Topics */}
-                <div className="rounded-xl bg-slate-50 p-3 border border-slate-100 text-[11px] text-slate-500">
-                  <span className="font-semibold text-slate-700">Relevant Search Topics: </span>
-                  {cat.seoTopics}
+                <span className="rounded-full bg-slate-100 text-slate-700 text-xs font-semibold px-3 py-1 border border-slate-200">
+                  {activeCategory.services.length} Solutions Included
+                </span>
+              </div>
+
+              <div className="mb-6">
+                <h4 className="text-sm sm:text-base font-bold text-[#C89D3C] mb-2">
+                  {activeCategory.tagline}
+                </h4>
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  {activeCategory.intro}
+                </p>
+              </div>
+
+              <div className="mb-8">
+                <h5 className="text-xs font-bold uppercase tracking-wider text-[#0A2540] mb-3.5">
+                  Scope of Services &amp; Deliverables:
+                </h5>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2.5 py-1">
+                  {activeCategory.services.map((serviceName, sIdx) => (
+                    <div
+                      key={sIdx}
+                      className="flex items-start gap-2.5 py-1.5 transition-colors"
+                    >
+                      <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-50 text-[#00843D] border border-emerald-200 mt-0.5">
+                        <CheckCircle2 size={12} />
+                      </div>
+                      <span className="text-xs sm:text-[13px] font-medium text-slate-800 leading-snug">
+                        {serviceName}
+                      </span>
+                    </div>
+                  ))}
                 </div>
               </div>
-            );
-          })}
+
+              {(activeCategory.disclaimer || activeCategory.note) && (
+                <div className="mb-6 flex items-start gap-2.5 rounded-sm border border-amber-200 bg-amber-50/60 p-4 text-xs text-amber-900 leading-relaxed">
+                  <AlertCircle size={16} className="text-[#C89D3C] shrink-0 mt-0.5" />
+                  <span>{activeCategory.disclaimer || activeCategory.note}</span>
+                </div>
+              )}
+
+              <div className="pt-6 border-t border-slate-100 flex flex-wrap items-center justify-between gap-4">
+                <Link
+                  href={`/services/${activeCategory.slug}`}
+                  className="group inline-flex items-center justify-center gap-2 rounded-sm bg-[#0A2540] px-6 py-3.5 text-xs sm:text-sm font-bold text-white shadow-md transition-all duration-300 hover:bg-[#12365c] hover:shadow-lg hover:-translate-y-0.5"
+                >
+                  <span>Open Dedicated {activeCategory.title.split("&")[0].trim()} Page</span>
+                  <ArrowRight size={15} className="text-[#C89D3C] transition-transform duration-300 group-hover:translate-x-1" />
+                </Link>
+
+                <Link
+                  href={`/contact?subject=${encodeURIComponent(activeCategory.title)}`}
+                  className="inline-flex items-center gap-2 rounded-sm border border-slate-300 bg-white px-5 py-3.5 text-xs sm:text-sm font-semibold text-[#0A2540] hover:border-[#C89D3C] hover:bg-slate-50 transition-colors"
+                >
+                  <Phone size={14} className="text-[#00843D]" />
+                  <span>Enquire for This Pillar</span>
+                </Link>
+              </div>
+
+              <div className="mt-6 pt-3 border-t border-slate-100 text-[11px] text-slate-500">
+                <span className="font-semibold text-slate-700">Official Regulatory Framework: </span>
+                {activeCategory.seoTopics}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

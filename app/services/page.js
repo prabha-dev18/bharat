@@ -1,10 +1,11 @@
 import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
 import ServicesHero from "../components/services/ServicesHero";
+import ServicesTrustStrip from "../components/services/ServicesTrustStrip";
 import ServicesCatalogue from "../components/services/ServicesCatalogue";
 import HowWeDeliver from "../components/services/HowWeDeliver";
 import ServicesFaq from "../components/services/ServicesFaq";
-import ServicesCta from "../components/services/ServicesCta";
+import HomeCta from "../components/layout/HomeCta";
 
 export const metadata = {
   title: "Business, Startup, Funding & IT Services | Bharat Startup Ventures",
@@ -31,10 +32,11 @@ export default function ServicesPage() {
       <Header />
       <main id="main-content" className="flex-1">
         <ServicesHero />
+        <ServicesTrustStrip />
         <ServicesCatalogue />
         <HowWeDeliver />
         <ServicesFaq />
-        <ServicesCta />
+        <HomeCta />
       </main>
       <Footer />
     </div>

@@ -14,32 +14,32 @@ export default function SchemeMatcher() {
     "new-startup-funding": {
       name: "Startup India Seed Fund Scheme (SISFS) & DPIIT",
       details: "Proof of concept, prototype development, product trials, and market-entry grants up to ₹20L to ₹50L.",
-      link: "#scheme-4",
+      link: "/government-schemes/startup-india",
     },
     "new-startup-tax": {
       name: "Section 80-IAC Tax Exemption",
       details: "100% tax exemption for 3 consecutive years out of 10 years for DPIIT-recognized private limited companies.",
-      link: "#scheme-4",
+      link: "/government-schemes/startup-india",
     },
     "new-msme-funding": {
       name: "PMEGP (Prime Minister's Employment Generation Programme)",
       details: "Credit-linked subsidy programme offering 15% to 35% margin money subsidy on project costs up to ₹50 Lakhs.",
-      link: "#scheme-1",
+      link: "/government-schemes/pmegp",
     },
     "existing-msme-funding": {
       name: "Credit Guarantee Scheme / CGTMSE",
       details: "Collateral-free credit facility up to ₹500 Lakhs through scheduled commercial banks and financial institutions.",
-      link: "#scheme-3",
+      link: "/government-schemes/cgtmse",
     },
     "existing-manufacturing-quality": {
       name: "ZED Certification Scheme (Zero Defect Zero Effect)",
       details: "Financial support up to 80% on certification cost for Bronze, Silver, and Gold sustainable manufacturing tiers.",
-      link: "#scheme-7",
+      link: "/government-schemes/zed-certification",
     },
     "default": {
       name: "Pradhan Mantri MUDRA Yojana (PMMY) & Udyam Support",
       details: "Micro-credit support across Shishu (up to ₹50k), Kishore (up to ₹5L), and Tarun (up to ₹10L) categories.",
-      link: "#scheme-2",
+      link: "/government-schemes/mudra",
     },
   };
 
@@ -49,25 +49,26 @@ export default function SchemeMatcher() {
   return (
     <section id="eligibility-matcher" className="relative py-16 bg-slate-50 border-b border-slate-200/60 overflow-hidden">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-3xl text-center mb-10">
-          <div className="inline-flex items-center gap-2 rounded-full border border-[#C89D3C]/35 bg-[#C89D3C]/10 px-3 py-1 mb-3">
-            <Filter size={12} className="text-[#C89D3C]" />
-            <span className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.18em] text-[#0A2540]">
-              Interactive Scheme Navigator
+        <div className="mx-auto max-w-3xl text-center mb-8 sm:mb-10">
+          <div className="mb-3.5 inline-flex">
+            <span className="rounded-sm border border-[#D5E2F0] bg-[#EEF4FB] px-3.5 py-1 text-[11px] font-bold tracking-widest text-[#0A2540] uppercase">
+              INTERACTIVE SCHEME NAVIGATOR
             </span>
           </div>
 
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0A2540] mb-3">
+          <h2 className="font-heading text-2xl font-bold tracking-tight text-[#0A2540] sm:text-3xl md:text-[34px] mb-2">
             Which Scheme May Fit Your Business?
           </h2>
 
-          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+          <div className="mt-3.5 h-1 w-16 rounded-full bg-[#C89D3C] mx-auto" />
+
+          <p className="mt-4 max-w-2xl text-[13.5px] leading-relaxed text-slate-700 sm:text-[14px] sm:leading-[1.8] mx-auto">
             Select your business criteria below to see potentially relevant central and state support programmes.
           </p>
         </div>
 
         {/* Interactive Filter Controls */}
-        <div className="rounded-3xl border border-slate-200/90 bg-white p-6 sm:p-8 shadow-sm max-w-4xl mx-auto">
+        <div className="rounded-sm border border-slate-200/90 bg-white p-6 sm:p-8 shadow-sm max-w-4xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
             {/* Step 1: Business Status */}
             <div>
@@ -77,7 +78,7 @@ export default function SchemeMatcher() {
               <select
                 value={businessStatus}
                 onChange={(e) => setBusinessStatus(e.target.value)}
-                className="w-full rounded-xl border border-slate-200 bg-slate-50 p-3 text-xs font-semibold text-[#0A2540] focus:border-[#C89D3C] focus:bg-white focus:outline-none"
+                className="w-full rounded-sm border border-slate-200 bg-slate-50 p-3 text-xs font-semibold text-[#0A2540] focus:border-[#C89D3C] focus:bg-white focus:outline-none"
               >
                 <option value="new">New Proposed Venture</option>
                 <option value="existing">Existing Operating Business</option>
@@ -92,7 +93,7 @@ export default function SchemeMatcher() {
               <select
                 value={sector}
                 onChange={(e) => setSector(e.target.value)}
-                className="w-full rounded-xl border border-slate-200 bg-slate-50 p-3 text-xs font-semibold text-[#0A2540] focus:border-[#C89D3C] focus:bg-white focus:outline-none"
+                className="w-full rounded-sm border border-slate-200 bg-slate-50 p-3 text-xs font-semibold text-[#0A2540] focus:border-[#C89D3C] focus:bg-white focus:outline-none"
               >
                 <option value="startup">Tech &amp; Innovation Startup</option>
                 <option value="msme">MSME / Trading / Service</option>
@@ -109,7 +110,7 @@ export default function SchemeMatcher() {
               <select
                 value={objective}
                 onChange={(e) => setObjective(e.target.value)}
-                className="w-full rounded-xl border border-slate-200 bg-slate-50 p-3 text-xs font-semibold text-[#0A2540] focus:border-[#C89D3C] focus:bg-white focus:outline-none"
+                className="w-full rounded-sm border border-slate-200 bg-slate-50 p-3 text-xs font-semibold text-[#0A2540] focus:border-[#C89D3C] focus:bg-white focus:outline-none"
               >
                 <option value="funding">Grants &amp; Subsidies</option>
                 <option value="loans">Bank Loans &amp; Credit</option>
@@ -120,7 +121,7 @@ export default function SchemeMatcher() {
           </div>
 
           {/* Preliminary Recommendation Result Card */}
-          <div className="rounded-2xl border border-[#C89D3C]/35 bg-gradient-to-br from-[#0A2540] via-[#0A2540] to-[#0A2540] p-5 sm:p-6 text-white flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="rounded-sm border border-[#C89D3C]/35 bg-gradient-to-br from-[#0A2540] via-[#0A2540] to-[#0A2540] p-5 sm:p-6 text-white flex flex-col sm:flex-row items-center justify-between gap-4">
             <div>
               <div className="flex items-center gap-2 mb-1.5">
                 <span className="h-2 w-2 rounded-full bg-[#00843D] animate-pulse" />
@@ -139,7 +140,7 @@ export default function SchemeMatcher() {
             <div className="flex items-center gap-3 shrink-0">
               <a
                 href={matched.link}
-                className="inline-flex items-center gap-1.5 rounded-xl bg-gradient-to-r from-[#C89D3C] to-[#F3D072] px-4 py-2.5 text-xs font-bold text-[#0A2540] hover:brightness-110 transition-all"
+                className="inline-flex items-center gap-1.5 rounded-sm bg-gradient-to-r from-[#C89D3C] to-[#F3D072] px-4 py-2.5 text-xs font-bold text-[#0A2540] hover:brightness-110 transition-all"
               >
                 <span>Read Scheme Details</span>
                 <ArrowRight size={13} />
@@ -147,7 +148,7 @@ export default function SchemeMatcher() {
 
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-1.5 rounded-xl border border-white/20 bg-white/10 px-4 py-2.5 text-xs font-bold text-white hover:bg-white/20 transition-all"
+                className="inline-flex items-center gap-1.5 rounded-sm border border-white/20 bg-white/10 px-4 py-2.5 text-xs font-bold text-white hover:bg-white/20 transition-all"
               >
                 <span>Apply Guidance</span>
               </Link>

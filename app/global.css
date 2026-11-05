@@ -1099,8 +1099,33 @@ a {
 }
 
 /* ==========================================================================
-   GLOBAL BASE FADED SCROLL ANIMATIONS (All Components & Sections)
+   GLOBAL BASE FADED SCROLL ANIMATIONS (Fade from Left for All Website Components)
    ========================================================================== */
+
+/* Strict mobile viewport constraint preventing horizontal displacement or scrollbars */
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100vw;
+  width: 100%;
+}
+
+.scroll-fade-left {
+  opacity: 0;
+  transform: translate3d(-32px, 0, 0);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+/* Mobile Responsive Optimization: gentle 14px shift to ensure 100% fluid response without horizontal overflow */
+@media (max-width: 768px) {
+  .scroll-fade-left {
+    transform: translate3d(-14px, 0, 0);
+    transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+}
 
 .scroll-fade-init {
   opacity: 1;
@@ -1109,13 +1134,50 @@ a {
 
 .scroll-fade-visible {
   opacity: 1 !important;
-  transform: none !important;
+  transform: translate3d(0, 0, 0) !important;
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .scroll-fade-left,
   .scroll-fade-init {
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;
   }
 }
+
+/* ==========================================================================
+   SEAMLESS GOOGLE TRANSLATE STYLING (Hides Google Banner & Keeps Clean UI)
+   ========================================================================== */
+
+.goog-te-banner-frame,
+iframe.goog-te-banner-frame,
+.goog-te-banner-frame.skiptranslate {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+}
+
+body {
+  top: 0px !important;
+  position: static !important;
+}
+
+#goog-gt-tt,
+.goog-te-balloon-frame {
+  display: none !important;
+}
+
+.goog-text-highlight {
+  background: none !important;
+  box-shadow: none !important;
+}
+
+#google_translate_element {
+  display: none !important;
+}
+
+.skiptranslate iframe {
+  display: none !important;
+}
+
