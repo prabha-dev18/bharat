@@ -348,8 +348,8 @@ export default function ContactFormSection() {
                   </div>
                   <div>
                     <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400">Corporate Enquiries Email</span>
-                    <a href="mailto:contact@bharatstartupventures.com" className="block font-bold text-[#0A2540] text-xs hover:text-[#C89D3C] transition-colors break-all">
-                      contact@bharatstartupventures.com
+                    <a href="mailto:info@bharatstartup.com" className="block font-bold text-[#0A2540] text-xs hover:text-[#C89D3C] transition-colors break-all">
+                      info@bharatstartup.com
                     </a>
                   </div>
                 </div>

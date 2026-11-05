@@ -272,8 +272,8 @@ export default function PrivacyPolicyPage() {
                   </p>
                   <p>
                     <strong>Email:</strong>{" "}
-                    <a href="mailto:contact@bharatstartupventures.com" className="text-[#0A2540] underline hover:text-[#C89D3C]">
-                      contact@bharatstartupventures.com
+                    <a href="mailto:info@bharatstartup.com" className="text-[#0A2540] underline hover:text-[#C89D3C]">
+                      info@bharatstartup.com
                     </a>
                   </p>
                   <p>

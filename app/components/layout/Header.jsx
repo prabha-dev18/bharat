@@ -1255,7 +1255,7 @@ export default function Header() {
               </a>
 
               <a
-                href="mailto:contact@bharatstartupventures.com"
+                href="mailto:info@bharatstartup.com"
                 className="flex items-center justify-center gap-1.5 py-2.5 px-2 rounded-sm bg-slate-50 text-[#0A2540] font-semibold border border-slate-200/80 active:bg-slate-100 transition-colors"
               >
                 <Mail size={13} className="text-[#C89D3C]" />

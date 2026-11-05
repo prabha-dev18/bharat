@@ -183,12 +183,12 @@ export default function Footer() {
 
               {/* Email */}
               <a
-                href="mailto:contact@bharatstartupventures.com"
+                href="mailto:info@bharatstartup.com"
                 className="flex items-start gap-2.5 transition-colors duration-200 hover:text-[#F3D072]"
               >
                 <Mail size={14} className="mt-0.5 shrink-0 text-[#C89D3C]" />
                 <div className="min-w-0">
-                  <span className="block truncate font-semibold text-white">contact@bharatstartupventures.com</span>
+                  <span className="block truncate font-semibold text-white">info@bharatstartup.com</span>
                   <span className="text-[10px] text-slate-400">Official Inquiries &amp; Submissions</span>
                 </div>
               </a>
